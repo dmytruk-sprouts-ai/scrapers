@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Env
+.env
+
+!output/.gitkeep
+
+# scrapyd-deploy build artifacts
+build/
+*.egg-info/
+scrapydweb/**/setup.py
+
+.scrapy/
