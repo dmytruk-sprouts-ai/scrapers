@@ -1,0 +1,24 @@
+{
+    "status": 200,
+    "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/8fc8ed1d8752/main.js?",
+    "headers": {
+        "cf-ray": "a09925959ae1c4f7-VIE",
+        "cache-control": "max-age=14400, stale-if-error=10800, stale-while-revalidate=10800, public",
+        "content-encoding": "br",
+        "date": "Wed, 10 Jun 2026 14:43:10 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare",
+        "x-content-type-options": "nosniff"
+    },
+    "timing": {
+        "startTime": 1781102590333.605,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.665,
+        "responseStart": 8.912,
+        "responseEnd": -1
+    }
+}

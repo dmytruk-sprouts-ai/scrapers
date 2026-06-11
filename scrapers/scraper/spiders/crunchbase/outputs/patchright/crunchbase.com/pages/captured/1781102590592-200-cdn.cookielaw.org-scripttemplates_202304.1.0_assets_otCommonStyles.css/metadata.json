@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://cdn.cookielaw.org/scripttemplates/202304.1.0/assets/otCommonStyles.css",
+    "headers": {
+        "content-md5": "oWkBTLgDDXvrUsd93y/Zxg==",
+        "access-control-expose-headers": "x-ms-request-id,Server,x-ms-version,Content-Type,ETag,Last-Modified,Content-MD5,x-ms-lease-status,x-ms-blob-type,Content-Length,Date,Transfer-Encoding",
+        "x-ms-version": "2009-09-19",
+        "x-ms-lease-status": "unlocked",
+        "cf-cache-status": "HIT",
+        "age": "33833",
+        "content-encoding": "gzip",
+        "x-content-type-options": "nosniff",
+        "date": "Wed, 10 Jun 2026 14:43:10 GMT",
+        "content-type": "text/css",
+        "last-modified": "Thu, 11 May 2023 06:31:18 GMT",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "cache-control": "max-age=86400",
+        "cross-origin-resource-policy": "cross-origin",
+        "x-ms-request-id": "bc29f298-001e-0084-67a1-dcc5a2000000",
+        "cf-ray": "a09925973daccb7b-VIE",
+        "access-control-allow-origin": "*",
+        "x-ms-blob-type": "BlockBlob",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781102590592.969,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.283,
+        "responseStart": 13.948,
+        "responseEnd": -1
+    }
+}

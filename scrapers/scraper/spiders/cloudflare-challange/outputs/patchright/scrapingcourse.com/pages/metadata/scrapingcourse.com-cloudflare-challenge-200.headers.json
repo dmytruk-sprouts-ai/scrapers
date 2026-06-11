@@ -1,0 +1,22 @@
+{
+    "Accept-Ranges": "bytes",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Expose-Headers": "*",
+    "Age": "1438914",
+    "Alt-Svc": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400",
+    "Cache-Control": "public, max-age=31536000, s-maxage=31536000, immutable",
+    "Content-Length": "6507",
+    "Content-Type": "application/javascript; charset=utf-8",
+    "Cross-Origin-Resource-Policy": "cross-origin",
+    "Date": "Wed, 10 Jun 2026 22:11:48 GMT",
+    "Etag": "W/\"4785-1nNOLfRgVlbAQdjbsczfWaJjx/0\"",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "Timing-Allow-Origin": "*",
+    "Vary": "Accept-Encoding",
+    "X-Cache": "HIT, HIT",
+    "X-Content-Type-Options": "nosniff",
+    "X-Jsd-Version": "2.5.2",
+    "X-Jsd-Version-Type": "version",
+    "X-Served-By": "cache-fra-etou8220046-FRA, cache-vie6377-VIE",
+    "Location": ""
+}

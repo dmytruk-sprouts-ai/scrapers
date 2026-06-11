@@ -1,0 +1,1009 @@
+{
+  "target_url": "https://sirup.inaproc.id/sirup/caripaketctr/index",
+  "page_title": "RUP - Cari Paket Penyedia",
+  "verdict": "protected-but-delivered",
+  "verdict_detail": "Cloudflare, Cloudflare Turnstile present but the document was delivered — protection is passive.",
+  "captured_entries": 70,
+  "total_bytes": 3002246,
+  "page_load_time_ms": 5224,
+  "time_to_first_byte_ms": 120.0,
+  "protections": [
+    {
+      "vendor": "Cloudflare",
+      "category": "CDN / WAF / Bot Management",
+      "evidence": [
+        {
+          "via": "header",
+          "signal": "cf-ray",
+          "example": "cf-ray: a09a67108b4aa2c1-VIE",
+          "count": 65
+        },
+        {
+          "via": "header",
+          "signal": "cf-mitigated",
+          "example": "cf-mitigated: challenge",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "server",
+          "example": "server: cloudflare",
+          "count": 65
+        },
+        {
+          "via": "url",
+          "signal": "/cdn-cgi/challenge-platform/",
+          "example": "https://sirup.inaproc.id/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a09a67108b4aa2c1",
+          "count": 9
+        },
+        {
+          "via": "cookie",
+          "signal": "__cf_bm",
+          "example": "__cf_bm",
+          "count": 3
+        },
+        {
+          "via": "url",
+          "signal": "challenges\\.cloudflare\\.com",
+          "example": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "cf-chl-out",
+          "example": "cf-chl-out: EWMrv8KPKygkEjuJlRLnmz3BaEwh/cCo0H0eyf/G21GQQt0CVUiXsVWGzPtL5QxObb0M3K/tU+HiDq4+",
+          "count": 2
+        },
+        {
+          "via": "cookie",
+          "signal": "cf_clearance",
+          "example": "cf_clearance",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "cf-cache-status",
+          "example": "cf-cache-status: DYNAMIC",
+          "count": 50
+        },
+        {
+          "via": "url",
+          "signal": "/cdn-cgi/",
+          "example": "https://sirup.inaproc.id/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "vendor": "Cloudflare Turnstile",
+      "category": "CAPTCHA / challenge widget",
+      "evidence": [
+        {
+          "via": "url",
+          "signal": "challenges\\.cloudflare\\.com/turnstile",
+          "example": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "session_cookies": [
+    {
+      "name": "__cf_bm",
+      "set_by": "sirup.inaproc.id",
+      "attributes": "HttpOnly; SameSite=None; Secure; Path=/; Domain=inaproc.id; Expires=Wed, 10 Jun 2026 18:52:38 GMT"
+    },
+    {
+      "name": "cf_clearance",
+      "set_by": "sirup.inaproc.id",
+      "attributes": "HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=inaproc.id; Expires=Thu, 10 Jun 2027 18:22:42 GMT"
+    },
+    {
+      "name": "PLAY_ERRORS",
+      "set_by": "sirup.inaproc.id",
+      "attributes": "Max-Age=0; Expires=Wed, 10 Jun 2026 18:22:42 GMT; Path=/sirup/; Secure; SameSite=Lax"
+    },
+    {
+      "name": "PLAY_FLASH",
+      "set_by": "sirup.inaproc.id",
+      "attributes": "Max-Age=0; Expires=Wed, 10 Jun 2026 18:22:42 GMT; Path=/sirup/; Secure; HTTPOnly; SameSite=Lax"
+    },
+    {
+      "name": "PLAY_SESSION",
+      "set_by": "sirup.inaproc.id",
+      "attributes": "Max-Age=1800; Expires=Wed, 10 Jun 2026 18:52:42 GMT; Path=/sirup/; Secure; HTTPOnly; SameSite=Lax"
+    },
+    {
+      "name": "_cfuvid",
+      "set_by": "sirup.inaproc.id",
+      "attributes": "HttpOnly; SameSite=None; Secure; Path=/; Domain=inaproc.id"
+    }
+  ],
+  "document": {
+    "final_status": 200,
+    "final_mime": "text/html; charset=utf-8",
+    "http_version": "HTTP/2.0",
+    "size_bytes": 39797,
+    "chain": [
+      {
+        "status": 307,
+        "url": "https://sirup.inaproc.id/sirup/caripaketctr/index"
+      },
+      {
+        "status": 403,
+        "url": "https://sirup.inaproc.id/sirup/caripaketctr/index"
+      },
+      {
+        "status": 200,
+        "url": "https://sirup.inaproc.id/sirup/caripaketctr/index"
+      }
+    ],
+    "request_headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "Referer": "https://sirup.inaproc.id/sirup/caripaketctr/index?__cf_chl_tk=0jbzhhOvKxIt6CDjcCkZK6NfrMpigSHeH3rLHzX8Exg-1781115758-1.0.1.1-Q12pXQjCvZrBKFpkK83E8corNXNTmquBtecXomMJqyA",
+      "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+      "sec-ch-ua-platform": "\"Linux\"",
+      "sec-ch-ua-mobile": "?0",
+      "Upgrade-Insecure-Requests": "1"
+    },
+    "accept_ch": null,
+    "critical_ch": null
+  },
+  "data_endpoints": [],
+  "hosts": [
+    {
+      "host": "sirup.inaproc.id",
+      "requests": 53,
+      "bytes": 2261393,
+      "is_protection": true
+    },
+    {
+      "host": "challenges.cloudflare.com",
+      "requests": 7,
+      "bytes": 493307,
+      "is_protection": true
+    },
+    {
+      "host": "cdn.datatables.net",
+      "requests": 4,
+      "bytes": 38104,
+      "is_protection": false
+    },
+    {
+      "host": "cdn.jsdelivr.net",
+      "requests": 2,
+      "bytes": 31091,
+      "is_protection": false
+    },
+    {
+      "host": "static.cloudflareinsights.com",
+      "requests": 1,
+      "bytes": 11672,
+      "is_protection": false
+    },
+    {
+      "host": "cdnjs.cloudflare.com",
+      "requests": 1,
+      "bytes": 4302,
+      "is_protection": false
+    },
+    {
+      "host": "www.googletagmanager.com",
+      "requests": 1,
+      "bytes": 163872,
+      "is_protection": false
+    },
+    {
+      "host": "region1.google-analytics.com",
+      "requests": 1,
+      "bytes": 0,
+      "is_protection": false
+    }
+  ],
+  "stats": {
+    "by_status": {
+      "200": 65,
+      "204": 2,
+      "307": 1,
+      "401": 1,
+      "403": 1
+    },
+    "by_type": {
+      "script": 37,
+      "stylesheet": 10,
+      "xhr": 9,
+      "image": 6,
+      "document": 5,
+      "json": 2,
+      "other": 1
+    }
+  },
+  "timeline": [
+    {
+      "n": 0,
+      "offset_ms": 0.0,
+      "time_ms": 85.6,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 95,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/caripaketctr/index"
+    },
+    {
+      "n": 1,
+      "offset_ms": 86.0,
+      "time_ms": 15.4,
+      "method": "GET",
+      "status": 403,
+      "type": "document",
+      "size_bytes": 24865,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/caripaketctr/index"
+    },
+    {
+      "n": 2,
+      "offset_ms": 142.0,
+      "time_ms": 65.9,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 66038,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a09a67108b4aa2c1"
+    },
+    {
+      "n": 3,
+      "offset_ms": 226.0,
+      "time_ms": 73.0,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 21848,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit"
+    },
+    {
+      "n": 4,
+      "offset_ms": 375.0,
+      "time_ms": 28.3,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 16707,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/cdn-cgi/challenge-platform/h/g/flow/ov1/3300693170:1781114726:8HGuwjVPuPVBDln-IAaoA9VFPYcLWjW4UYHVvK-caRQ/a09a67108b4aa2c1/6PNPAIJK0Qiw42osOAlHRO29panqOorkC7yu_FwILzI-1781115758-1.2.1.1-rFSRdgQvfwrIVS3tLPtx1joAEy8WfMMPJQIp2GkqwmWEscLKwQ3QQD8hVmEd8pY7"
+    },
+    {
+      "n": 5,
+      "offset_ms": 435.0,
+      "time_ms": 54.1,
+      "method": "GET",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 86529,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/99cry/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto"
+    },
+    {
+      "n": 6,
+      "offset_ms": 511.0,
+      "time_ms": 36.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 208,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/cmg/1"
+    },
+    {
+      "n": 7,
+      "offset_ms": 719.0,
+      "time_ms": 150.5,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 371274,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/2455889116:1781114728:5BXXFLZwvIKe8QoKWSyw52LROXTfRprg5bvnBLNVjrE/a09a6712cac627b8/_b6sSeyVnGjci49PjGrrE.gROuPAD.13IqZbx7P3aPE-1781115758-1.2.1.1-mxZX_6.FgqMVo_9._Q5w5DsBHc262Q5hHuMKBDsiG0iU5jY352qBRIwTv1.VbQiH"
+    },
+    {
+      "n": 8,
+      "offset_ms": 1061.0,
+      "time_ms": 23.8,
+      "method": "GET",
+      "status": 401,
+      "type": "xhr",
+      "size_bytes": 1698,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a09a6712cac627b8/1781115758821/8b28079f895ebf7242233c085d6b71dea7309952f94bb1f3d3c198ff266bfe61/HCYb-PqI62JB2bA"
+    },
+    {
+      "n": 9,
+      "offset_ms": 1157.0,
+      "time_ms": 18.7,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 3830,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a09a6712cac627b8/1781115758821/iJmlkf8kmujVrg4"
+    },
+    {
+      "n": 10,
+      "offset_ms": 4060.0,
+      "time_ms": 54.9,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 7920,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/2455889116:1781114728:5BXXFLZwvIKe8QoKWSyw52LROXTfRprg5bvnBLNVjrE/a09a6712cac627b8/_b6sSeyVnGjci49PjGrrE.gROuPAD.13IqZbx7P3aPE-1781115758-1.2.1.1-mxZX_6.FgqMVo_9._Q5w5DsBHc262Q5hHuMKBDsiG0iU5jY352qBRIwTv1.VbQiH"
+    },
+    {
+      "n": 11,
+      "offset_ms": 4143.0,
+      "time_ms": 56.9,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 4859,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/cdn-cgi/challenge-platform/h/g/flow/ov1/3300693170:1781114726:8HGuwjVPuPVBDln-IAaoA9VFPYcLWjW4UYHVvK-caRQ/a09a67108b4aa2c1/6PNPAIJK0Qiw42osOAlHRO29panqOorkC7yu_FwILzI-1781115758-1.2.1.1-rFSRdgQvfwrIVS3tLPtx1joAEy8WfMMPJQIp2GkqwmWEscLKwQ3QQD8hVmEd8pY7"
+    },
+    {
+      "n": 12,
+      "offset_ms": 4217.0,
+      "time_ms": 811.9,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 39797,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/caripaketctr/index"
+    },
+    {
+      "n": 13,
+      "offset_ms": 4555.0,
+      "time_ms": 71.9,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 431,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/stylesheets/droid-sans.css"
+    },
+    {
+      "n": 14,
+      "offset_ms": 4556.0,
+      "time_ms": 70.5,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 2117,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/bootstrap-3.3.5-dist/css/dataTables.bootstrap.css"
+    },
+    {
+      "n": 15,
+      "offset_ms": 4556.0,
+      "time_ms": 101.9,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 21685,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/bootstrap-3.3.5-dist/css/bootstrap.min.css"
+    },
+    {
+      "n": 16,
+      "offset_ms": 4557.0,
+      "time_ms": 73.6,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 6092,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/font-awesome-4.4.0/css/font-awesome.min.css"
+    },
+    {
+      "n": 17,
+      "offset_ms": 4557.0,
+      "time_ms": 80.2,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 2820,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/stylesheets/main.css"
+    },
+    {
+      "n": 18,
+      "offset_ms": 4557.0,
+      "time_ms": 78.8,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 127,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/views/app.css"
+    },
+    {
+      "n": 19,
+      "offset_ms": 4558.0,
+      "time_ms": 73.6,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 1424,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/stylesheets/cari-paket.css"
+    },
+    {
+      "n": 20,
+      "offset_ms": 4558.0,
+      "time_ms": 81.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 2473,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/images/web/logo-header-latihan.png"
+    },
+    {
+      "n": 21,
+      "offset_ms": 4558.0,
+      "time_ms": 73.2,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 741,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    },
+    {
+      "n": 22,
+      "offset_ms": 4559.0,
+      "time_ms": 84.2,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 1108,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/DataTables/DataTables-1.10.16/css/dataTables.bootstrap.css"
+    },
+    {
+      "n": 23,
+      "offset_ms": 4559.0,
+      "time_ms": 83.1,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 1346,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/stylesheets/bootstrap-datetimepicker.min.css"
+    },
+    {
+      "n": 24,
+      "offset_ms": 4778.0,
+      "time_ms": 159.1,
+      "method": "GET",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 21587,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/font/s-BiyweUPV0v-yRb-cjciPk_vArhqVIZ0nv9q090hN8.woff2"
+    },
+    {
+      "n": 25,
+      "offset_ms": 4779.0,
+      "time_ms": 162.6,
+      "method": "GET",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 27479,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/font/droid-sans-bold.ttf"
+    },
+    {
+      "n": 26,
+      "offset_ms": 4779.0,
+      "time_ms": 167.7,
+      "method": "GET",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 64616,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/font-awesome-4.4.0/fonts/fontawesome-webfont.woff2?v=4.4.0"
+    },
+    {
+      "n": 27,
+      "offset_ms": 5030.0,
+      "time_ms": 43.7,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 29986,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/images/web/lkpp.png"
+    },
+    {
+      "n": 28,
+      "offset_ms": 5030.0,
+      "time_ms": 41.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1214,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/images/web/siruplatihan.png"
+    },
+    {
+      "n": 29,
+      "offset_ms": 5030.0,
+      "time_ms": 81.5,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 856778,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/berkas/banner/banner_sirup_migrasi_domain.jpg"
+    },
+    {
+      "n": 30,
+      "offset_ms": 5031.0,
+      "time_ms": 62.2,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 4037,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+    },
+    {
+      "n": 31,
+      "offset_ms": 5031.0,
+      "time_ms": 117.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 11672,
+      "host": "static.cloudflareinsights.com",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
+    },
+    {
+      "n": 32,
+      "offset_ms": 5102.0,
+      "time_ms": 117.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 708,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/ga/ga.js"
+    },
+    {
+      "n": 33,
+      "offset_ms": 5102.0,
+      "time_ms": 131.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1279,
+      "host": "cdn.datatables.net",
+      "url": "https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"
+    },
+    {
+      "n": 34,
+      "offset_ms": 5103.0,
+      "time_ms": 207.1,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 4302,
+      "host": "cdnjs.cloudflare.com",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"
+    },
+    {
+      "n": 35,
+      "offset_ms": 5103.0,
+      "time_ms": 141.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1165,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/bootstrap-datetimepicker-master/locale/id.js"
+    },
+    {
+      "n": 36,
+      "offset_ms": 5104.0,
+      "time_ms": 132.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 9746,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/bootstrap-datetimepicker.min.js"
+    },
+    {
+      "n": 37,
+      "offset_ms": 5104.0,
+      "time_ms": 133.9,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 13493,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/moment.min.js"
+    },
+    {
+      "n": 38,
+      "offset_ms": 5104.0,
+      "time_ms": 136.0,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 7168,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/jquery-validation-1.14.0/dist/jquery.validate.min.js"
+    },
+    {
+      "n": 39,
+      "offset_ms": 5104.0,
+      "time_ms": 138.2,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 585,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/DataTables/Plugins/api/fnFilterOnReturn.js"
+    },
+    {
+      "n": 40,
+      "offset_ms": 5105.0,
+      "time_ms": 141.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1957,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/DataTables/DataTables-1.10.16/js/dataTables.bootstrap.js"
+    },
+    {
+      "n": 41,
+      "offset_ms": 5105.0,
+      "time_ms": 219.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 6268,
+      "host": "cdn.datatables.net",
+      "url": "https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"
+    },
+    {
+      "n": 42,
+      "offset_ms": 5105.0,
+      "time_ms": 148.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1109,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/moner/buttons.print.min152.js"
+    },
+    {
+      "n": 43,
+      "offset_ms": 5106.0,
+      "time_ms": 216.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 382094,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/moner/vfs_fonts136.js"
+    },
+    {
+      "n": 44,
+      "offset_ms": 5106.0,
+      "time_ms": 229.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 393597,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/moner/pdfmake.min136.js"
+    },
+    {
+      "n": 45,
+      "offset_ms": 5106.0,
+      "time_ms": 162.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 31288,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/moner/jszip.min313.js"
+    },
+    {
+      "n": 46,
+      "offset_ms": 5106.0,
+      "time_ms": 161.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 6973,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/moner/buttons.flash.min152.js"
+    },
+    {
+      "n": 47,
+      "offset_ms": 5107.0,
+      "time_ms": 172.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 6299,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/moner/dataTables.buttons.min152.js"
+    },
+    {
+      "n": 48,
+      "offset_ms": 5107.0,
+      "time_ms": 176.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 29099,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/DataTables/DataTables-1.10.16/js/jquery.dataTables.min.js"
+    },
+    {
+      "n": 49,
+      "offset_ms": 5107.0,
+      "time_ms": 193.6,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 12564,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/platform.js-master/platform.js"
+    },
+    {
+      "n": 50,
+      "offset_ms": 5107.0,
+      "time_ms": 322.8,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 20482,
+      "host": "cdn.jsdelivr.net",
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@3.3.5/dist/css/bootstrap.min.css"
+    },
+    {
+      "n": 51,
+      "offset_ms": 5108.0,
+      "time_ms": 179.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 10609,
+      "host": "cdn.jsdelivr.net",
+      "url": "https://cdn.jsdelivr.net/npm/bootstrap@3.3.5/dist/js/bootstrap.min.js"
+    },
+    {
+      "n": 52,
+      "offset_ms": 5108.0,
+      "time_ms": 186.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 364,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/sumberDanaHelper.js"
+    },
+    {
+      "n": 53,
+      "offset_ms": 5108.0,
+      "time_ms": 194.7,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1378,
+      "host": "cdn.datatables.net",
+      "url": "https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap.min.js"
+    },
+    {
+      "n": 54,
+      "offset_ms": 5109.0,
+      "time_ms": 198.1,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 29179,
+      "host": "cdn.datatables.net",
+      "url": "https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"
+    },
+    {
+      "n": 55,
+      "offset_ms": 5109.0,
+      "time_ms": 222.7,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 26488,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/loader.js"
+    },
+    {
+      "n": 56,
+      "offset_ms": 5109.0,
+      "time_ms": 212.2,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 866,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/jquery.ticker.min.js"
+    },
+    {
+      "n": 57,
+      "offset_ms": 5110.0,
+      "time_ms": 220.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 4852,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/neatrup/akunting.js"
+    },
+    {
+      "n": 58,
+      "offset_ms": 5110.0,
+      "time_ms": 215.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 3236,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/jquery.dataTables.columnFilter.js"
+    },
+    {
+      "n": 59,
+      "offset_ms": 5111.0,
+      "time_ms": 227.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 65529,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/jquery-ui-1.11.4.custom/jquery-ui.min.js"
+    },
+    {
+      "n": 60,
+      "offset_ms": 5111.0,
+      "time_ms": 223.0,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 34646,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/jquery-1.11.3.min.js"
+    },
+    {
+      "n": 61,
+      "offset_ms": 5111.0,
+      "time_ms": 405.9,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 163872,
+      "host": "www.googletagmanager.com",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-D78WKTMJC6"
+    },
+    {
+      "n": 62,
+      "offset_ms": 5467.0,
+      "time_ms": 23.6,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 3201,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/jquery.dataTables.columnFilter.js"
+    },
+    {
+      "n": 63,
+      "offset_ms": 5539.0,
+      "time_ms": 108.5,
+      "method": "POST",
+      "status": 204,
+      "type": "xhr",
+      "size_bytes": 0,
+      "host": "region1.google-analytics.com",
+      "url": "https://region1.google-analytics.com/g/collect?v=2&tid=G-D78WKTMJC6&gtm=45je6641v9115762431za200zd9115762431&_p=1781115763223&gcd=13l3l3l2l1l1&npa=1&dma_cps=a&dma=1&are=1&cid=855027315.1781115764&frm=0&pscdl=noapi&rcb=13&sr=3072x1728&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.178%7CGoogle%2520Chrome%3B148.0.7778.178%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=0~115616986~115938465~115938468&sid=1781115763&sct=1&seg=0&dl=https%3A%2F%2Fsirup.inaproc.id%2Fsirup%2Fcaripaketctr%2Findex&dr=https%3A%2F%2Fsirup.inaproc.id%2Fsirup%2Fcaripaketctr%2Findex%3F__cf_chl_tk%3D0jbzhhOvKxIt6CDjcCkZK6NfrMpigSHeH3rLHzX8Exg-1781115758-1.0.1.1-Q12pXQjCvZrBKFpkK83E8corNXNTmquBtecXomMJqyA&dt=RUP%20-%20Cari%20Paket%20Penyedia&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&ep.debug_mode=true&tfd=1329"
+    },
+    {
+      "n": 64,
+      "offset_ms": 5539.0,
+      "time_ms": 31.1,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 4828,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/neatrup/akunting.js"
+    },
+    {
+      "n": 65,
+      "offset_ms": 5573.0,
+      "time_ms": 24.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 844,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/javascripts/jquery.ticker.min.js"
+    },
+    {
+      "n": 66,
+      "offset_ms": 5777.0,
+      "time_ms": 246.3,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 457,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/DataTables-1.10.7/extensions/Lang/Indonesian.json"
+    },
+    {
+      "n": 67,
+      "offset_ms": 5781.0,
+      "time_ms": 22.9,
+      "method": "POST",
+      "status": 204,
+      "type": "xhr",
+      "size_bytes": 174,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/cdn-cgi/rum?"
+    },
+    {
+      "n": 68,
+      "offset_ms": 6025.0,
+      "time_ms": 50.0,
+      "method": "GET",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 18187,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/public/plugin/bootstrap-3.3.5-dist/fonts/glyphicons-halflings-regular.woff2"
+    },
+    {
+      "n": 69,
+      "offset_ms": 6026.0,
+      "time_ms": 229.3,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 1454,
+      "host": "sirup.inaproc.id",
+      "url": "https://sirup.inaproc.id/sirup/caripaketctr/search?tahunAnggaran=2026&jenisPengadaan=&metodePengadaan=&minPagu=&maxPagu=&bulan=&lokasi=&kldi=&pdn=&ukm=&draw=1&columns%5B0%5D%5Bdata%5D=&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=false&columns%5B0%5D%5Borderable%5D=false&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=paket&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=true&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=pagu&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=true&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=jenisPengadaan&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=true&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=isPDN&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=true&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B5%5D%5Bdata%5D=isUMK&columns%5B5%5D%5Bname%5D=&columns%5B5%5D%5Bsearchable%5D=true&columns%5B5%5D%5Borderable%5D=true&columns%5B5%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B5%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B6%5D%5Bdata%5D=metode&columns%5B6%5D%5Bname%5D=&columns%5B6%5D%5Bsearchable%5D=true&columns%5B6%5D%5Borderable%5D=true&columns%5B6%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B6%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B7%5D%5Bdata%5D=pemilihan&columns%5B7%5D%5Bname%5D=&columns%5B7%5D%5Bsearchable%5D=true&columns%5B7%5D%5Borderable%5D=true&columns%5B7%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B7%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B8%5D%5Bdata%5D=kldi&columns%5B8%5D%5Bname%5D=&columns%5B8%5D%5Bsearchable%5D=true&columns%5B8%5D%5Borderable%5D=true&columns%5B8%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B8%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B9%5D%5Bdata%5D=satuanKerja&columns%5B9%5D%5Bname%5D=&columns%5B9%5D%5Bsearchable%5D=true&columns%5B9%5D%5Borderable%5D=true&columns%5B9%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B9%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B10%5D%5Bdata%5D=lokasi&columns%5B10%5D%5Bname%5D=&columns%5B10%5D%5Bsearchable%5D=true&columns%5B10%5D%5Borderable%5D=true&columns%5B10%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B10%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B11%5D%5Bdata%5D=id&columns%5B11%5D%5Bname%5D=&columns%5B11%5D%5Bsearchable%5D=true&columns%5B11%5D%5Borderable%5D=true&columns%5B11%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B11%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=5&order%5B0%5D%5Bdir%5D=DESC&start=0&length=10&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1781115763438"
+    }
+  ],
+  "recommendations": [
+    "Cloudflare challenge in play — use a real browser (scrapy-playwright/stealth) to solve it, or reuse a valid `cf_clearance` cookie + the *exact* matching User-Agent.",
+    "Persist & replay these cookies across requests: __cf_bm, cf_clearance, PLAY_ERRORS, PLAY_FLASH, PLAY_SESSION, _cfuvid"
+  ],
+  "_meta": {
+    "source_har": "har_file.har",
+    "har_creator": {
+      "name": "Playwright",
+      "version": "1.60.0"
+    },
+    "browser": {
+      "name": "chromium",
+      "version": "148.0.7778.178"
+    }
+  }
+}

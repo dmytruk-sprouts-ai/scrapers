@@ -1,0 +1,40 @@
+{
+    "status": 200,
+    "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js",
+    "headers": {
+        "content-md5": "dH0DIGfw+GJb+dUq7bhZHw==",
+        "access-control-expose-headers": "x-ms-request-id,Server,x-ms-version,Content-Type,Content-Encoding,ETag,Last-Modified,Content-MD5,x-ms-lease-status,x-ms-blob-type,Content-Length,Date,Transfer-Encoding",
+        "content-encoding": "gzip",
+        "x-ms-version": "2009-09-19",
+        "etag": "0x8DEC611165AEAFA",
+        "x-ms-lease-status": "unlocked",
+        "age": "44069",
+        "cf-cache-status": "HIT",
+        "x-content-type-options": "nosniff",
+        "date": "Wed, 10 Jun 2026 14:43:09 GMT",
+        "content-type": "application/javascript",
+        "last-modified": "Tue, 09 Jun 2026 10:23:02 GMT",
+        "vary": "accept-encoding",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "cache-control": "max-age=86400",
+        "cross-origin-resource-policy": "cross-origin",
+        "x-ms-request-id": "d2e83a2a-f01e-0030-5780-f8c9a0000000",
+        "cf-ray": "a09925936b5e6cb4-VIE",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "8705",
+        "x-ms-blob-type": "BlockBlob",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781102589926.823,
+        "domainLookupStart": 0.225,
+        "domainLookupEnd": 38.597,
+        "connectStart": 38.723,
+        "secureConnectionStart": 42.597,
+        "connectEnd": 56.707,
+        "requestStart": 56.896,
+        "responseStart": 73.154,
+        "responseEnd": -1
+    }
+}

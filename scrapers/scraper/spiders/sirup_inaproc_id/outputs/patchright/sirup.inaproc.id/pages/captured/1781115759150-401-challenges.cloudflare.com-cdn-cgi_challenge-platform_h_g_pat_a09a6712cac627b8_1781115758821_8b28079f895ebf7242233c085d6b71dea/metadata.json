@@ -1,0 +1,26 @@
+{
+    "status": 401,
+    "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a09a6712cac627b8/1781115758821/8b28079f895ebf7242233c085d6b71dea7309952f94bb1f3d3c198ff266bfe61/HCYb-PqI62JB2bA",
+    "headers": {
+        "www-authenticate": "PrivateToken challenge=\"AAIAGXBhdC1pc3N1ZXIuY2xvdWRmbGFyZS5jb20giygHn4lev3JCIzwIXWtx3qcwmVL5S7Hz08GY_yZr_mEAGWNoYWxsZW5nZXMuY2xvdWRmbGFyZS5jb20=\", token-key=\"MIIBUjA9BgkqhkiG9w0BAQowMKANMAsGCWCGSAFlAwQCAqEaMBgGCSqGSIb3DQEBCDALBglghkgBZQMEAgKiAwIBMAOCAQ8AMIIBCgKCAQEAp7e6EZd61_H5EbYIAjRAqn9H4xAQRAqXj03Oxm_rwSk0onTyTnmOj43UwgD2i6ZB-jAntPEhf6BPQ7hRJX5fOZGhBI4b85edbgBcPWMCfFJehTa0frwojClqBUO4WMVpdSdibTP4sF8osnSo5JUyZ4QvT7vvwODnqw0Z6_DAxrw7twtodiG6lEmISq7__3xRPj9j1RXUidncNLPqqVL_uq_ugxRotB0d3Sux3SmocptheidFnyS-LD0-RmY592uW-Ph-80W1LvxEi9ynluvy7TanRpDr3G6q-W9fWhPj4VncpZ29w1HE5EwxO7cL8VQ0hUPcGPv1GCptPQXjlYKmbQIDAQAB\", max-age=20, PrivateToken challenge=\"AAIAHXNhdC5wYXQtaXNzdWVyLmNsb3VkZmxhcmUuY29tIIsoB5-JXr9yQiM8CF1rcd6nMJlS-Uux89PBmP8ma_5hABljaGFsbGVuZ2VzLmNsb3VkZmxhcmUuY29t\", token-key=\"MIIBUjA9BgkqhkiG9w0BAQowMKANMAsGCWCGSAFlAwQCAqEaMBgGCSqGSIb3DQEBCDALBglghkgBZQMEAgKiAwIBMAOCAQ8AMIIBCgKCAQEAxlH1qwKcyaHlDAOuL5koCnUza266WGxWXJPZs73mlPFgBR_bmLrBrweBHE8xeXeP_BJGoOwWpGQ8D94mesCsTRpS9WMPkG2lnCVn1STjzxhUVIJSG5tMj4IkqczJFUXakKEnE1ckpIlPqjmXm4sdA2HueSJwOXTWk49iZm64dBb2ttsx-6PH4eqW1CRloLGf-wkUSayatGADEP1G8af3rXwOZK5jOIvigh4WQLW8v8o77P3aiqqZvp7mTBqaZWxJL9n7dCnXZYWIaJrrzS0BKxQSnxwyqZe65Bl4VFYv9xIg7YbFIf_e9JMEkEEPllKF3LKMFtZrbw-IA2B_Ez5bowIDAQAB\", max-age=20, PrivateToken challenge=\"AAIALHBwLWlzc3Vlci1wcm9kdWN0aW9uLnJlc2VhcmNoLmNsb3VkZmxhcmUuY29tIIsoB5-JXr9yQiM8CF1rcd6nMJlS-Uux89PBmP8ma_5hABljaGFsbGVuZ2VzLmNsb3VkZmxhcmUuY29t\", token-key=\"MIIBUjA9BgkqhkiG9w0BAQowMKANMAsGCWCGSAFlAwQCAqEaMBgGCSqGSIb3DQEBCDALBglghkgBZQMEAgKiAwIBMAOCAQ8AMIIBCgKCAQEAsxviSI6sjMo3EYekYTf-dIPsJKZ5cD3xsEmHYx664Sbocwxx4OVFCyBfqccoQRmEX0XWSEj0hYyxpSGEz2i9yhmVRSjkqknoFfuOjUc0KcblcHhVGtTIWERy01RB1YmfcngH9Znt-Z--XyaRArOXumCFBV41ZLC7--LANYHBuhSz34fCGCIFKJsbk8ggBIemExpY3f1t2OZNs4mYLHE-7DhMSYP3Yd171ZcDGvSvtW59KNqQwgCwNcjSY6crHCr8mc-vyzSJFS62lUdla7lPGnm51ne0hJTiFcfY2rDXKUBERMhEYaNuHy1itCEsHOinnQKV89W6SPZmavtQU2h-QwIDAQAB\", max-age=20",
+        "cf-ray": "a09a6716ba7d27b8-VIE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "content-length": "1",
+        "date": "Wed, 10 Jun 2026 18:22:39 GMT",
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare",
+        "priority": "u=1,i"
+    },
+    "timing": {
+        "startTime": 1781115759150.776,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.359,
+        "responseStart": 9.428,
+        "responseEnd": -1
+    }
+}

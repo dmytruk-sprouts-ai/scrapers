@@ -1,0 +1,30 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/sirup/public/plugin/DataTables-1.10.7/extensions/Lang/Indonesian.json",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-security-policy": "frame-ancestors 'none'",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "br",
+        "cf-cache-status": "DYNAMIC",
+        "etag": "W/\"1780976163000--1462465402\"",
+        "x-content-type-options": "nosniff",
+        "via": "1.1 google",
+        "cf-ray": "a09a67343dc6a2c1-VIE",
+        "date": "Wed, 10 Jun 2026 18:22:44 GMT",
+        "content-type": "application/json",
+        "last-modified": "Tue, 09 Jun 2026 10:36:03 GMT",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115763867.9001,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.487,
+        "responseStart": 204.523,
+        "responseEnd": -1
+    }
+}

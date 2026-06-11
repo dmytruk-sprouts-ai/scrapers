@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/builtwith_attribution_logo_xlkdrf.png?ik-sanitizeSvg=true",
+    "headers": {
+        "x-request-id": "43ea6cbc-ffb3-4375-a3db-43ca79fba6ec",
+        "etag": "\"e3dba46311775d62bd8507bec7552940\"",
+        "age": "19860208",
+        "access-control-allow-methods": "GET",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-cache": "Hit from cloudfront",
+        "x-amz-cf-id": "LDf7gQ34Fm6-B4_x1ae4ha8i0R4gMr7BX9BwoArMTTtbwJ7ExFODEQ==",
+        "date": "Thu, 23 Oct 2025 17:59:42 GMT",
+        "content-type": "image/svg+xml",
+        "vary": "Accept",
+        "x-server": "ImageKit.io",
+        "last-modified": "Sat, 18 Oct 2025 01:24:01 GMT",
+        "access-control-allow-headers": "*",
+        "cache-control": "public, s-maxage=31536000, max-age=31536000, must-revalidate",
+        "timing-allow-origin": "*",
+        "via": "1.1 3998ee43a990bae5d9a82ad1c8c4f910.cloudfront.net (CloudFront)",
+        "access-control-allow-origin": "*",
+        "content-length": "2772",
+        "x-amz-cf-pop": "VIE50-P4"
+    },
+    "timing": {
+        "startTime": 1781102590252.4102,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.774,
+        "responseStart": 7.097,
+        "responseEnd": -1
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "status": 200,
+    "url": "https://www.crunchbase.com/organization/nvidia",
+    "headers": {
+        "cache-control": "no-cache, max-age=0, must-revalidate, no-store",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a09925881b62c4f7-VIE",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Wed, 10 Jun 2026 14:43:09 GMT",
+        "expect-ct": "max-age=0",
+        "ratelimit-limit": "150",
+        "ratelimit-policy": "150;w=900",
+        "ratelimit-remaining": "146",
+        "ratelimit-reset": "512",
+        "referrer-policy": "same-origin",
+        "server": "cloudflare",
+        "strict-transport-security": "max-age=15552000",
+        "vary": "Accept-Encoding",
+        "x-cb-request-id": "400E9DB04B7AC8669B1E273D7B19C7",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0"
+    },
+    "timing": {
+        "startTime": 1781102588178.113,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.42,
+        "responseStart": 1708.832,
+        "responseEnd": -1
+    }
+}

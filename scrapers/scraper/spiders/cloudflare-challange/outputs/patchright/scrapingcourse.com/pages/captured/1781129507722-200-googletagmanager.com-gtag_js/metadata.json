@@ -1,0 +1,32 @@
+{
+    "status": 200,
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-NZGD14H87G",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "cache-control": "private, max-age=900",
+        "content-encoding": "zstd",
+        "cross-origin-resource-policy": "cross-origin",
+        "access-control-allow-credentials": "true",
+        "expires": "Wed, 10 Jun 2026 22:11:47 GMT",
+        "access-control-allow-origin": "*",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "content-length": "163867",
+        "date": "Wed, 10 Jun 2026 22:11:47 GMT",
+        "x-xss-protection": "0",
+        "content-type": "application/javascript; charset=UTF-8",
+        "vary": "Accept-Encoding",
+        "server": "Google Tag Manager",
+        "access-control-allow-headers": "Cache-Control"
+    },
+    "timing": {
+        "startTime": 1781129507722.26,
+        "domainLookupStart": 0.196,
+        "domainLookupEnd": 11.785,
+        "connectStart": 11.91,
+        "secureConnectionStart": 21.957,
+        "connectEnd": 51.573,
+        "requestStart": 51.787,
+        "responseStart": 83.88,
+        "responseEnd": -1
+    }
+}

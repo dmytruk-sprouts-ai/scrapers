@@ -1,0 +1,26 @@
+{
+    "status": 200,
+    "url": "https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-encoding": "gzip",
+        "access-control-allow-methods": "GET, OPTIONS",
+        "cf-ray": "a0992595efbbb855-VIE",
+        "access-control-allow-origin": "*",
+        "date": "Wed, 10 Jun 2026 14:43:10 GMT",
+        "content-type": "application/json",
+        "server": "cloudflare",
+        "access-control-allow-headers": "Content-Type"
+    },
+    "timing": {
+        "startTime": 1781102590366.6223,
+        "domainLookupStart": 0.256,
+        "domainLookupEnd": 7.309,
+        "connectStart": 7.443,
+        "secureConnectionStart": 12.206,
+        "connectEnd": 20.406,
+        "requestStart": 20.572,
+        "responseStart": 36.553,
+        "responseEnd": -1
+    }
+}

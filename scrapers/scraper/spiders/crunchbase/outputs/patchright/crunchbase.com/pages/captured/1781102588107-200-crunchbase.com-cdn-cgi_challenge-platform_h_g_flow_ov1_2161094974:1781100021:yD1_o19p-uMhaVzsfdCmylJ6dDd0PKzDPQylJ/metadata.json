@@ -1,0 +1,25 @@
+{
+    "status": 200,
+    "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/flow/ov1/2161094974:1781100021:yD1_o19p-uMhaVzsfdCmylJ6dDd0PKzDPQylJiSJ4bw/a099256ec8d2c4f7/KGPVyW1Q2i.W0j0roSECsqL19iJgGAFvz7U5bByq1yk-1781102584-1.2.1.1-bE0vYLY7.BkZPN4sjv1s8IRjsWJZkryeRxH8.Pn1l0G5sq32ooTzW9PcdkOnuC36",
+    "headers": {
+        "cf-chl-out": "6zhiQtSsr7+lfgsotuVcV+uHDPBRBAy3TmHSZ+OK0vuz287YNIrfVcNadT7IgiNcY5JCrBEW25Ss0FfLQ2laYaSon/Dd1wsxrZhr1hZHkapRQ+ShV7shDEeAalQb3h974ydiTIMRtQk+gEzrwM3CQw==$fU+4lkyBdN7/Vi1494mb4Q==",
+        "timing-allow-origin": "https://www.crunchbase.com",
+        "content-encoding": "br",
+        "cf-ray": "a0992587aa28c4f7-VIE",
+        "cf-chl-out-s": "fK4J5UzLKvvvCoOQgEC9882BOeOwSKpqTK/2fMeSMRZV4EQ/tC2/dahzdfNiCsafbcuDt+pnsoah35LDD+eX24r6CR7q36YA4EiSnW3rzNH/MXsNcwF47mjCXFiXY6ylrV/ATAEK1dz3/eJAoZTMhZ+R2r/SP3om7q4Drr18BS2Kz35B7NVhN+NKlrv67EfhATu8gT3bjket+nTOvdq6a9ZcuUqrco9uzs8tUyegXq98zq6OU/BKcGsd1HDl6++uVp4d5GKIwC8yDHYSB5JrSt6OHR0Cdv1reZDZSxCK1U/x86EH0zWHjvaOQ3BY0mH3l0+SQT8P/zswVY00lhoiwZswiR1ZKR5wcLKPoNOiD9R8drLHrLZANbylV6olDp4TY3dmdD7TRBngsV1GtddRUlh1l/Z/6Wi3UedYX/rOLLMszCV+FQt2Cq40tbVNMvbvJ3QsEaP7NeFQcemUN9LMAfG/qYVl+s0W/LNcAdOO2vfaPq1oJ6bgwFaQI6L7rggBWCgrS8ceNegDbHrmXK/edXBmUYsjzK7A5aLRgPOWJ/LUhXgkL2ffAl+tvEV97EizbOcPXrUj2ZwUqKcmE0wsZOGEyeQin6cs05OjhPYDFw4gms2/U0pXI0bsmU8/3bwX1rZU3h9T7eVxHv5CkQ6SKth55yJlDqiV/unTjzDQ3L6Lox7lsuMTu9ewFwehv0drjcn8X75UKXZnWSmMarOcCaSSrj+NbtvIonUxL8unuLGCUchHiZimWuPWHQP8Uw3v4by8AWL/t+CLShReTOOoSsBl9lazyqobMuVTtCH+LUfb0ZrXdIZ7wzcxxgfth4VICb+41mUZG/MCpHGS8vJ1Yw+Q4qB0w8iq3ozZ8G/l3pKYBvZc9XqaFyqZWSxMDxWF8GwuOBGZAqD2BpjkvfKII1rna/LM+tg2wnu0JBOOrqNrm+eecsLTIIJ9hNqlFdjrYX7wX4ns/7FuWfI+HWLmSdArszwVmrYjcCdyOFbv2dyvfbXlrZdOlMlmMuano2peT8IzesMvEV+84+Qpc08fOCxfbpVwk6ZalewydRp4hI44qfFElPm/4LGFZfOHWg6pDKQqjdewte7FZQvJSnR1fwSasRsl2X1vAVsMFKim6sYCdqm8U5BzxwpF/EZPH4yhjxfveD9lD+0J5HPEIhP2jw==$O3Xuvq3dlBKODgSGj8VG6w==",
+        "date": "Wed, 10 Jun 2026 14:43:08 GMT",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781102588107.5251,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.439,
+        "responseStart": 39.629,
+        "responseEnd": -1
+    }
+}

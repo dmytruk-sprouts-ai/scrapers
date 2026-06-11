@@ -1,0 +1,32 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/sirup/public/images/web/siruplatihan.png",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-security-policy": "frame-ancestors 'none'",
+        "cache-control": "max-age=31536000",
+        "cf-cache-status": "HIT",
+        "etag": "\"1780387803000--603051975\"",
+        "age": "648206",
+        "x-content-type-options": "nosniff",
+        "via": "1.1 google",
+        "cf-ray": "a09a672f9dd9a2c1-VIE",
+        "accept-ranges": "bytes",
+        "content-length": "1030",
+        "date": "Wed, 10 Jun 2026 18:22:43 GMT",
+        "content-type": "image/png",
+        "last-modified": "Tue, 02 Jun 2026 15:10:03 GMT",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115763127.958,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.37,
+        "responseStart": 15.431,
+        "responseEnd": -1
+    }
+}

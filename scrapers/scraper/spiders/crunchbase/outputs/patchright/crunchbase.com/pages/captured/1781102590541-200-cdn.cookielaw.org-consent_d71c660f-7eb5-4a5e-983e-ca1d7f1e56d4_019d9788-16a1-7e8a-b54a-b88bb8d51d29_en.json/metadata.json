@@ -1,0 +1,41 @@
+{
+    "status": 200,
+    "url": "https://cdn.cookielaw.org/consent/d71c660f-7eb5-4a5e-983e-ca1d7f1e56d4/019d9788-16a1-7e8a-b54a-b88bb8d51d29/en.json",
+    "headers": {
+        "content-md5": "vksDx3bn0VFOapKTVAA7AQ==",
+        "access-control-expose-headers": "x-ms-request-id,Server,x-ms-version,Content-Type,Content-Encoding,Cache-Control,ETag,Last-Modified,Content-MD5,x-ms-lease-status,x-ms-blob-type,Content-Length,Date,Transfer-Encoding, X-OneTrust-IsBot",
+        "content-encoding": "gzip",
+        "cf-cache-status": "HIT",
+        "etag": "0x8DE9BEE36CA1C1C",
+        "age": "56953",
+        "x-ms-lease-status": "unlocked",
+        "x-content-type-options": "nosniff",
+        "x-ms-version": "2009-09-19",
+        "expires": "Thu, 11 Jun 2026 14:43:10 GMT",
+        "date": "Wed, 10 Jun 2026 14:43:10 GMT",
+        "content-type": "application/json",
+        "last-modified": "Thu, 16 Apr 2026 19:27:35 GMT",
+        "vary": "accept-encoding",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "x-onetrust-isbot": "false",
+        "cache-control": "public, max-age=86400",
+        "cross-origin-resource-policy": "cross-origin, cross-origin",
+        "x-ms-request-id": "1b81de51-201e-00dc-3b1b-d1c1d9000000",
+        "cf-ray": "a0992596ecd0cb7b-VIE",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "x-ms-blob-type": "BlockBlob",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781102590541.8489,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.346,
+        "responseStart": 25.13,
+        "responseEnd": -1
+    }
+}

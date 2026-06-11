@@ -1,0 +1,30 @@
+{
+    "status": 200,
+    "url": "https://www.scrapingcourse.com/cloudflare-challenge",
+    "headers": {
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cache-control": "no-cache, private",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a09bb6bcce845aab-VIE",
+        "content-encoding": "zstd",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Wed, 10 Jun 2026 22:11:47 GMT",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "priority": "u=0,i",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ylLG61vrUzcaCkIMUJJCWAupV7lYVCjcKu1gtSskjfX1J8wwER852QPn8HMiGZGdWFWPWZKUQhseasrLreFHIU4FkE1LPygcnS0pedVClWs0Nt8fgL2jZA0lCFI0%2B5wrDl38Kn3y%2FH2HNFa0MsdU2K79yaeW\"}]}",
+        "server": "cloudflare",
+        "server-timing": "cfExtPri",
+        "x-powered-by": "PHP/8.3.11"
+    },
+    "timing": {
+        "startTime": 1781129507319.219,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.412,
+        "responseStart": 288.595,
+        "responseEnd": -1
+    }
+}

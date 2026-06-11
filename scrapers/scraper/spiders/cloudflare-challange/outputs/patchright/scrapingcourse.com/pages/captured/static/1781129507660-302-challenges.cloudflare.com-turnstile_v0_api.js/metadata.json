@@ -1,0 +1,28 @@
+{
+    "status": 302,
+    "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
+    "headers": {
+        "cache-control": "max-age=300, stale-if-error=10800, stale-while-revalidate=300, public",
+        "location": "/turnstile/v0/g/8fc8ed1d8752/api.js",
+        "cross-origin-resource-policy": "cross-origin",
+        "cf-ray": "a09bb6beea9c5ba5-VIE",
+        "access-control-allow-origin": "*",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "content-length": "0",
+        "server-timing": "cfExtPri",
+        "date": "Wed, 10 Jun 2026 22:11:47 GMT",
+        "server": "cloudflare",
+        "priority": "u=3,i=?0"
+    },
+    "timing": {
+        "startTime": 1781129507660.416,
+        "domainLookupStart": 0.287,
+        "domainLookupEnd": 0.324,
+        "connectStart": 0.59,
+        "secureConnectionStart": 0.59,
+        "connectEnd": 8.933,
+        "requestStart": 1.347,
+        "responseStart": 15.697,
+        "responseEnd": -1
+    }
+}

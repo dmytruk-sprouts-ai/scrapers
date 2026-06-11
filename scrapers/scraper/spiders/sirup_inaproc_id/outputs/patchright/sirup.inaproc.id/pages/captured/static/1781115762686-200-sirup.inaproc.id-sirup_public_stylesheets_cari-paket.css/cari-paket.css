@@ -1,0 +1,254 @@
+.datatables-container {
+	padding: 12px 30px;
+	margin-bottom: 12px;
+}  
+
+.datatables-footnote {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #e3f9e3;
+    margin-top: 50px;
+    border-radius: 3px;
+    max-width: 900px;
+}
+
+.datatables-footnote__text {
+	margin: 0;
+    font-size: 13px;
+	color: rgba(0,0,0,.7);
+	line-height: 1.6;
+}
+
+.advanced-src-header {
+	font-size: 28px;
+    padding: 8px 30px 26px 30px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;  
+}
+
+.advanced-src-filter {
+	overflow: auto;
+	display: block;
+    margin-top: 0px;
+	padding: 18px 16px 0 16px;
+	max-height: 450px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.advanced-src-filter__box {
+	margin-bottom: 22px;
+    padding-bottom: 10px;
+    box-shadow: 0px 2px 0px #e0e0e0;
+}
+
+	.advanced-src-filter__box:last-child {
+		box-shadow: none;
+		margin: 0;
+	}
+
+.advanced-src-filter__title {
+	position: relative;
+	font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 18px;
+    background-color: #F05155;
+    padding: 15px 0 15px 18px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
+
+.advanced-src-filter__title::before {
+	content: '';
+	position: absolute;
+	right: 14px;
+	height: 10px;
+	width: 10px;
+	border-top: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	transform: rotate(225deg);
+}
+
+.advanced-src-filter__link,
+.advanced-src-filter__link:hover,
+.advanced-src-filter__link:focus {
+	display: block;
+	color: #ffffff;
+    text-decoration: none;
+    outline: none;
+}
+
+.advanced-src-filter__text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 90%;
+	margin: 0;
+	font-weight: 400;
+}
+
+.advanced-src-filter__group {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.advanced-src__prefix {
+    position: absolute;
+    left: 8px;
+    z-index: 1;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.advanced-src-list {
+	display: block;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}  
+
+.advanced-src-list__item {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 10px;
+}
+
+.advanced-src__control {
+	position: relative;
+	display: block;
+    height: 40px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+    transition: all .2s ease-in-out;
+}
+
+.advanced-src__control--currency {
+	text-align: right;
+	padding-left: 30px;
+}
+
+.advanced-src__control:focus {
+	outline: none;
+	border: 1px solid #42b549;
+}
+
+.advanced-src__checkbox {
+	height: 15px;
+	width: 15px;
+	margin: 0 5px 0 0 !important;
+}
+
+.filter-label-wrapper {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.filter-label-link {
+	margin-left: 10px;
+	text-decoration: none;
+    font-weight: 600;
+    color: #1d8e24;
+}
+
+.filter-label-link:hover,
+.filter-label-link:focus {
+	text-decoration: none;
+    color: #1d8e24;
+}
+
+.filter-label-close {
+	float: right;
+	width: 18px;
+	border-radius: 100%;
+	background-color: #ffffff;
+	color: rgba(0,0,0,.7);
+	cursor: pointer;
+}
+
+.filter-label-list {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.filter-label-list__item {
+	display: inline-block;
+    min-width: 100px;
+    margin-right: 5px;
+	margin-bottom: 5px;
+    padding: 3px;
+    font-size: 12px;
+    color: #ffffff;
+    border-radius: 10px;
+	background-color: #1d8e24;
+    text-align: center;
+}
+
+#button-download .dt-buttons {
+	display: flex;
+}
+
+#kata_kunci {
+	display: inline-block;
+}
+
+.info-text-filter{
+	font-size: 11px;
+	color: #0D3349;
+	text-align: right;
+	margin: 16px 0;
+}
+
+#button-download {
+	text-align: right;
+}
+
+.paginate_button > a {
+	outline: none;
+}
+
+.btn-action {
+	background-color: #4fd457;
+	color: #FFFFFF;
+	border-radius: 4px;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+	.btn-action:focus,
+	.btn-action:hover {
+		color: #FFFFFF;
+		outline: none;
+	}
+	
+.btn-action--update {
+	margin-left: 30px;
+    padding: 10px 25px;
+}	
+	
+.advanced-src-filter::-webkit-scrollbar {	
+    width: 8px;    
+}
+ 
+.advanced-src-filter::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    border-radius: 10px;
+}
+ 
+.advanced-src-filter::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+	background-color: #e0e0e0;
+}	
+
+@media (min-width: 992px) {
+	.col-md-10 {
+	    width: 83.33333333% !important;
+	}	
+}

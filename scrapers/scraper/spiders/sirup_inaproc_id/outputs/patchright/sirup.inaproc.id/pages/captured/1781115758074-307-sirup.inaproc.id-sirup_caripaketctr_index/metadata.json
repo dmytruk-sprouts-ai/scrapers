@@ -1,0 +1,18 @@
+{
+    "status": 307,
+    "url": "https://sirup.inaproc.id/sirup/caripaketctr/index",
+    "headers": {
+        "location": "https://sirup.inaproc.id/sirup/caripaketctr/index"
+    },
+    "timing": {
+        "startTime": 1781115758074.903,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 84.60000000195578,
+        "responseStart": -1,
+        "responseEnd": -1
+    }
+}

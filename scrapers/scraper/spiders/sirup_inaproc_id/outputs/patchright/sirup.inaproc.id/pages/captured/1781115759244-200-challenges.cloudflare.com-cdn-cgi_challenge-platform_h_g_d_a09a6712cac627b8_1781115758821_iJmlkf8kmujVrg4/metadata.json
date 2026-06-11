@@ -1,0 +1,25 @@
+{
+    "status": 200,
+    "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a09a6712cac627b8/1781115758821/iJmlkf8kmujVrg4",
+    "headers": {
+        "cf-ray": "a09a67174d2627b8-VIE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "content-length": "3707",
+        "date": "Wed, 10 Jun 2026 18:22:39 GMT",
+        "content-type": "image/png",
+        "server": "cloudflare",
+        "priority": "u=3,i"
+    },
+    "timing": {
+        "startTime": 1781115759244.179,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.336,
+        "responseStart": 6.991,
+        "responseEnd": -1
+    }
+}

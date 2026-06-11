@@ -1,0 +1,25 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/cdn-cgi/challenge-platform/h/g/flow/ov1/3300693170:1781114726:8HGuwjVPuPVBDln-IAaoA9VFPYcLWjW4UYHVvK-caRQ/a09a67108b4aa2c1/6PNPAIJK0Qiw42osOAlHRO29panqOorkC7yu_FwILzI-1781115758-1.2.1.1-rFSRdgQvfwrIVS3tLPtx1joAEy8WfMMPJQIp2GkqwmWEscLKwQ3QQD8hVmEd8pY7",
+    "headers": {
+        "cf-chl-out": "vEYAxeiaFQFcUw2XdCA1ZLtTSABDFw8hrexEsevcJKOqgWg/di0iPZhMoY/unW+fWtoNAzfTZSCFx5HFLxxkhja/Hoz7FEITEaMBz/WKX69OvWd4SDOXHprYBnq9YIfxg9Ciu7zLA8yTbh2+XqSyDw==$DTkBc5GzZlaf6SKY07nxfg==",
+        "timing-allow-origin": "https://sirup.inaproc.id",
+        "content-encoding": "br",
+        "cf-ray": "a09a6729f9caa2c1-VIE",
+        "cf-chl-out-s": "jOB8Tz8WpjSZxSkZSfhIfjrtfHaY3pddLobVHnAK1ESiV2wGOMx0aRtXyotLfVeoGx7ej2kD9bV4RPPrMuXn63CsPqJ9nsaJRbvFABelPazEXB7qpNsiv9KgmOyp2A5t7yQCLfBPApPwDknWAkE8H0HMVG8sOFlgB7jObK+chJzqfgmE3tnqptLXCZ2acOsY4+H+Xb/wM+aLf49w8ddDi22tE+2h1+5hESEpCPQR4uKxwb17ZC7emTgMLCPDp1NCgX+dj6qiXBXrnZ6wSkmE6xMeebfribmm0eeF9GLY+xCZVMhPz2g0ZzhhmRjHCN7XQaSNLOvOc+OGrLiDATp3SVS8kwhh4FRNEEpxIe0kzqhnDcKCCyYDvqgdl7nEP228y1EJoE9dVSa+VW0PANXfDt+7VbsiD3MRVCicjLdHQuBFxAbQu4oStO0sdY1EqW+2RxKjRU0N0cwu/YbttLUuca/663ya3TU29uSKP2E1yRQyzOs1kOf3J/WJ+FV5O738wngA9L1e8FIAwNGhbvnLbC3LO7BER1O1TLTqNjftZ0a5m17LwhkfF6PWKnh3gpuXWE35WoAI8WAKx8saiWHhBMhoocR9tBRmNbrdaxiF4o1Rsr89Md5Pxuv5lmwMHxukYUHFv3d+GfzjkXOm0MpQw+GY9fsCdbcpUmFb5YhCAfPYxZWOZH4CugM+tgRm1mvGlA7MitfJqIKndz0u9k5My1iyj1XdfG+A1IuG3gt8frdEVQ72aa4q95zsbLbjEwfxX4GhOEJsNVltXsBxIBwmk60TcgEW8nM6HerLv5w6exnrI/V58jaOxR5XHHTx/sWAd9jcsHw7CaHjA2qylwwheHxMZuQOuCDuERecS14kWHLrvryMUEIlS2j1LMH26lCcUE1mhgUCgNtMvNyaM50xeVvIE/JXxl9rtNwt1CqJAXNw9DzHasMqJd8KbR39bF7NXHkUvyLEL0id71iCWoZYdg==$n71anfnESULLTivLcjBeTg==",
+        "date": "Wed, 10 Jun 2026 18:22:42 GMT",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115762229.765,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.411,
+        "responseStart": 45.687,
+        "responseEnd": -1
+    }
+}

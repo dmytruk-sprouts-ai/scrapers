@@ -1,0 +1,30 @@
+{
+    "status": 200,
+    "url": "https://www.scrapingcourse.com/build/assets/app-D2jpX1vH.js",
+    "headers": {
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+        "content-encoding": "zstd",
+        "cf-cache-status": "BYPASS",
+        "etag": "W/\"69295e4e-7486\"",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=FZn7ilkRs0Cv3Wue%2Bd1Wy3Kffcjq%2FTMr2QgBhjAz88Tla9hIZ6YEEcXy54njaeSiajFV7GkpIF6aEoPXiwp7NDNNcZGkdy%2F6CBibAcPzv90%2BElgEK%2Ff%2BNTpAeoL0H4APNvbH6ChHU4fQc9ZMDqAcDENlFrtG\"}]}",
+        "cf-ray": "a09bb6beeea25aab-VIE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "date": "Wed, 10 Jun 2026 22:11:47 GMT",
+        "content-type": "application/javascript",
+        "last-modified": "Fri, 28 Nov 2025 08:33:18 GMT",
+        "server": "cloudflare",
+        "priority": "u=1,i=?0"
+    },
+    "timing": {
+        "startTime": 1781129507665.823,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.279,
+        "responseStart": 114.99,
+        "responseEnd": -1
+    }
+}

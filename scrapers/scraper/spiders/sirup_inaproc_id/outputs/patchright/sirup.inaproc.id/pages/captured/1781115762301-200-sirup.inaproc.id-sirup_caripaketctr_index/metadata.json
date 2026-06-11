@@ -1,0 +1,28 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/sirup/caripaketctr/index",
+    "headers": {
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a09a672a6b3fa2c1-VIE",
+        "content-encoding": "br",
+        "content-security-policy": "frame-ancestors 'none'",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Wed, 10 Jun 2026 18:22:42 GMT",
+        "server": "cloudflare",
+        "server-timing": "cfCacheStatus;desc=\"DYNAMIC\"\ncfEdge;dur=201,cfOrigin;dur=98",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "via": "1.1 google",
+        "x-content-type-options": "nosniff"
+    },
+    "timing": {
+        "startTime": 1781115762301.868,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.433,
+        "responseStart": 307.946,
+        "responseEnd": -1
+    }
+}

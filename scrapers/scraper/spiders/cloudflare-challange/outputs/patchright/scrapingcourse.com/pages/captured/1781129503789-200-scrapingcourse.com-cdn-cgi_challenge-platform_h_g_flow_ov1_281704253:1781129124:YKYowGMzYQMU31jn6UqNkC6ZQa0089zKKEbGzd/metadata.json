@@ -1,0 +1,27 @@
+{
+    "status": 200,
+    "url": "https://www.scrapingcourse.com/cdn-cgi/challenge-platform/h/g/flow/ov1/281704253:1781129124:YKYowGMzYQMU31jn6UqNkC6ZQa0089zKKEbGzdwcD7Y/a09bb6a51d4c5aab/qpkVnpuxKbVoT1O9W9OY0XrV64aJEh2.z3QBELD9vLA-1781129503-1.2.1.1-.LMBWWuwzhOVpy7qFsKjjGijjIZypBYKovKRYyClpt1smU.E_.vCzMKsCVYhnbb0",
+    "headers": {
+        "timing-allow-origin": "https://www.scrapingcourse.com",
+        "content-encoding": "zstd",
+        "cf-ray": "a09bb6a6bd625aab-VIE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "date": "Wed, 10 Jun 2026 22:11:43 GMT",
+        "content-type": "text/plain; charset=UTF-8",
+        "cf-chl-gen": "VzVktUFQO5mtaMgIfHqlWFM5Uv9pxUHCLvytuHG7NN8=$8B/ApIArc4iVM8g6CJEcAQ==",
+        "server": "cloudflare",
+        "priority": "u=1,i"
+    },
+    "timing": {
+        "startTime": 1781129503789.97,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.332,
+        "responseStart": 14.194,
+        "responseEnd": -1
+    }
+}

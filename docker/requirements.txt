@@ -1,0 +1,21 @@
+# Scraping toolchain shared by the sandbox image and the local scraper venv (`just scraper-install`).
+# The deliverable is always a Scrapy project; curl_cffi and Playwright are wired into Scrapy as
+# downloader middleware (scrapy-impersonate / scrapy-playwright).
+requests>=2.32
+curl_cffi>=0.15.0
+scrapy>=2.16.0
+scrapy-impersonate>=1.4.0
+playwright>=1.60.0
+scrapy-playwright>=0.0.43
+pytest>=9.0.3
+parsel>=1.11.0
+beautifulsoup4>=4.14.3
+rich>=14.0.0  # colored Scrapy logs via scraper.logconf
+haralyzer>=2.4.0  # parse the captured HAR into the post-crawl analysis report (scraper.spiders._capture_har.analyze_har)
+packaging==23.0 # needed to be locked for undetected-chromedriver, otherwise ttributeError: 'Version' object has no attribute 'version'
+git+https://www.github.com/ultrafunkamsterdam/undetected-chromedriver@master
+playwright-stealth>=2.0.3 
+structlog>=26.1.0
+PyYAML>=6.0.3
+patchright>=1.60.1
+zstandard>=0.22

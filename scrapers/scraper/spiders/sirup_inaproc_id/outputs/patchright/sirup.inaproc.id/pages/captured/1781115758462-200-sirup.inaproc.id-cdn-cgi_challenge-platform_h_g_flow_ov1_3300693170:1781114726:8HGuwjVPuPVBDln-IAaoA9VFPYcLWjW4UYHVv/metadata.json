@@ -1,0 +1,24 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/cdn-cgi/challenge-platform/h/g/flow/ov1/3300693170:1781114726:8HGuwjVPuPVBDln-IAaoA9VFPYcLWjW4UYHVvK-caRQ/a09a67108b4aa2c1/6PNPAIJK0Qiw42osOAlHRO29panqOorkC7yu_FwILzI-1781115758-1.2.1.1-rFSRdgQvfwrIVS3tLPtx1joAEy8WfMMPJQIp2GkqwmWEscLKwQ3QQD8hVmEd8pY7",
+    "headers": {
+        "cf-ray": "a09a67126931a2c1-VIE",
+        "timing-allow-origin": "https://sirup.inaproc.id",
+        "content-encoding": "br",
+        "date": "Wed, 10 Jun 2026 18:22:38 GMT",
+        "content-type": "text/plain; charset=UTF-8",
+        "cf-chl-gen": "TvxxvXFqnMz/2OEmd8qGr3vfOBBPGZZ0qdDt/rtxFuM=$J+OEP6YVjGkAZur1VCpWdw==",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115758462.7139,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.474,
+        "responseStart": 15.701,
+        "responseEnd": -1
+    }
+}

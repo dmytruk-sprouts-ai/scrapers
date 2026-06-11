@@ -1,0 +1,35 @@
+{
+    "status": 200,
+    "url": "https://fonts.gstatic.com/s/publicsans/v21/ijwRs572Xtc6ZYQws9YVwnNGfJ4.woff2",
+    "headers": {
+        "age": "403166",
+        "report-to": "{\"group\":\"apps-themes\",\"max_age\":2592000,\"endpoints\":[{\"url\":\"https://csp.withgoogle.com/csp/report-to/apps-themes\"}]}",
+        "x-content-type-options": "nosniff",
+        "expires": "Sat, 05 Jun 2027 22:43:44 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "date": "Fri, 05 Jun 2026 22:43:44 GMT",
+        "last-modified": "Mon, 15 Sep 2025 16:32:50 GMT",
+        "content-type": "font/woff2",
+        "cache-control": "public, max-age=31536000",
+        "timing-allow-origin": "*",
+        "cross-origin-opener-policy": "same-origin; report-to=\"apps-themes\"",
+        "cross-origin-resource-policy": "cross-origin",
+        "content-security-policy-report-only": "require-trusted-types-for 'script'; report-uri https://csp.withgoogle.com/csp/apps-themes",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "content-length": "26832",
+        "x-xss-protection": "0",
+        "server": "sffe"
+    },
+    "timing": {
+        "startTime": 1781102590129.171,
+        "domainLookupStart": 0.262,
+        "domainLookupEnd": 6.815,
+        "connectStart": 6.991,
+        "secureConnectionStart": 6.991,
+        "connectEnd": 39.26,
+        "requestStart": 39.386,
+        "responseStart": 51.501,
+        "responseEnd": -1
+    }
+}

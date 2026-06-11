@@ -1,0 +1,30 @@
+{
+    "status": 200,
+    "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+    "headers": {
+        "cache-control": "max-age=31536000, stale-if-error=10800, stale-while-revalidate=31536000, public",
+        "timing-allow-origin": "https://www.crunchbase.com",
+        "content-encoding": "br",
+        "cross-origin-resource-policy": "cross-origin",
+        "cf-ray": "a09925703ce251d5-VIE",
+        "access-control-allow-origin": "*",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "date": "Wed, 10 Jun 2026 14:43:04 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Thu, 28 May 2026 15:08:54 GMT",
+        "server": "cloudflare",
+        "priority": "u=3,i=?0"
+    },
+    "timing": {
+        "startTime": 1781102584257.727,
+        "domainLookupStart": 0.213,
+        "domainLookupEnd": 89.826,
+        "connectStart": 90.078,
+        "secureConnectionStart": 90.078,
+        "connectEnd": 100.127,
+        "requestStart": 100.245,
+        "responseStart": 115.055,
+        "responseEnd": -1
+    }
+}

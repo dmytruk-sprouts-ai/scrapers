@@ -1,0 +1,28 @@
+{
+    "status": 204,
+    "url": "https://sirup.inaproc.id/cdn-cgi/rum?",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "access-control-max-age": "86400",
+        "access-control-allow-credentials": "true",
+        "access-control-allow-methods": "POST,OPTIONS",
+        "x-content-type-options": "nosniff",
+        "cf-ray": "a09a67343dd5a2c1-VIE",
+        "access-control-allow-origin": "https://sirup.inaproc.id",
+        "date": "Wed, 10 Jun 2026 18:22:43 GMT",
+        "content-type": "text/plain",
+        "vary": "Origin",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115763870.8599,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.306,
+        "responseStart": 9.315,
+        "responseEnd": -1
+    }
+}

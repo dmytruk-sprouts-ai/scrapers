@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/siftery/G2-Stack-Card_Attribution_Logo-Horizontal?ik-sanitizeSvg=true",
+    "headers": {
+        "x-request-id": "9118a739-681c-435f-8699-a011424e78e7",
+        "etag": "\"31348bf1dfad58f07ed9d7ab1c267350\"",
+        "age": "1447668",
+        "access-control-allow-methods": "GET",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-cache": "Hit from cloudfront",
+        "x-amz-cf-id": "w_Z3LjYsmQOdeTObHIzu8j74g2Y-x9w2TZEb5-uzHwfjVQTulsJCFA==",
+        "date": "Sun, 24 May 2026 20:35:22 GMT",
+        "content-type": "image/svg+xml",
+        "vary": "Accept",
+        "x-server": "ImageKit.io",
+        "last-modified": "Sat, 18 Apr 2026 22:31:20 GMT",
+        "access-control-allow-headers": "*",
+        "cache-control": "public, s-maxage=31536000, max-age=31536000, must-revalidate",
+        "timing-allow-origin": "*",
+        "via": "1.1 3998ee43a990bae5d9a82ad1c8c4f910.cloudfront.net (CloudFront)",
+        "access-control-allow-origin": "*",
+        "content-length": "3699",
+        "x-amz-cf-pop": "VIE50-P4"
+    },
+    "timing": {
+        "startTime": 1781102590239.7358,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 3.182,
+        "responseStart": 9.064,
+        "responseEnd": -1
+    }
+}

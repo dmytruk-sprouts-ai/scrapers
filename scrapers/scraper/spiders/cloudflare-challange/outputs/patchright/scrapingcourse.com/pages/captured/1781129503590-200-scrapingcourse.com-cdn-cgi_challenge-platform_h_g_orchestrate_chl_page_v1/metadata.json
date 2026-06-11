@@ -1,0 +1,26 @@
+{
+    "status": 200,
+    "url": "https://www.scrapingcourse.com/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a09bb6a51d4c5aab",
+    "headers": {
+        "cache-control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "content-encoding": "zstd",
+        "cf-ray": "a09bb6a57d535aab-VIE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "date": "Wed, 10 Jun 2026 22:11:43 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare",
+        "priority": "u=3,i=?0"
+    },
+    "timing": {
+        "startTime": 1781129503590.08,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.499,
+        "responseStart": 10.58,
+        "responseEnd": -1
+    }
+}

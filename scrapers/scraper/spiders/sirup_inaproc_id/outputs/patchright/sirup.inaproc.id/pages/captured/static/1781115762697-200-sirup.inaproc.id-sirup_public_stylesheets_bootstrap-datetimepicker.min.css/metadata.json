@@ -1,0 +1,31 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/sirup/public/stylesheets/bootstrap-datetimepicker.min.css",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-security-policy": "frame-ancestors 'none'",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"1780976163000--1163567787\"",
+        "age": "73846",
+        "x-content-type-options": "nosniff",
+        "via": "1.1 google",
+        "cf-ray": "a09a672cec2fa2c1-VIE",
+        "date": "Wed, 10 Jun 2026 18:22:42 GMT",
+        "content-type": "text/css; charset=utf-8",
+        "last-modified": "Tue, 09 Jun 2026 10:36:03 GMT",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115762697.509,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.424,
+        "responseStart": 17.739,
+        "responseEnd": -1
+    }
+}

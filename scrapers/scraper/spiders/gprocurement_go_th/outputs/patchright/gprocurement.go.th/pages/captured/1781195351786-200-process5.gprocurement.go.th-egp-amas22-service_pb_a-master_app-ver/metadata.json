@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://process5.gprocurement.go.th/egp-amas22-service/pb/a-master/app-ver",
+    "headers": {
+        "access-control-max-age": "1500",
+        "access-control-expose-headers": "X-Xsrf-Token, Www-Authenticate",
+        "access-control-allow-methods": "POST, GET, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "expires": "0",
+        "date": "Thu, 11 Jun 2026 16:29:12 GMT",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "x-frame-options": "SAMEORIGIN",
+        "access-control-allow-headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, dataProfile, X-Xsrf-Token, Host, referer",
+        "strict-transport-security": "max-age=63072000; includeSubDomains;",
+        "content-security-policy": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'",
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate,no-cache, no-store, max-age=0, must-revalidate",
+        "pragma": "no-cache",
+        "x-envoy-upstream-service-time": "7",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "https://process5.gprocurement.go.th",
+        "content-length": "337",
+        "x-xss-protection": "1; mode=block"
+    },
+    "timing": {
+        "startTime": 1781195351786.88,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 301.813,
+        "responseStart": 771.151,
+        "responseEnd": -1
+    }
+}

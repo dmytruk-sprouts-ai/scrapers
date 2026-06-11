@@ -1,0 +1,24 @@
+{
+    "status": 200,
+    "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/flow/ov1/2161094974:1781100021:yD1_o19p-uMhaVzsfdCmylJ6dDd0PKzDPQylJiSJ4bw/a099256ec8d2c4f7/KGPVyW1Q2i.W0j0roSECsqL19iJgGAFvz7U5bByq1yk-1781102584-1.2.1.1-bE0vYLY7.BkZPN4sjv1s8IRjsWJZkryeRxH8.Pn1l0G5sq32ooTzW9PcdkOnuC36",
+    "headers": {
+        "cf-ray": "a09925709f24c4f7-VIE",
+        "timing-allow-origin": "https://www.crunchbase.com",
+        "content-encoding": "br",
+        "date": "Wed, 10 Jun 2026 14:43:04 GMT",
+        "content-type": "text/plain; charset=UTF-8",
+        "cf-chl-gen": "K1NgX4RrN9yBE+ULISN/9ANdr1Y/QFnht/sNcnxI5Ig=$X0R0OJYADzfUPoLY5PUB9A==",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781102584414.1382,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.508,
+        "responseStart": 17.649,
+        "responseEnd": -1
+    }
+}

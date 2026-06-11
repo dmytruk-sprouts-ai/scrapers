@@ -1,0 +1,29 @@
+{
+    "status": 200,
+    "url": "https://www.gprocurement.go.th/homepage.html",
+    "headers": {
+        "accept-ranges": "bytes",
+        "age": "0",
+        "connection": "Keep-Alive",
+        "content-encoding": "gzip",
+        "content-length": "832",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Thu, 11 Jun 2026 16:28:41 GMT",
+        "etag": "\"891f-7a1-6425e4b8aa380\"",
+        "keep-alive": "timeout=10, max=100",
+        "last-modified": "Thu, 30 Oct 2025 11:10:22 GMT",
+        "vary": "Accept-Encoding",
+        "x-frame-options": "SAMEORIGIN"
+    },
+    "timing": {
+        "startTime": 1781195320983.83,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.324,
+        "responseStart": 547.633,
+        "responseEnd": -1
+    }
+}

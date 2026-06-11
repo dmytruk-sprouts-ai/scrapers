@@ -1,0 +1,18 @@
+{
+    "status": 307,
+    "url": "https://www.crunchbase.com/organization/nvidia",
+    "headers": {
+        "location": "https://www.crunchbase.com/organization/nvidia"
+    },
+    "timing": {
+        "startTime": 1781102584035.083,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 80.31099999789149,
+        "responseStart": -1,
+        "responseEnd": -1
+    }
+}

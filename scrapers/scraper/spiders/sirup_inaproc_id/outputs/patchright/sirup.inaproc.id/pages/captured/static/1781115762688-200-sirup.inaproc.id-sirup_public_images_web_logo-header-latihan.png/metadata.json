@@ -1,0 +1,32 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/sirup/public/images/web/logo-header-latihan.png",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-security-policy": "frame-ancestors 'none'",
+        "cache-control": "max-age=31536000",
+        "cf-cache-status": "HIT",
+        "etag": "\"1780976163000--1255597090\"",
+        "age": "70451",
+        "x-content-type-options": "nosniff",
+        "via": "1.1 google",
+        "cf-ray": "a09a672cdbf6a2c1-VIE",
+        "accept-ranges": "bytes",
+        "content-length": "2375",
+        "date": "Wed, 10 Jun 2026 18:22:42 GMT",
+        "content-type": "image/png",
+        "last-modified": "Tue, 09 Jun 2026 10:36:03 GMT",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115762688.8398,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.219,
+        "responseStart": 23.168,
+        "responseEnd": -1
+    }
+}

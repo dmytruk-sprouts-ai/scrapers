@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/aberdeen/aberdeen_bottom?ik-sanitizeSvg=true",
+    "headers": {
+        "x-request-id": "f217c1e1-d262-412d-bfe5-62e26bd3464e",
+        "etag": "\"c0299c8f2aae93478742b097415a122d\"",
+        "age": "19860210",
+        "access-control-allow-methods": "GET",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "x-cache": "Hit from cloudfront",
+        "x-amz-cf-id": "JHXcZht91EQ01Nrb3HhxcjWwD5pU-DN1KQAUGbuuh5pcUHbJiFmnZg==",
+        "date": "Thu, 23 Oct 2025 17:59:40 GMT",
+        "content-type": "image/svg+xml",
+        "vary": "Accept",
+        "x-server": "ImageKit.io",
+        "last-modified": "Mon, 20 Oct 2025 20:13:57 GMT",
+        "access-control-allow-headers": "*",
+        "cache-control": "public, s-maxage=31536000, max-age=31536000, must-revalidate",
+        "timing-allow-origin": "*",
+        "via": "1.1 3998ee43a990bae5d9a82ad1c8c4f910.cloudfront.net (CloudFront)",
+        "access-control-allow-origin": "*",
+        "content-length": "1134",
+        "x-amz-cf-pop": "VIE50-P4"
+    },
+    "timing": {
+        "startTime": 1781102590231.272,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.341,
+        "responseStart": 6.048,
+        "responseEnd": -1
+    }
+}

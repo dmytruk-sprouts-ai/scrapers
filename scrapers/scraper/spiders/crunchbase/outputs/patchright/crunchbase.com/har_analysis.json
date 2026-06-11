@@ -1,0 +1,814 @@
+{
+  "target_url": "https://www.crunchbase.com/organization/nvidia",
+  "page_title": "NVIDIA - Crunchbase Company Profile & Funding",
+  "verdict": "protected-but-delivered",
+  "verdict_detail": "Cloudflare, Cloudflare Turnstile present but the document was delivered — protection is passive.",
+  "captured_entries": 52,
+  "total_bytes": 948455,
+  "page_load_time_ms": 6320,
+  "time_to_first_byte_ms": 111.8,
+  "protections": [
+    {
+      "vendor": "Cloudflare",
+      "category": "CDN / WAF / Bot Management",
+      "evidence": [
+        {
+          "via": "header",
+          "signal": "cf-ray",
+          "example": "cf-ray: a099256ec8d2c4f7-VIE",
+          "count": 25
+        },
+        {
+          "via": "header",
+          "signal": "cf-mitigated",
+          "example": "cf-mitigated: challenge",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "server",
+          "example": "server: cloudflare",
+          "count": 25
+        },
+        {
+          "via": "url",
+          "signal": "/cdn-cgi/challenge-platform/",
+          "example": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a099256ec8d2c4f7",
+          "count": 12
+        },
+        {
+          "via": "cookie",
+          "signal": "__cf_bm",
+          "example": "__cf_bm",
+          "count": 6
+        },
+        {
+          "via": "url",
+          "signal": "challenges\\.cloudflare\\.com",
+          "example": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "cf-chl-out",
+          "example": "cf-chl-out: d4ydsUWFSYOyKagkQSrPN1Xks7P/iXbyQmJzQ6xWzGnOQ9RKirbNcdBfAEUEnSJhHKAJx219jM/l5GvT",
+          "count": 2
+        },
+        {
+          "via": "cookie",
+          "signal": "cf_clearance",
+          "example": "cf_clearance",
+          "count": 2
+        },
+        {
+          "via": "header",
+          "signal": "cf-cache-status",
+          "example": "cf-cache-status: DYNAMIC",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "vendor": "Cloudflare Turnstile",
+      "category": "CAPTCHA / challenge widget",
+      "evidence": [
+        {
+          "via": "url",
+          "signal": "challenges\\.cloudflare\\.com/turnstile",
+          "example": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "session_cookies": [
+    {
+      "name": "__cf_bm",
+      "set_by": "www.crunchbase.com",
+      "attributes": "HttpOnly; SameSite=None; Secure; Path=/; Domain=crunchbase.com; Expires=Wed, 10 Jun 2026 15:13:04 GMT"
+    },
+    {
+      "name": "cf_clearance",
+      "set_by": "www.crunchbase.com",
+      "attributes": "HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=crunchbase.com; Expires=Thu, 10 Jun 2027 14:43:08 GMT"
+    },
+    {
+      "name": "cb_analytics_consent",
+      "set_by": "www.crunchbase.com",
+      "attributes": "Expires=Fri, 09-Jun-28 14:43:09 GMT; Path=/"
+    },
+    {
+      "name": "cid",
+      "set_by": "www.crunchbase.com",
+      "attributes": "expires=Fri, 09-Jun-28 14:43:09 GMT; domain=.crunchbase.com; path=/"
+    }
+  ],
+  "document": {
+    "final_status": 200,
+    "final_mime": "text/html; charset=utf-8",
+    "http_version": "HTTP/2.0",
+    "size_bytes": 116946,
+    "chain": [
+      {
+        "status": 307,
+        "url": "https://www.crunchbase.com/organization/nvidia"
+      },
+      {
+        "status": 403,
+        "url": "https://www.crunchbase.com/organization/nvidia"
+      },
+      {
+        "status": 200,
+        "url": "https://www.crunchbase.com/organization/nvidia"
+      }
+    ],
+    "request_headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "Referer": "https://www.crunchbase.com/organization/nvidia?__cf_chl_tk=N8vPCxXPLopVUO3pCeG1iAepf8dt.yqRPqrfcp1W1po-1781102584-1.0.1.1-FTNoDtkcUulTlc_jH8rNlUtC1vWIuT8Q6VF8Mp1aXag",
+      "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+      "sec-ch-ua-platform": "\"Linux\"",
+      "sec-ch-ua-mobile": "?0",
+      "Upgrade-Insecure-Requests": "1"
+    },
+    "accept_ch": null,
+    "critical_ch": null
+  },
+  "data_endpoints": [
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://cdn.cookielaw.org/consent/d71c660f-7eb5-4a5e-983e-ca1d7f1e56d4/d71c660f-7eb5-4a5e-983e-ca1d7f1e56d4.json",
+      "mime": "application/json",
+      "size_bytes": 2600
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location",
+      "mime": "application/json",
+      "size_bytes": 288
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://cdn.cookielaw.org/consent/d71c660f-7eb5-4a5e-983e-ca1d7f1e56d4/019d9788-16a1-7e8a-b54a-b88bb8d51d29/en.json",
+      "mime": "application/json",
+      "size_bytes": 18870
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://cdn.cookielaw.org/scripttemplates/202304.1.0/assets/otFloatingRounded.json",
+      "mime": "application/json",
+      "size_bytes": 2946
+    }
+  ],
+  "hosts": [
+    {
+      "host": "images.crunchbase.com",
+      "requests": 25,
+      "bytes": 59497,
+      "is_protection": false
+    },
+    {
+      "host": "www.crunchbase.com",
+      "requests": 11,
+      "bytes": 232716,
+      "is_protection": true
+    },
+    {
+      "host": "challenges.cloudflare.com",
+      "requests": 7,
+      "bytes": 492985,
+      "is_protection": true
+    },
+    {
+      "host": "cdn.cookielaw.org",
+      "requests": 7,
+      "bytes": 137527,
+      "is_protection": false
+    },
+    {
+      "host": "fonts.gstatic.com",
+      "requests": 1,
+      "bytes": 26861,
+      "is_protection": false
+    },
+    {
+      "host": "geolocation.onetrust.com",
+      "requests": 1,
+      "bytes": 288,
+      "is_protection": false
+    }
+  ],
+  "stats": {
+    "by_status": {
+      "200": 48,
+      "302": 1,
+      "307": 1,
+      "401": 1,
+      "403": 1
+    },
+    "by_type": {
+      "image": 29,
+      "script": 6,
+      "document": 5,
+      "xhr": 4,
+      "json": 4,
+      "stylesheet": 2,
+      "other": 1,
+      "font": 1
+    }
+  },
+  "timeline": [
+    {
+      "n": 0,
+      "offset_ms": 0.0,
+      "time_ms": 81.3,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 92,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/organization/nvidia"
+    },
+    {
+      "n": 1,
+      "offset_ms": 81.0,
+      "time_ms": 14.5,
+      "method": "GET",
+      "status": 403,
+      "type": "document",
+      "size_bytes": 4746,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/organization/nvidia"
+    },
+    {
+      "n": 2,
+      "offset_ms": 145.0,
+      "time_ms": 45.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 65229,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a099256ec8d2c4f7"
+    },
+    {
+      "n": 3,
+      "offset_ms": 210.0,
+      "time_ms": 147.6,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 21850,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit"
+    },
+    {
+      "n": 4,
+      "offset_ms": 355.0,
+      "time_ms": 44.9,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 16709,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/flow/ov1/2161094974:1781100021:yD1_o19p-uMhaVzsfdCmylJ6dDd0PKzDPQylJiSJ4bw/a099256ec8d2c4f7/KGPVyW1Q2i.W0j0roSECsqL19iJgGAFvz7U5bByq1yk-1781102584-1.2.1.1-bE0vYLY7.BkZPN4sjv1s8IRjsWJZkryeRxH8.Pn1l0G5sq32ooTzW9PcdkOnuC36"
+    },
+    {
+      "n": 5,
+      "offset_ms": 424.0,
+      "time_ms": 49.9,
+      "method": "GET",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 89215,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/3j44t/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto"
+    },
+    {
+      "n": 6,
+      "offset_ms": 496.0,
+      "time_ms": 38.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 208,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/cmg/1"
+    },
+    {
+      "n": 7,
+      "offset_ms": 709.0,
+      "time_ms": 131.2,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 371654,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/2175469270:1781100027:mDHf2ky3TYfnpsx3okKkZjMn9kTv3JDogwAfdzppwFo/a0992570ffabf406/.WQYN0GZoHdwy2fzQvGGP_KxriOBdrrbc7S9sRLf_j8-1781102584-1.2.1.1-tfmJgocgO6z6zL1wJ1rri7rQf_RXWr8tziFs0cJAh2JdfHdxSQPcGktL1aWG20Zr"
+    },
+    {
+      "n": 8,
+      "offset_ms": 1318.0,
+      "time_ms": 21.1,
+      "method": "GET",
+      "status": 401,
+      "type": "xhr",
+      "size_bytes": 1702,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a0992570ffabf406/1781102584765/c701fb27bea3ee63b660e73e10d1c9b51e94e68dc5666db29c41781c87c5663f/SXALJsp3Jyy5FFw"
+    },
+    {
+      "n": 9,
+      "offset_ms": 1561.0,
+      "time_ms": 19.1,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 450,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a0992570ffabf406/1781102584765/Zw9r6XEX82AWLAM"
+    },
+    {
+      "n": 10,
+      "offset_ms": 3984.0,
+      "time_ms": 48.6,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 7906,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/2175469270:1781100027:mDHf2ky3TYfnpsx3okKkZjMn9kTv3JDogwAfdzppwFo/a0992570ffabf406/.WQYN0GZoHdwy2fzQvGGP_KxriOBdrrbc7S9sRLf_j8-1781102584-1.2.1.1-tfmJgocgO6z6zL1wJ1rri7rQf_RXWr8tziFs0cJAh2JdfHdxSQPcGktL1aWG20Zr"
+    },
+    {
+      "n": 11,
+      "offset_ms": 4060.0,
+      "time_ms": 51.0,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 5017,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/flow/ov1/2161094974:1781100021:yD1_o19p-uMhaVzsfdCmylJ6dDd0PKzDPQylJiSJ4bw/a099256ec8d2c4f7/KGPVyW1Q2i.W0j0roSECsqL19iJgGAFvz7U5bByq1yk-1781102584-1.2.1.1-bE0vYLY7.BkZPN4sjv1s8IRjsWJZkryeRxH8.Pn1l0G5sq32ooTzW9PcdkOnuC36"
+    },
+    {
+      "n": 12,
+      "offset_ms": 4131.0,
+      "time_ms": 1904.9,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 116946,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/organization/nvidia"
+    },
+    {
+      "n": 13,
+      "offset_ms": 5872.0,
+      "time_ms": 50.8,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 10732,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/styles.20274c59d7011192.css"
+    },
+    {
+      "n": 14,
+      "offset_ms": 5872.0,
+      "time_ms": 111.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 9293,
+      "host": "cdn.cookielaw.org",
+      "url": "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+    },
+    {
+      "n": 15,
+      "offset_ms": 5872.0,
+      "time_ms": 35.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 10669,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,w_2000,f_auto,q_auto:eco,dpr_1/fb9657a930ae45ac935a7c342341295f?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 16,
+      "offset_ms": 5931.0,
+      "time_ms": 69.2,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1797,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_160,w_160,f_auto,b_white,q_auto:eco,dpr_1/v1502744943/jhowtgkdwv2aa1eodg2b.png?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 17,
+      "offset_ms": 6059.0,
+      "time_ms": 239.7,
+      "method": "GET",
+      "status": 200,
+      "type": "font",
+      "size_bytes": 26861,
+      "host": "fonts.gstatic.com",
+      "url": "https://fonts.gstatic.com/s/publicsans/v21/ijwRs572Xtc6ZYQws9YVwnNGfJ4.woff2"
+    },
+    {
+      "n": 18,
+      "offset_ms": 6059.0,
+      "time_ms": 43.5,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1063,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_thumb,h_50,w_50,f_auto,g_face,z_0.7,b_white,q_auto:eco,dpr_1/v1419917587/qpjgopqrtrak8ys4avgj.png?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 19,
+      "offset_ms": 6060.0,
+      "time_ms": 45.3,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1126,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_thumb,h_50,w_50,f_auto,g_face,z_0.7,b_white,q_auto:eco,dpr_1/v1397186091/aeeb79ae62e4db73b80f34946397f391.jpg?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 20,
+      "offset_ms": 6068.0,
+      "time_ms": 76.4,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2600,
+      "host": "cdn.cookielaw.org",
+      "url": "https://cdn.cookielaw.org/consent/d71c660f-7eb5-4a5e-983e-ca1d7f1e56d4/d71c660f-7eb5-4a5e-983e-ca1d7f1e56d4.json"
+    },
+    {
+      "n": 21,
+      "offset_ms": 6124.0,
+      "time_ms": 77.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 13177,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,w_2000,f_auto,q_auto:eco,dpr_1/85ea3fffd0884126b2959f19dc81ba3d?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 22,
+      "offset_ms": 6124.0,
+      "time_ms": 83.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1543,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/semrush/semrush-logo-400.png?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 23,
+      "offset_ms": 6125.0,
+      "time_ms": 83.5,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1531,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/aberdeen/aberdeen_bottom?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 24,
+      "offset_ms": 6125.0,
+      "time_ms": 85.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 2034,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/bombora/bombora_attribution?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 25,
+      "offset_ms": 6125.0,
+      "time_ms": 89.3,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 4098,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/siftery/G2-Stack-Card_Attribution_Logo-Horizontal?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 26,
+      "offset_ms": 6125.0,
+      "time_ms": 103.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 3170,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/builtwith_attribution_logo_xlkdrf.png?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 27,
+      "offset_ms": 6125.0,
+      "time_ms": 109.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 5952,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_15,f_auto,q_auto:eco,dpr_1/ipqwery/ipqwery_datatable?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 28,
+      "offset_ms": 6126.0,
+      "time_ms": 109.4,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 746,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/v1460863980/qizoi6ebvdhngxlxidyk.jpg?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 29,
+      "offset_ms": 6126.0,
+      "time_ms": 111.7,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1026,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/241ea26d3d764191a847a1418890bd8c?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 30,
+      "offset_ms": 6126.0,
+      "time_ms": 112.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 883,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/a6eb3a1422d244bb940a52ea0fea7f36?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 31,
+      "offset_ms": 6126.0,
+      "time_ms": 111.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 981,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/2e14af31989642ea8b42e75137ed2dec?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 32,
+      "offset_ms": 6127.0,
+      "time_ms": 116.9,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 801,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/16d791f7d13b4a558a263f298bf2d61b?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 33,
+      "offset_ms": 6127.0,
+      "time_ms": 119.6,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 749,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/cktwncwewldvaqjfbtgu?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 34,
+      "offset_ms": 6127.0,
+      "time_ms": 121.6,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 817,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/8073a9d36e3b4e549f286c1e9b820375?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 35,
+      "offset_ms": 6127.0,
+      "time_ms": 124.4,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1234,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/v1497896399/i1x2cjs9g9f78ja2oy7u.png?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 36,
+      "offset_ms": 6128.0,
+      "time_ms": 125.6,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1045,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/09bfb7ae810b47c4b3a226cf26bfa38b?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 37,
+      "offset_ms": 6128.0,
+      "time_ms": 131.2,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 814,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/mkqyfzvw5f3020ojg80e?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 38,
+      "offset_ms": 6128.0,
+      "time_ms": 130.2,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1166,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/exjcoyaqvsn9dqgpd8es?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 39,
+      "offset_ms": 6128.0,
+      "time_ms": 138.3,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 748,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/zuy8hlz9e9rh3cvncw4u?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 40,
+      "offset_ms": 6129.0,
+      "time_ms": 138.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 805,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/c_pad,h_40,w_40,f_auto,q_auto:eco,dpr_1/866aae97a23a4c519bdab47ad53cd0f8?ik-sanitizeSvg=true"
+    },
+    {
+      "n": 41,
+      "offset_ms": 6129.0,
+      "time_ms": 138.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1522,
+      "host": "images.crunchbase.com",
+      "url": "https://images.crunchbase.com/image/upload/v1613675726/clientapp/logo_crunchbase_primary.svg"
+    },
+    {
+      "n": 42,
+      "offset_ms": 6212.0,
+      "time_ms": 85.8,
+      "method": "GET",
+      "status": 302,
+      "type": "script",
+      "size_bytes": 0,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/scripts/jsd/main.js"
+    },
+    {
+      "n": 43,
+      "offset_ms": 6289.0,
+      "time_ms": 86.3,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 288,
+      "host": "geolocation.onetrust.com",
+      "url": "https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location"
+    },
+    {
+      "n": 44,
+      "offset_ms": 6294.0,
+      "time_ms": 11.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 10675,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/scripts/jsd/8fc8ed1d8752/main.js?"
+    },
+    {
+      "n": 45,
+      "offset_ms": 6412.0,
+      "time_ms": 92.2,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 99314,
+      "host": "cdn.cookielaw.org",
+      "url": "https://cdn.cookielaw.org/scripttemplates/202304.1.0/otBannerSdk.js"
+    },
+    {
+      "n": 46,
+      "offset_ms": 6412.0,
+      "time_ms": 82.9,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1701,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/favicon.ico?v=2.0"
+    },
+    {
+      "n": 47,
+      "offset_ms": 6465.0,
+      "time_ms": 28.8,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 869,
+      "host": "www.crunchbase.com",
+      "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/jsd/oneshot/8fc8ed1d8752/0.4301858753333363:1781100028:7r9bGf7pRxpFEhIMJF979WenMFx4QFDzR8bvKSXKk3M/a09925882dfac4f7"
+    },
+    {
+      "n": 48,
+      "offset_ms": 6496.0,
+      "time_ms": 33.9,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 18870,
+      "host": "cdn.cookielaw.org",
+      "url": "https://cdn.cookielaw.org/consent/d71c660f-7eb5-4a5e-983e-ca1d7f1e56d4/019d9788-16a1-7e8a-b54a-b88bb8d51d29/en.json"
+    },
+    {
+      "n": 49,
+      "offset_ms": 6542.0,
+      "time_ms": 25.5,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2946,
+      "host": "cdn.cookielaw.org",
+      "url": "https://cdn.cookielaw.org/scripttemplates/202304.1.0/assets/otFloatingRounded.json"
+    },
+    {
+      "n": 50,
+      "offset_ms": 6542.0,
+      "time_ms": 27.4,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 3901,
+      "host": "cdn.cookielaw.org",
+      "url": "https://cdn.cookielaw.org/scripttemplates/202304.1.0/assets/otCommonStyles.css"
+    },
+    {
+      "n": 51,
+      "offset_ms": 6634.0,
+      "time_ms": 57.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 603,
+      "host": "cdn.cookielaw.org",
+      "url": "https://cdn.cookielaw.org/logos/static/ot_close.svg"
+    }
+  ],
+  "recommendations": [
+    "Cloudflare challenge in play — use a real browser (scrapy-playwright/stealth) to solve it, or reuse a valid `cf_clearance` cookie + the *exact* matching User-Agent.",
+    "Persist & replay these cookies across requests: __cf_bm, cf_clearance, cb_analytics_consent, cid",
+    "4 JSON/API endpoint(s) seen — consider scraping them directly instead of parsing HTML (check whether they need the session cookies above)."
+  ],
+  "_meta": {
+    "source_har": "har_file.har",
+    "har_creator": {
+      "name": "Playwright",
+      "version": "1.60.0"
+    },
+    "browser": {
+      "name": "chromium",
+      "version": "148.0.7778.178"
+    }
+  }
+}

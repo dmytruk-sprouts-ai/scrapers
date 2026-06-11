@@ -1,0 +1,30 @@
+{
+    "status": 200,
+    "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+    "headers": {
+        "cache-control": "max-age=31536000, stale-if-error=10800, stale-while-revalidate=31536000, public",
+        "timing-allow-origin": "https://www.scrapingcourse.com",
+        "content-encoding": "br",
+        "cross-origin-resource-policy": "cross-origin",
+        "cf-ray": "a09bb6a5fa5bc28e-VIE",
+        "access-control-allow-origin": "*",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "date": "Wed, 10 Jun 2026 22:11:43 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Thu, 28 May 2026 15:08:54 GMT",
+        "server": "cloudflare",
+        "priority": "u=3,i=?0"
+    },
+    "timing": {
+        "startTime": 1781129503643.5771,
+        "domainLookupStart": 0.269,
+        "domainLookupEnd": 19.718,
+        "connectStart": 19.929,
+        "secureConnectionStart": 19.929,
+        "connectEnd": 31.319,
+        "requestStart": 31.429,
+        "responseStart": 46.699,
+        "responseEnd": -1
+    }
+}

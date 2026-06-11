@@ -1,0 +1,23 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a09a67108b4aa2c1",
+    "headers": {
+        "cf-ray": "a09a6710fc9ca2c1-VIE",
+        "cache-control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "content-encoding": "br",
+        "date": "Wed, 10 Jun 2026 18:22:38 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115758229.677,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.46,
+        "responseStart": 19.478,
+        "responseEnd": -1
+    }
+}

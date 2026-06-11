@@ -1,0 +1,31 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/sirup/public/font/droid-sans-bold.ttf",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-security-policy": "frame-ancestors 'none'",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"1780387803000-120624622\"",
+        "age": "648207",
+        "x-content-type-options": "nosniff",
+        "via": "1.1 google",
+        "cf-ray": "a09a672e084ea2c1-VIE",
+        "date": "Wed, 10 Jun 2026 18:22:42 GMT",
+        "content-type": "text/plain; charset=utf-8",
+        "last-modified": "Tue, 02 Jun 2026 15:10:03 GMT",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115762880.144,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.405,
+        "responseStart": 22.431,
+        "responseEnd": -1
+    }
+}

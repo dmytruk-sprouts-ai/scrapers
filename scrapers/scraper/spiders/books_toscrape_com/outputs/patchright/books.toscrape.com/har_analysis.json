@@ -1,0 +1,420 @@
+{
+  "target_url": "https://books.toscrape.com/",
+  "page_title": "All products | Books to Scrape - Sandbox",
+  "verdict": "clear",
+  "verdict_detail": "Target document returned 2xx with no protection fingerprints — scrapable as-is.",
+  "captured_entries": 31,
+  "total_bytes": 337069,
+  "page_load_time_ms": 1288,
+  "time_to_first_byte_ms": 551.3,
+  "protections": [],
+  "session_cookies": [],
+  "document": {
+    "final_status": 200,
+    "final_mime": "text/html",
+    "http_version": "HTTP/2.0",
+    "size_bytes": 5571,
+    "chain": [
+      {
+        "status": 200,
+        "url": "https://books.toscrape.com/"
+      }
+    ],
+    "request_headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "Accept-Language": "en-US",
+      "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+      "sec-ch-ua-platform": "\"Linux\"",
+      "sec-ch-ua-mobile": "?0",
+      "Upgrade-Insecure-Requests": "1"
+    },
+    "accept_ch": null,
+    "critical_ch": null
+  },
+  "data_endpoints": [],
+  "hosts": [
+    {
+      "host": "books.toscrape.com",
+      "requests": 30,
+      "bytes": 337069,
+      "is_protection": false
+    },
+    {
+      "host": "ajax.googleapis.com",
+      "requests": 1,
+      "bytes": 0,
+      "is_protection": false
+    }
+  ],
+  "stats": {
+    "by_status": {
+      "-1": 1,
+      "200": 30
+    },
+    "by_type": {
+      "image": 20,
+      "script": 6,
+      "stylesheet": 3,
+      "document": 1,
+      "other": 1
+    }
+  },
+  "timeline": [
+    {
+      "n": 0,
+      "offset_ms": 0.0,
+      "time_ms": 677.5,
+      "method": "GET",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 5571,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/"
+    },
+    {
+      "n": 1,
+      "offset_ms": 432.0,
+      "time_ms": 287.6,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 33405,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/css/styles.css"
+    },
+    {
+      "n": 2,
+      "offset_ms": 433.0,
+      "time_ms": 293.1,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 1968,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.css"
+    },
+    {
+      "n": 3,
+      "offset_ms": 433.0,
+      "time_ms": 292.7,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 355,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/css/datetimepicker.css"
+    },
+    {
+      "n": 4,
+      "offset_ms": 434.0,
+      "time_ms": 288.4,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 10077,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/2c/da/2cdad67c44b002e7ead0cc35693c0e8b.jpg"
+    },
+    {
+      "n": 5,
+      "offset_ms": 434.0,
+      "time_ms": 293.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 7287,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/26/0c/260c6ae16bce31c8f8c95daddd9f4a1c.jpg"
+    },
+    {
+      "n": 6,
+      "offset_ms": 435.0,
+      "time_ms": 294.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 4253,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/3e/ef/3eef99c9d9adef34639f510662022830.jpg"
+    },
+    {
+      "n": 7,
+      "offset_ms": 436.0,
+      "time_ms": 412.2,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 8643,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/32/51/3251cf3a3412f53f339e42cac2134093.jpg"
+    },
+    {
+      "n": 8,
+      "offset_ms": 436.0,
+      "time_ms": 412.7,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 8187,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/be/a5/bea5697f2534a2f86a3ef27b5a8c12a6.jpg"
+    },
+    {
+      "n": 9,
+      "offset_ms": 437.0,
+      "time_ms": 413.2,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 9999,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/68/33/68339b4c9bc034267e1da611ab3b34f8.jpg"
+    },
+    {
+      "n": 10,
+      "offset_ms": 532.0,
+      "time_ms": 305.7,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 10942,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/92/27/92274a95b7c251fea59a2b8a78275ab4.jpg"
+    },
+    {
+      "n": 11,
+      "offset_ms": 532.0,
+      "time_ms": 306.1,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 9894,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/3d/54/3d54940e57e662c4dd1f3ff00c78cc64.jpg"
+    },
+    {
+      "n": 12,
+      "offset_ms": 532.0,
+      "time_ms": 344.2,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 8984,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/66/88/66883b91f6804b2323c8369331cb7dd1.jpg"
+    },
+    {
+      "n": 13,
+      "offset_ms": 533.0,
+      "time_ms": 346.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 4098,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/58/46/5846057e28022268153beff6d352b06c.jpg"
+    },
+    {
+      "n": 14,
+      "offset_ms": 533.0,
+      "time_ms": 420.3,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 12134,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/be/f4/bef44da28c98f905a3ebec0b87be8530.jpg"
+    },
+    {
+      "n": 15,
+      "offset_ms": 534.0,
+      "time_ms": 423.5,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 8358,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/10/48/1048f63d3b5061cd2f424d20b3f9b666.jpg"
+    },
+    {
+      "n": 16,
+      "offset_ms": 534.0,
+      "time_ms": 423.7,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 8056,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/5b/88/5b88c52633f53cacf162c15f4f823153.jpg"
+    },
+    {
+      "n": 17,
+      "offset_ms": 534.0,
+      "time_ms": 423.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 12616,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/94/b1/94b1b8b244bce9677c2f29ccc890d4d2.jpg"
+    },
+    {
+      "n": 18,
+      "offset_ms": 534.0,
+      "time_ms": 461.9,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 12192,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/81/c4/81c4a973364e17d01f217e1188253d5e.jpg"
+    },
+    {
+      "n": 19,
+      "offset_ms": 535.0,
+      "time_ms": 465.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 10193,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/54/60/54607fe8945897cdcced0044103b10b6.jpg"
+    },
+    {
+      "n": 20,
+      "offset_ms": 535.0,
+      "time_ms": 465.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 3102,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/55/33/553310a7162dfbc2c6d19a84da0df9e1.jpg"
+    },
+    {
+      "n": 21,
+      "offset_ms": 535.0,
+      "time_ms": 466.1,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 9782,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/09/a3/09a3aef48557576e1a85ba7efea8ecb7.jpg"
+    },
+    {
+      "n": 22,
+      "offset_ms": 536.0,
+      "time_ms": -1,
+      "method": "GET",
+      "status": -1,
+      "type": "script",
+      "size_bytes": 0,
+      "host": "ajax.googleapis.com",
+      "url": "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    },
+    {
+      "n": 23,
+      "offset_ms": 536.0,
+      "time_ms": 534.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 11085,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/0b/bc/0bbcd0a6f4bcd81ccb1049a52736406e.jpg"
+    },
+    {
+      "n": 24,
+      "offset_ms": 536.0,
+      "time_ms": 537.3,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 11297,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/media/cache/27/a5/27a53d0bb95bdd88288eaf66c9230d7e.jpg"
+    },
+    {
+      "n": 25,
+      "offset_ms": 537.0,
+      "time_ms": 575.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 9472,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/js/bootstrap3/bootstrap.min.js"
+    },
+    {
+      "n": 26,
+      "offset_ms": 537.0,
+      "time_ms": 580.7,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 3859,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/js/oscar/ui.js"
+    },
+    {
+      "n": 27,
+      "offset_ms": 541.0,
+      "time_ms": 581.9,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 13478,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.js"
+    },
+    {
+      "n": 28,
+      "offset_ms": 541.0,
+      "time_ms": 582.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 8643,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js"
+    },
+    {
+      "n": 29,
+      "offset_ms": 798.0,
+      "time_ms": 458.4,
+      "method": "GET",
+      "status": 200,
+      "type": "other",
+      "size_bytes": 43854,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/fonts/fontawesome-webfont.woff%3Fv=3.2.1"
+    },
+    {
+      "n": 30,
+      "offset_ms": 805.0,
+      "time_ms": 381.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 35285,
+      "host": "books.toscrape.com",
+      "url": "https://books.toscrape.com/static/oscar/js/jquery/jquery-1.9.1.min.js"
+    }
+  ],
+  "recommendations": [
+    "No anti-bot detected — a plain HTTP client (requests/Scrapy) should work; reach for a browser only if content is JS-rendered."
+  ],
+  "_meta": {
+    "source_har": "har_file.har",
+    "har_creator": {
+      "name": "Playwright",
+      "version": "1.60.0"
+    },
+    "browser": {
+      "name": "chromium",
+      "version": "148.0.7778.178"
+    }
+  }
+}

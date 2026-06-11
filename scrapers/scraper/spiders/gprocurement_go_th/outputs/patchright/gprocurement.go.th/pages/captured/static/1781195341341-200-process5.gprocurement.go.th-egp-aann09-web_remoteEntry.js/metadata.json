@@ -1,0 +1,30 @@
+{
+    "status": 200,
+    "url": "https://process5.gprocurement.go.th/egp-aann09-web/remoteEntry.js",
+    "headers": {
+        "transfer-encoding": "chunked",
+        "strict-transport-security": "max-age=63072000; includeSubDomains;",
+        "content-security-policy": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'",
+        "content-encoding": "gzip",
+        "etag": "W/\"6a182a5c-2361\"",
+        "x-envoy-upstream-service-time": "4",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "date": "Thu, 11 Jun 2026 16:29:01 GMT",
+        "x-xss-protection": "1; mode=block",
+        "content-type": "application/javascript",
+        "last-modified": "Thu, 28 May 2026 11:43:24 GMT",
+        "x-frame-options": "SAMEORIGIN"
+    },
+    "timing": {
+        "startTime": 1781195341341.4429,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.56,
+        "responseStart": 717.9,
+        "responseEnd": -1
+    }
+}

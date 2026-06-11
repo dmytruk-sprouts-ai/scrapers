@@ -1,0 +1,23 @@
+{
+    "status": 200,
+    "url": "https://www.crunchbase.com/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a099256ec8d2c4f7",
+    "headers": {
+        "cf-ray": "a099256f3a93c4f7-VIE",
+        "cache-control": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+        "content-encoding": "br",
+        "date": "Wed, 10 Jun 2026 14:43:04 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781102584196.983,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.498,
+        "responseStart": 16.49,
+        "responseEnd": -1
+    }
+}

@@ -1,0 +1,14 @@
+# Capture a HAR for this spider, writing into ./outputs/<engine>/.
+# ENGINE=patchright (default) or playwright; each writes its own tree, so run both to compare:
+#   just capture-har            # patchright
+#   just capture-har playwright # playwright
+# SPIDER is this folder's name; runs from scrapers/ (../../..) so `scraper` + scrapy.cfg resolve.
+SPIDER := file_name(justfile_directory())
+
+capture-har ENGINE='patchright':
+    cd ../../.. && SCRAPER_PW_ENGINE={{ENGINE}} ../.venv/bin/python -m scraper.spiders.{{SPIDER}}.capture_har
+
+# Run a full crawl of SPIDER. Extra scrapy args pass straight through, e.g.
+#   just crawl books_toscrape_com -O out.jsonl -s CLOSESPIDER_PAGECOUNT=5
+crawl ENGINE='patchright' *ARGS:
+    cd ../../.. && SCRAPER_PW_ENGINE={{ENGINE}} ../.venv/bin/scrapy crawl {{SPIDER}} {{ARGS}}

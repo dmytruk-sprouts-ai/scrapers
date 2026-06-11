@@ -1,0 +1,29 @@
+{
+    "status": 200,
+    "url": "https://www.crunchbase.com/favicon.ico?v=2.0",
+    "headers": {
+        "cache-control": "public, max-age=86400",
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "x-cb-request-id": "FD760FF816FD8096A88CE2A038548FE2",
+        "age": "37996",
+        "etag": "W/\"6a28a067-3c2e\"",
+        "cf-ray": "a09925969e4cc4f7-VIE",
+        "expires": "Thu, 11 Jun 2026 14:43:10 GMT",
+        "date": "Wed, 10 Jun 2026 14:43:10 GMT",
+        "content-type": "image/x-icon",
+        "last-modified": "Tue, 09 Jun 2026 23:23:19 GMT",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781102590499.753,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.349,
+        "responseStart": 15.058,
+        "responseEnd": -1
+    }
+}

@@ -1,0 +1,502 @@
+{
+  "target_url": "https://www.scrapingcourse.com/cloudflare-challenge",
+  "page_title": "Cloudflare Challenge - ScrapingCourse.com",
+  "verdict": "protected-but-delivered",
+  "verdict_detail": "Cloudflare, Cloudflare Turnstile present but the document was delivered — protection is passive.",
+  "captured_entries": 26,
+  "total_bytes": 934677,
+  "page_load_time_ms": 4725,
+  "time_to_first_byte_ms": 63.2,
+  "protections": [
+    {
+      "vendor": "Cloudflare",
+      "category": "CDN / WAF / Bot Management",
+      "evidence": [
+        {
+          "via": "header",
+          "signal": "cf-ray",
+          "example": "cf-ray: a09bb6a51d4c5aab-VIE",
+          "count": 21
+        },
+        {
+          "via": "header",
+          "signal": "cf-mitigated",
+          "example": "cf-mitigated: challenge",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "server",
+          "example": "server: cloudflare",
+          "count": 21
+        },
+        {
+          "via": "url",
+          "signal": "/cdn-cgi/challenge-platform/",
+          "example": "https://www.scrapingcourse.com/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a09bb6a51d4c5aab",
+          "count": 9
+        },
+        {
+          "via": "url",
+          "signal": "challenges\\.cloudflare\\.com",
+          "example": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+          "count": 3
+        },
+        {
+          "via": "header",
+          "signal": "cf-chl-out",
+          "example": "cf-chl-out: xDgD9zbGSK2UTCwqglfWQaGMX+A+fWCt7PoV48RxI9m7HGtr0Sm+1zOGAT7R+qzjIJa1ZLKyZ95oVCJT",
+          "count": 2
+        },
+        {
+          "via": "cookie",
+          "signal": "cf_clearance",
+          "example": "cf_clearance",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "cf-cache-status",
+          "example": "cf-cache-status: DYNAMIC",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "vendor": "Cloudflare Turnstile",
+      "category": "CAPTCHA / challenge widget",
+      "evidence": [
+        {
+          "via": "url",
+          "signal": "challenges\\.cloudflare\\.com/turnstile",
+          "example": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "session_cookies": [
+    {
+      "name": "cf_clearance",
+      "set_by": "www.scrapingcourse.com",
+      "attributes": "HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=scrapingcourse.com; Expires=Thu, 10 Jun 2027 22:11:47 GMT"
+    },
+    {
+      "name": "AWSALB",
+      "set_by": "www.scrapingcourse.com",
+      "attributes": "Expires=Wed, 17 Jun 2026 22:11:47 GMT; Path=/"
+    },
+    {
+      "name": "AWSALBCORS",
+      "set_by": "www.scrapingcourse.com",
+      "attributes": "Expires=Wed, 17 Jun 2026 22:11:47 GMT; Path=/; SameSite=None; Secure"
+    },
+    {
+      "name": "XSRF-TOKEN",
+      "set_by": "www.scrapingcourse.com",
+      "attributes": "expires=Thu, 11 Jun 2026 00:11:47 GMT; Max-Age=7200; path=/; samesite=lax"
+    },
+    {
+      "name": "scrapingcoursecom_session",
+      "set_by": "www.scrapingcourse.com",
+      "attributes": "expires=Thu, 11 Jun 2026 00:11:47 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+    }
+  ],
+  "document": {
+    "final_status": 200,
+    "final_mime": "text/html; charset=UTF-8",
+    "http_version": "h3",
+    "size_bytes": 2867,
+    "chain": [
+      {
+        "status": 307,
+        "url": "https://www.scrapingcourse.com/cloudflare-challenge"
+      },
+      {
+        "status": 403,
+        "url": "https://www.scrapingcourse.com/cloudflare-challenge"
+      },
+      {
+        "status": 200,
+        "url": "https://www.scrapingcourse.com/cloudflare-challenge"
+      }
+    ],
+    "request_headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "Referer": "https://www.scrapingcourse.com/cloudflare-challenge?__cf_chl_tk=n5IM0wdH_mer1DBH.JfWygOauZ7Wa6Etg_O3IYDM4ts-1781129503-1.0.1.1-f0kG_WrXQT1MKSAT1f4CeVSFGqhrHG.GSKb5LsXgoD4",
+      "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+      "sec-ch-ua-platform": "\"Linux\"",
+      "sec-ch-ua-mobile": "?0",
+      "Upgrade-Insecure-Requests": "1"
+    },
+    "accept_ch": null,
+    "critical_ch": null
+  },
+  "data_endpoints": [],
+  "hosts": [
+    {
+      "host": "www.scrapingcourse.com",
+      "requests": 11,
+      "bytes": 185743,
+      "is_protection": true
+    },
+    {
+      "host": "challenges.cloudflare.com",
+      "requests": 9,
+      "bytes": 513468,
+      "is_protection": true
+    },
+    {
+      "host": "stackpath.bootstrapcdn.com",
+      "requests": 2,
+      "bytes": 41539,
+      "is_protection": false
+    },
+    {
+      "host": "code.jquery.com",
+      "requests": 1,
+      "bytes": 24937,
+      "is_protection": false
+    },
+    {
+      "host": "cdn.jsdelivr.net",
+      "requests": 1,
+      "bytes": 6978,
+      "is_protection": false
+    },
+    {
+      "host": "www.googletagmanager.com",
+      "requests": 1,
+      "bytes": 164307,
+      "is_protection": false
+    },
+    {
+      "host": "region1.google-analytics.com",
+      "requests": 1,
+      "bytes": 0,
+      "is_protection": false
+    }
+  ],
+  "stats": {
+    "by_status": {
+      "-1": 1,
+      "200": 21,
+      "302": 1,
+      "307": 1,
+      "401": 1,
+      "403": 1
+    },
+    "by_type": {
+      "script": 9,
+      "document": 5,
+      "xhr": 4,
+      "image": 4,
+      "other": 2,
+      "stylesheet": 2
+    }
+  },
+  "timeline": [
+    {
+      "n": 0,
+      "offset_ms": 0.0,
+      "time_ms": 40.6,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 97,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/cloudflare-challenge"
+    },
+    {
+      "n": 1,
+      "offset_ms": 40.0,
+      "time_ms": 12.5,
+      "method": "GET",
+      "status": 403,
+      "type": "document",
+      "size_bytes": 5435,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/cloudflare-challenge"
+    },
+    {
+      "n": 2,
+      "offset_ms": 78.0,
+      "time_ms": 46.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 69290,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a09bb6a51d4c5aab"
+    },
+    {
+      "n": 3,
+      "offset_ms": 144.0,
+      "time_ms": 80.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 21853,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit"
+    },
+    {
+      "n": 4,
+      "offset_ms": 288.0,
+      "time_ms": 27.1,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 16576,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/cdn-cgi/challenge-platform/h/g/flow/ov1/281704253:1781129124:YKYowGMzYQMU31jn6UqNkC6ZQa0089zKKEbGzdwcD7Y/a09bb6a51d4c5aab/qpkVnpuxKbVoT1O9W9OY0XrV64aJEh2.z3QBELD9vLA-1781129503-1.2.1.1-.LMBWWuwzhOVpy7qFsKjjGijjIZypBYKovKRYyClpt1smU.E_.vCzMKsCVYhnbb0"
+    },
+    {
+      "n": 5,
+      "offset_ms": 342.0,
+      "time_ms": 49.6,
+      "method": "GET",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 86572,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/qy2we/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto"
+    },
+    {
+      "n": 6,
+      "offset_ms": 413.0,
+      "time_ms": 32.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 208,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/cmg/1"
+    },
+    {
+      "n": 7,
+      "offset_ms": 607.0,
+      "time_ms": 217.0,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 371469,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/1000252652:1781129126:hdNuYYH8HL3eMyWTuB13UclDV14r79NAI7KuXurRFQ0/a09bb6a70cf15b30/rybIXQuAJMMAU4fIHVHMuZsE4GpeEv28UNkroFR_HnU-1781129503-1.2.1.1-YF3OFcu2MvIz14c898UdI_yvCNbxWwCPjgN.Qe1ztsm6srVL8HTf8XvvbQft6FB6"
+    },
+    {
+      "n": 8,
+      "offset_ms": 3157.0,
+      "time_ms": 16.5,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1835,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a09bb6a70cf15b30/1781129504115/vLzj4RDGtgx3syQ"
+    },
+    {
+      "n": 9,
+      "offset_ms": 3530.0,
+      "time_ms": 18.2,
+      "method": "GET",
+      "status": 401,
+      "type": "xhr",
+      "size_bytes": 1700,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a09bb6a70cf15b30/1781129504116/2ef566e178ed38993abf066d5113c7155d6097fc7ee7afb238aca6239461151b/HNtYVHYyRoiNNIu"
+    },
+    {
+      "n": 10,
+      "offset_ms": 3654.0,
+      "time_ms": 62.1,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 7987,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/1000252652:1781129126:hdNuYYH8HL3eMyWTuB13UclDV14r79NAI7KuXurRFQ0/a09bb6a70cf15b30/rybIXQuAJMMAU4fIHVHMuZsE4GpeEv28UNkroFR_HnU-1781129503-1.2.1.1-YF3OFcu2MvIz14c898UdI_yvCNbxWwCPjgN.Qe1ztsm6srVL8HTf8XvvbQft6FB6"
+    },
+    {
+      "n": 11,
+      "offset_ms": 3749.0,
+      "time_ms": 55.2,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 4801,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/cdn-cgi/challenge-platform/h/g/flow/ov1/281704253:1781129124:YKYowGMzYQMU31jn6UqNkC6ZQa0089zKKEbGzdwcD7Y/a09bb6a51d4c5aab/qpkVnpuxKbVoT1O9W9OY0XrV64aJEh2.z3QBELD9vLA-1781129503-1.2.1.1-.LMBWWuwzhOVpy7qFsKjjGijjIZypBYKovKRYyClpt1smU.E_.vCzMKsCVYhnbb0"
+    },
+    {
+      "n": 12,
+      "offset_ms": 3819.0,
+      "time_ms": 300.1,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 2867,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/cloudflare-challenge"
+    },
+    {
+      "n": 13,
+      "offset_ms": 4142.0,
+      "time_ms": 78.0,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 25485,
+      "host": "stackpath.bootstrapcdn.com",
+      "url": "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    },
+    {
+      "n": 14,
+      "offset_ms": 4143.0,
+      "time_ms": 70.2,
+      "method": "GET",
+      "status": 302,
+      "type": "script",
+      "size_bytes": 0,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/api.js"
+    },
+    {
+      "n": 15,
+      "offset_ms": 4144.0,
+      "time_ms": 154.1,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 4927,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/build/assets/app-DxJb4DfE.css"
+    },
+    {
+      "n": 16,
+      "offset_ms": 4144.0,
+      "time_ms": 159.6,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 13457,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/build/assets/app-D2jpX1vH.js"
+    },
+    {
+      "n": 17,
+      "offset_ms": 4145.0,
+      "time_ms": 101.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 24937,
+      "host": "code.jquery.com",
+      "url": "https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    },
+    {
+      "n": 18,
+      "offset_ms": 4145.0,
+      "time_ms": 420.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 6978,
+      "host": "cdn.jsdelivr.net",
+      "url": "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"
+    },
+    {
+      "n": 19,
+      "offset_ms": 4187.0,
+      "time_ms": 26.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 21844,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js"
+    },
+    {
+      "n": 20,
+      "offset_ms": 4205.0,
+      "time_ms": 105.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 16054,
+      "host": "stackpath.bootstrapcdn.com",
+      "url": "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    },
+    {
+      "n": 21,
+      "offset_ms": 4206.0,
+      "time_ms": 273.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 164307,
+      "host": "www.googletagmanager.com",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-NZGD14H87G"
+    },
+    {
+      "n": 22,
+      "offset_ms": 4206.0,
+      "time_ms": 215.1,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1192,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/assets/images/logo.svg"
+    },
+    {
+      "n": 23,
+      "offset_ms": 4207.0,
+      "time_ms": 215.9,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1407,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/assets/images/challenge.svg"
+    },
+    {
+      "n": 24,
+      "offset_ms": 4339.0,
+      "time_ms": 181.5,
+      "method": "GET",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 65694,
+      "host": "www.scrapingcourse.com",
+      "url": "https://www.scrapingcourse.com/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf"
+    },
+    {
+      "n": 25,
+      "offset_ms": 4460.0,
+      "time_ms": -1,
+      "method": "POST",
+      "status": -1,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "region1.google-analytics.com",
+      "url": "https://region1.google-analytics.com/g/collect?v=2&tid=G-NZGD14H87G&gtm=45je6691v9183656648za200zd9183656648&_p=1781129507694&gcd=13l3l3l2l1l1&npa=1&dma_cps=a&dma=1&are=1&cid=1335794511.1781129508&frm=0&pscdl=noapi&rcb=9&sr=3072x1728&uaa=x86&uab=64&uafvl=Chromium%3B148.0.7778.178%7CGoogle%2520Chrome%3B148.0.7778.178%7CNot%252FA)Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=&uaw=0&ul=en-us&_s=1&tag_exp=0~115938465~115938468~119061278&sid=1781129507&sct=1&seg=0&dl=https%3A%2F%2Fwww.scrapingcourse.com%2Fcloudflare-challenge&dr=https%3A%2F%2Fwww.scrapingcourse.com%2Fcloudflare-challenge%3F__cf_chl_tk%3Dn5IM0wdH_mer1DBH.JfWygOauZ7Wa6Etg_O3IYDM4ts-1781129503-1.0.1.1-f0kG_WrXQT1MKSAT1f4CeVSFGqhrHG.GSKb5LsXgoD4&dt=Cloudflare%20Challenge%20-%20ScrapingCourse.com&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=645"
+    }
+  ],
+  "recommendations": [
+    "Cloudflare challenge in play — use a real browser (scrapy-playwright/stealth) to solve it, or reuse a valid `cf_clearance` cookie + the *exact* matching User-Agent.",
+    "Persist & replay these cookies across requests: cf_clearance, AWSALB, AWSALBCORS, XSRF-TOKEN, scrapingcoursecom_session"
+  ],
+  "_meta": {
+    "source_har": "har_file.har",
+    "har_creator": {
+      "name": "Playwright",
+      "version": "1.60.0"
+    },
+    "browser": {
+      "name": "chromium",
+      "version": "148.0.7778.178"
+    }
+  }
+}

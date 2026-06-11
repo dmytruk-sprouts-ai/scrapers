@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.jwvcsKFNh47oIw6FF4pTJRi1rjdVmxslc0uuKd5nG96HYUuXRRGSjlTef_At1Q52iOGwnaO_gFrb05LkG1sRm2EDwjUPTGzgpmpIgmfGTGtxydJ1PjNV6JtsC_0IjISVLO5n5ViW2UsckQFH7j9W0bYi7WHADL23Aj0gqxiN7v6GSzBir9KmGvjUlhDI0HDUpF-ua4GH6mFrC_ERZvJsF_CjVjrbud_Jg2fe13iIB__CVks1_YDdlpts0skBBc7pvlk0xaam0YxVtJTeKo0fIxVeO08RGuLYYVS0LpkZpptvCyXO0HugIWlOKbYilb_gBa2dAiTqSF6h-oiPcM4U5JC7NfUhf96NPL3p1vLLirEtDW5yuMCX7emfy_3qSXA5G_NnIItskOFUsMaKKcT2IuKIKVm_pAkfPhPjFFzuoPNhCDbIeHstMHOMndanU-DHDLEXPCsXsk-7MpFGO7VJrS7RxjGFNHsAUkeC4wbaums3I-KKqsgJhOlJlpMf1MlBZAfw70R9x0mDsVtZRLRZLl-lrylJfXfmlV5D3tQUBMy-g4iXM7YOevud4mmyVz0R5ncV3sXhDrxhmpXJWSUfQKrLCPY2N5I-YUB3QjMVzfq7JLs84e0887YZ3zmR-r1VOXc7sz6NzmmvhsC32Wbwed6KOZb1CuJd0iQdME8hFkquAB3cjMrZumb2Jfqm6uuH.vHfqlLQjAKg13VmWnl13_Q.cdebb75267efd195f54d526b2db1653bf607198113da7e0140b7db22b3a0d44e",
+    "headers": {
+        "access-control-max-age": "1500",
+        "access-control-expose-headers": "X-Xsrf-Token, Www-Authenticate",
+        "access-control-allow-methods": "POST, GET, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "expires": "0",
+        "date": "Thu, 11 Jun 2026 16:34:12 GMT",
+        "content-type": "application/json",
+        "content-disposition": "inline;filename=f.txt",
+        "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
+        "x-frame-options": "SAMEORIGIN",
+        "access-control-allow-headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, dataProfile, X-Xsrf-Token, Host, referer, pagesType, X-Announcement-Token",
+        "strict-transport-security": "max-age=63072000; includeSubDomains;",
+        "content-security-policy": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'",
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate,no-cache, no-store, max-age=0, must-revalidate",
+        "pragma": "no-cache",
+        "x-envoy-upstream-service-time": "357",
+        "connection": "keep-alive",
+        "content-length": "189",
+        "x-xss-protection": "1; mode=block"
+    },
+    "timing": {
+        "startTime": 1781195651505.086,
+        "domainLookupStart": 0.306,
+        "domainLookupEnd": 215.186,
+        "connectStart": 251.574,
+        "secureConnectionStart": 458.438,
+        "connectEnd": 726.711,
+        "requestStart": 727.112,
+        "responseStart": 1567.23,
+        "responseEnd": -1
+    }
+}

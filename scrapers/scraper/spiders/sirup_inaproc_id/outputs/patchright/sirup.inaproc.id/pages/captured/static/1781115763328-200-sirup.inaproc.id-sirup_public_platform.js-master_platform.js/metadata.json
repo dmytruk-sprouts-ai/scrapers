@@ -1,0 +1,31 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/sirup/public/platform.js-master/platform.js",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-security-policy": "frame-ancestors 'none'",
+        "cache-control": "max-age=31536000",
+        "content-encoding": "br",
+        "cf-cache-status": "HIT",
+        "etag": "W/\"1780387803000-868891592\"",
+        "age": "648207",
+        "x-content-type-options": "nosniff",
+        "via": "1.1 google",
+        "cf-ray": "a09a6730da7ba2c1-VIE",
+        "date": "Wed, 10 Jun 2026 18:22:43 GMT",
+        "content-type": "application/javascript",
+        "last-modified": "Tue, 02 Jun 2026 15:10:03 GMT",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115763328.158,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.265,
+        "responseStart": 24.855,
+        "responseEnd": -1
+    }
+}

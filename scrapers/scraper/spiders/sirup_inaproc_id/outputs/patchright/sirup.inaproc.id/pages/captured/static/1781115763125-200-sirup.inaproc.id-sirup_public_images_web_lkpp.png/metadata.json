@@ -1,0 +1,32 @@
+{
+    "status": 200,
+    "url": "https://sirup.inaproc.id/sirup/public/images/web/lkpp.png",
+    "headers": {
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-security-policy": "frame-ancestors 'none'",
+        "cache-control": "max-age=31536000",
+        "cf-cache-status": "HIT",
+        "etag": "\"1780976163000--611810302\"",
+        "age": "114103",
+        "x-content-type-options": "nosniff",
+        "via": "1.1 google",
+        "cf-ray": "a09a672f9dcda2c1-VIE",
+        "accept-ranges": "bytes",
+        "content-length": "29869",
+        "date": "Wed, 10 Jun 2026 18:22:43 GMT",
+        "content-type": "image/png",
+        "last-modified": "Tue, 09 Jun 2026 10:36:03 GMT",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781115763125.731,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.459,
+        "responseStart": 17.781,
+        "responseEnd": -1
+    }
+}

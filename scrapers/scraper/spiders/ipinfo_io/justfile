@@ -1,0 +1,8 @@
+# Run the egress-IP consistency check: resolves ipinfo.io/json over Playwright and curl_cffi on
+# the same proxy session and logs whether the IPs match. SPIDER is this folder's name; runs from
+# scrapers/ (../../..) so `scraper` + scrapy.cfg resolve. Extra scrapy args pass straight through:
+#   just crawl playwright -O out.jsonl
+SPIDER := file_name(justfile_directory())
+
+crawl ENGINE='patchright' *ARGS:
+    cd ../../.. && SCRAPER_PW_ENGINE={{ENGINE}} ../.venv/bin/scrapy crawl {{SPIDER}} {{ARGS}}

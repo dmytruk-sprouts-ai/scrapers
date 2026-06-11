@@ -1,0 +1,9 @@
+# Capture a HAR for this spider, writing into ./outputs/<engine>/.
+# ENGINE=patchright (default) or playwright; each writes its own tree, so run both to compare:
+#   just capture-har            # patchright
+#   just capture-har playwright # playwright
+# SPIDER is this folder's name; runs from scrapers/ (../../..) so `scraper` + scrapy.cfg resolve.
+SPIDER := file_name(justfile_directory())
+
+capture-har ENGINE='patchright':
+    cd ../../.. && SCRAPER_PW_ENGINE={{ENGINE}} ../.venv/bin/python -m scraper.spiders.{{SPIDER}}.capture_har

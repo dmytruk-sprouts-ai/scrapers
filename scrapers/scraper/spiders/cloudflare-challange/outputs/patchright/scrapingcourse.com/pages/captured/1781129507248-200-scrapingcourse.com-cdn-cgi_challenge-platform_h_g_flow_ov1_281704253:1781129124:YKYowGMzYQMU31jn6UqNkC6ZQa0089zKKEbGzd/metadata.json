@@ -1,0 +1,28 @@
+{
+    "status": 200,
+    "url": "https://www.scrapingcourse.com/cdn-cgi/challenge-platform/h/g/flow/ov1/281704253:1781129124:YKYowGMzYQMU31jn6UqNkC6ZQa0089zKKEbGzdwcD7Y/a09bb6a51d4c5aab/qpkVnpuxKbVoT1O9W9OY0XrV64aJEh2.z3QBELD9vLA-1781129503-1.2.1.1-.LMBWWuwzhOVpy7qFsKjjGijjIZypBYKovKRYyClpt1smU.E_.vCzMKsCVYhnbb0",
+    "headers": {
+        "cf-chl-out": "qb6oK4Pkt7QlOpSZ7GmlDqq3Qy7zkcvP9CcqXApgN42m+FY7Y4r2ZH+gjB/2Y5kp3uAH/dSpvJWA5JcU2a2nEMk/Ebjv4XafbHc4TtMv7RhEu9KBYQDNooorfPvMeZqk5Ip9ClS+4L0nHVZtf5haDA==$Ks6jCo7bKA6I8XSA2HC19A==",
+        "timing-allow-origin": "https://www.scrapingcourse.com",
+        "content-encoding": "zstd",
+        "cf-ray": "a09bb6bc4e7e5aab-VIE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "cf-chl-out-s": "yQHKn/hHjMjDxPmygaiGSHki40oBucGxC91Wd5yUgzGtut88clpZwaesUypAk1wkQlL9sRBGKidaUg+qQRAPI/rw9d+shR5iWlnqDY0E12YL1U90hj6cTmpgHuIlT/CyPeTVC3o691xHbsn2edSt1qaT/fPLhgZv30epLNJtlD2j3I7I2y1P41KHIo5WtNSOsqj+JuOsa75YSC7nJE/RgcNRWAMgnJ7A4nIO8DEY0c0fBGWtLN2J01N0++7ijwp09Dh0Vh1Emm8W9MXq/ThJOlfqQHx/J98yKc4A+uA3LNCcjDOBDo8lWAKEJ2B0hOlyVTvuBK7gzO8r3fbudaYDIESWb/MokyKiCs2o9KJOltwu3xvGfyZVAmR1vvxwTqYN36hqcr62F6W6C0ybqDTPayhJ0r1WQcnBkX5JxRC/jjmhspyL5/kDKVrxummyTN6p58+oBd02DE9jSFhiZO5I7kwRmPN2REZFK5FvkA/lYSL7vL/2TMwZADPQovIOz9R1DzMj3aoNYkVNGXgAPB9pG2AQ3azoWBQHAhREQSYEVNKK+ECnZGph9ga8l4ToUKQy2GxQnwjSHq063NyeIHEququofdSoSTxtvOUCQyBGpgIvJ+te8OYAfs4L9IL1gvUpXlrE5hnXyH3Jq6weDh23ClsD57a2taJnBDGm9dMeN6qS1BHYiyAeJIrydIaE2wMVPBWXeb0eCvDcG7tcYv1xeKjAVmYhQPLGZN3A7Z16a49jFL59P5L3+00q3U381t2lOTUYSILLwbvwRRYPadSJ6YGkuJghaiWlkds+kYgCwB4zuF0Vx0TVLGZR2sV393O+jKqdsNSDdVfWKW4dZ+q0w/d6HsG8If9dFK1rdP8g2W5loXbKruY5cIu3o0B4WGmhYDqXGMvT8if8CucFOf5BgSANoesubI4PY7oJE3gX5RY72bXxCmLhXfc1+Y19+jCA6POx3mePAX6jicQeLKy+JUsYgTb6Vm3iA7hmMG+CUqWNDoVfHd6ViRrmHZ6cSj1iufgxgRBtBnZFRAr8MBeDnLupoSK5h7ih9kWU3PZ0VyLpp+DjrfMh6pAENAPugeqz$Mf98ocn5l1Vk+e82qbEV0Q==",
+        "date": "Wed, 10 Jun 2026 22:11:47 GMT",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "priority": "u=1,i"
+    },
+    "timing": {
+        "startTime": 1781129507248.034,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.352,
+        "responseStart": 45.113,
+        "responseEnd": -1
+    }
+}
