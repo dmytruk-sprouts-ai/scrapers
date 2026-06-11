@@ -1,0 +1,15 @@
+{
+    "Accept-Ranges": "bytes",
+    "Age": "0",
+    "Connection": "Keep-Alive",
+    "Content-Length": "832",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Thu, 11 Jun 2026 19:45:05 GMT",
+    "Etag": "\"891f-7a1-6425e4b8aa380\"",
+    "Keep-Alive": "timeout=10, max=100",
+    "Last-Modified": "Thu, 30 Oct 2025 11:10:22 GMT",
+    "Set-Cookie": "TS01e91d66=013763bc3b6fac033fee15a6abcf7b5ed7c495edb1b23b880772a88ed8863595358c1c7bc3777011572923d0a09a4af600fc1027a7986262d320012b4750bb4399e9418d5d; Path=/; Domain=.www.gprocurement.go.th\nTS7431b39c027=0848d303d2ab2000f1c6ba9041a5b84ec2f46fcae3a731c551c908e2326292508ff501f852fff18608a2b63dc811300083967e2e0618ed4cd62c0f856af09aff56a55d8282c939db1d62222b69926d9de7a2dfbb2a10193ac6db2ee198a5bd05; Path=/",
+    "Vary": "Accept-Encoding",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Location": ""
+}

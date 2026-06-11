@@ -1,0 +1,31 @@
+{
+    "status": 200,
+    "url": "https://process5.gprocurement.go.th/egp-agpc01-web/692.8df0b1adef90c6b6.js",
+    "headers": {
+        "transfer-encoding": "chunked",
+        "strict-transport-security": "max-age=63072000; includeSubDomains;",
+        "content-security-policy": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'",
+        "content-encoding": "gzip",
+        "etag": "W/\"6a13d159-f6d5\"",
+        "x-envoy-upstream-service-time": "8",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "content-length": "63189",
+        "date": "Thu, 11 Jun 2026 16:08:23 GMT",
+        "x-xss-protection": "1; mode=block",
+        "content-type": "application/javascript",
+        "last-modified": "Mon, 25 May 2026 04:34:33 GMT",
+        "x-frame-options": "SAMEORIGIN"
+    },
+    "timing": {
+        "startTime": 1781207118330.916,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": -1,
+        "responseStart": 71.297,
+        "responseEnd": -1
+    }
+}

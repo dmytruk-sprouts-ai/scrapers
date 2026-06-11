@@ -1,0 +1,32 @@
+{
+    "status": 200,
+    "url": "https://process5.gprocurement.go.th/egp-agpc01-web/material-icon.59322316b3fd6063.woff2",
+    "headers": {
+        "strict-transport-security": "max-age=63072000; includeSubDomains;",
+        "content-security-policy": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'",
+        "etag": "\"6a13d159-1f560\"",
+        "x-envoy-upstream-service-time": "5",
+        "connection": "keep-alive",
+        "x-content-type-options": "nosniff",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "https://process5.gprocurement.go.th",
+        "content-length": "128352",
+        "date": "Thu, 11 Jun 2026 15:05:43 GMT",
+        "x-xss-protection": "1; mode=block",
+        "content-type": "font/woff2",
+        "last-modified": "Mon, 25 May 2026 04:34:33 GMT",
+        "vary": "Origin",
+        "x-frame-options": "SAMEORIGIN"
+    },
+    "timing": {
+        "startTime": 1781207138687.446,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": -1,
+        "responseStart": 26.426,
+        "responseEnd": -1
+    }
+}

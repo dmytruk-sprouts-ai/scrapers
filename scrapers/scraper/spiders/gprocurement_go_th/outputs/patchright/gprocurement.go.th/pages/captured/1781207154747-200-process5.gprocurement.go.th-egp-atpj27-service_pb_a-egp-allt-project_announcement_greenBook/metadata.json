@@ -1,0 +1,35 @@
+{
+    "status": 200,
+    "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/greenBook?mode=LINK&methodId=19&tempProjectId=69069201777&pageAnnounceType=W0",
+    "headers": {
+        "access-control-max-age": "1500",
+        "access-control-expose-headers": "X-Xsrf-Token, Www-Authenticate",
+        "access-control-allow-methods": "POST, GET, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "expires": "0",
+        "date": "Thu, 11 Jun 2026 19:45:54 GMT",
+        "content-type": "application/json",
+        "vary": "Origin,Access-Control-Request-Method,Access-Control-Request-Headers",
+        "x-frame-options": "SAMEORIGIN",
+        "access-control-allow-headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, dataProfile, X-Xsrf-Token, Host, referer, pagesType, X-Announcement-Token",
+        "strict-transport-security": "max-age=63072000; includeSubDomains;",
+        "content-security-policy": "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'",
+        "cache-control": "no-cache, no-store, max-age=0, must-revalidate,no-cache, no-store, max-age=0, must-revalidate",
+        "pragma": "no-cache",
+        "x-envoy-upstream-service-time": "58",
+        "connection": "keep-alive",
+        "content-length": "2002",
+        "x-xss-protection": "1; mode=block"
+    },
+    "timing": {
+        "startTime": 1781207154747.1719,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.524,
+        "responseStart": 505.082,
+        "responseEnd": -1
+    }
+}

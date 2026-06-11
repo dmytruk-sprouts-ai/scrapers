@@ -1,0 +1,26 @@
+{
+    "status": 200,
+    "url": "https://www.gprocurement.go.th/content/queen.jpg",
+    "headers": {
+        "etag": "\"1b0c6-40a77-642246d57f240\"",
+        "connection": "Keep-Alive",
+        "accept-ranges": "bytes",
+        "content-length": "264823",
+        "keep-alive": "timeout=10, max=100",
+        "date": "Thu, 11 Jun 2026 12:24:15 GMT",
+        "last-modified": "Mon, 27 Oct 2025 14:08:01 GMT",
+        "content-type": "image/jpeg",
+        "x-frame-options": "SAMEORIGIN"
+    },
+    "timing": {
+        "startTime": 1781207106332.3381,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": -1,
+        "responseStart": 26.493,
+        "responseEnd": -1
+    }
+}

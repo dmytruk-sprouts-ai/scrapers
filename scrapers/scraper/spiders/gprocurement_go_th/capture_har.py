@@ -42,32 +42,17 @@ class PatchedCaptureHarSpider(CaptureHarSpider):
 async def navigate(
     page,
 ):
-    
-    html = await page.content()
     logger.warning("navigating", current_url=page.url)
     await asyncio.sleep(0.7)
-
-    # await page.goto("https://www.gprocurement.go.th/new_index.html", timeout=300000)
-    # logger.warning("navigating", current_url=page.url)
-    # await asyncio.sleep(0.7)
-
-    # button = page.locator('button[onclick="advancedSearch();"]')
-    # await button.wait_for(state="visible", timeout=300000)
-    # await button.click()
 
     await page.goto("https://process5.gprocurement.go.th/egp-agpc01-web/announcement?keywordSearch=", timeout=300000)
     logger.warning("navigating", current_url=page.url)
-    await asyncio.sleep(0.7)
     
-    # TODO await page load until crunchabse is not resolved
-    # https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement?budgetYear=2569&announcementTodayFlag=false&page=1
-    # https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement?budgetYear=2569&announcementTodayFlag=false&page=1
-    await asyncio.sleep(500)
+    
+    await asyncio.sleep(60)
 
-    # TOD: trying to understand how request coockies are build
+    
 
-
-# "text": "{\"response\":{\"responseCode\":\"0\",\"messageCode\":null,\"description\":null},\"data\":\"RUdQLUFOTk9VTkNFTUVOVC1LRVk6MTc4MTE5NzE1NjYxOTpHbzh5MEgtY21ncEFaekV5ZUhURDNpVVBUaUJRcWxOaFVQLXdlT2lfVUpJPQ==\"}"
 
 if __name__ == "__main__":
     run_capture(Path(__file__).resolve().parent, URLS, 

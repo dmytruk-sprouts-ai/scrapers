@@ -1,0 +1,27 @@
+{
+    "status": 200,
+    "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/1944072132:1781204727:0fefwA-G-5AiesEcK7RtSLVoM_4iiv_3c7GmUaW7EOc/a0a31dd72b113ec1/lRipsmnDMutI0uEVor5GIORhs1nzr_W2AWfOyJSUuNs-1781207130-1.2.1.1-xwCvzVQ35CX6EAn_Se8sBQfL.s7qU5GNImYBaixjO3SINMkPUDi4lOrrkRiQET1x",
+    "headers": {
+        "timing-allow-origin": "https://challenges.cloudflare.com",
+        "content-encoding": "br",
+        "cf-ray": "a0a31dd8d9223ec1-VIE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "date": "Thu, 11 Jun 2026 19:45:31 GMT",
+        "content-type": "text/plain; charset=UTF-8",
+        "cf-chl-gen": "5DrcZh+xZS8b9itDv7HlhkqEC/1CPaLdGxia+AwPhW+f0tnJKL9/yZ8C3FokIowdiP0F2jfX6V9fZHdxfjSXcOMou7LbR4BGgNLNxux5zgBlc33fa0NkpzvRWkezJg4GsQ5GYr4KGb1VTm2kj5zMekxsVsZQOb/aXSMxA20PTeXbdfVs9J+e418l4u8SRA1eY/HKYnl42Iia5SL1gkxDKRW6GFdfqNkVJ8cua/ubFVxUlApX8cgORYaMZZEwpP7FS1rSTGL644LHan3YWIzv18/xCooQfzl4MN4QTt5Uz5QqbBOytQrztfzGlD7P8fVvN8nJ/u8idgoxXljZwvuhjjo+KONYagQoQnnakZWDfdtq7YipqXcK78VLMO+/M/tAqiuRFkB9Z/UjJsZb9k2za68k6PYkJW5pEI1A+4aT51c/7EmiNQw64Wx2eqB74d5joyOe/iApTlrKDbO7rb7gNVto8iNLLQDcI/iB4O69xDSziHDBK46HIEszozWG5As1jt+d6ckvkd63ZWHoNGuT4PCJcBx6E7ev/utBm/XBBaSth3EEkhoNidzDOpbjiKQ5MD+QTi2b7/Xf5moUrLnfzj3iFdnqWtYy6rQD+P3idxQ=$vRW2+t+BosV4jypAZ0skZg==",
+        "server": "cloudflare",
+        "priority": "u=1,i"
+    },
+    "timing": {
+        "startTime": 1781207131013.0479,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.315,
+        "responseStart": 98.739,
+        "responseEnd": -1
+    }
+}

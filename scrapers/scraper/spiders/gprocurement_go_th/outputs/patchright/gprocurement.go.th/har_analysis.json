@@ -3,10 +3,10 @@
   "page_title": "eGP All Web",
   "verdict": "protected-but-delivered",
   "verdict_detail": "Cloudflare, Cloudflare Turnstile present but the document was delivered — protection is passive.",
-  "captured_entries": 57,
-  "total_bytes": 13498528,
-  "page_load_time_ms": 35328,
-  "time_to_first_byte_ms": 2235.1,
+  "captured_entries": 87,
+  "total_bytes": 13996985,
+  "page_load_time_ms": 27967,
+  "time_to_first_byte_ms": 2269.1,
   "protections": [
     {
       "vendor": "Cloudflare",
@@ -16,30 +16,30 @@
           "via": "url",
           "signal": "challenges\\.cloudflare\\.com",
           "example": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
-          "count": 2
+          "count": 4
         },
         {
           "via": "header",
           "signal": "cf-ray",
-          "example": "cf-ray: a0a1fe4aa8855b95-VIE",
-          "count": 14
+          "example": "cf-ray: a0a31dd6bef8b825-VIE",
+          "count": 16
         },
         {
           "via": "header",
           "signal": "server",
           "example": "server: cloudflare",
-          "count": 14
+          "count": 16
         },
         {
           "via": "url",
           "signal": "/cdn-cgi/challenge-platform/",
-          "example": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/kcei5/0x4AAAAAABuINxkTjFy-_hpH/",
+          "example": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/5l29t/0x4AAAAAABuINxkTjFy-_hpH/",
           "count": 12
         },
         {
           "via": "header",
           "signal": "cf-chl-out",
-          "example": "cf-chl-out: Rrfods6qxXPOsGr3XHqO17OE6UCdehqVZyqbHlrLibmwx1LogK0+242voqdabfbEaheWq19R0DwmDJht",
+          "example": "cf-chl-out: nY1jj4PqxuNYUSo9ku3Xm+Gx/Eig34h6mNZ6enOQqtH6Gjv+uTnTw13wNCorkSgkmqmumYIGHNFi+d0U",
           "count": 2
         }
       ]
@@ -52,7 +52,7 @@
           "via": "url",
           "signal": "challenges\\.cloudflare\\.com/turnstile",
           "example": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit",
-          "count": 2
+          "count": 4
         }
       ]
     }
@@ -124,7 +124,7 @@
       "status": 200,
       "url": "https://process5.gprocurement.go.th/egp-amas22-service/pb/a-master/app-ver",
       "mime": "application/json",
-      "size_bytes": 1771
+      "size_bytes": 1772
     },
     {
       "method": "GET",
@@ -150,7 +150,7 @@
     {
       "method": "GET",
       "status": 200,
-      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.EjI6Z9JzM83_xAqCZIYGqmVtUt2nRfjpIgICNVffVHjdAqq7uy9DIUY9Tvrtmx4Mf82Hs_bs2qviwSYkpoKy7y6qaLTKE9X44x6JSgMnnm-xefUpg6RM_gLZ1cBr1cWs4WapLGJXOgYA1iw01p7-EmXUIIqGyZWQzuNo6bvPFmQT-YLhy7WiHrSzEoUaMTAC4ExUAWKJt7ERpLqsgI3h4qo3CbOAtgxR_17svI8AtoctrfH2olJLH9JeLIvTAuXpxYODZjyjds_BfbO9kgQ6KOylaK1b3jCL7OvaEpP9d0q9E2dnRwRhx01EB-9djBr5JF-AHGRahKlJP3aavcPXuhiFeRF-UKqtd28i_94NBwWxLulUVOtNqpOMi_4ZIOIab_DZ0PABTnzSYf7nOR7KluBK8pFbYYIglrD1Hp2asZ9LYAdEqDC04i67H-8HPi9NbQFmGiJDQ7UW0_XsggSDGuddQyXa3cppgJ4B05_rDam_94QKQJjqnwg056GThOszwdX12HAsxHkD-mQ6hwp4xIJs7Suu53UgASmU6ovryql705qUSZB2daoTaDOAd-hiP7tH-gxCUv1VukhwrN_XaJmLWi5b5w_nL3iBhJjHd6a_4aS4q_KzfgVf9u37ApzNnCZqlUYfVYc1CRaDRO8Ak_Cx4mxuYBXsK-BAIt6V8z8LlCjGuYJJbDWnpXFjktuQ.o31KlX0T5lkQpqSmIFTPWg.4e4e0bde3f1b35110e0b56766181a254aaedec002cb93f8a93a3b27d63ced756",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.9Ca8PfWtvxI_eNpjpS55Ddt58e64PwPmk78_pQhzs4eNtZYDyc1EaV6-DUXr3zrjpoHNTLMsuaqpxnKT2dsUJj176YvEyrB0KTi_uaNLY9nHnnlQDba_gkOfkwS_BJRml4RotM5Jloiyxc63uZz55h-_BpLBAtc-DAWRnYwXvckNTbeBsqiWIOAMGkBKzSrvNi2-5oPn65fu1EV9RK60hxooguFaatAl_B0PmfmwyAevcwHaw5qypBtFJEA-M-Bchh0oJb_okQ-AlgZLk5z_dZ_5AkmZdzXNyEMp3felrSR9olhYzSdyYUFvwk1omSjLk8Lm8UlXkcQ0HQINT3rg9VjleAP1Tpn0cHGe4AgbLZRojsS7oYvJwZzSZtOnH3FWPsT-dgRDAcIglEgWfiwuKiwZ36GUghfoB8hc0qU5qHcCCNSTVbNfYdsK916v_EriYAqR0kvUiYCiqWSCHuatTTgnyOOJF5rMi-TKy7wNJBR6a-6ImeWvxXRLxau97n9wJOSSSSInH_8Eh-l2O0XtCJ0yYFv9MIR4ONUSsV_azapceW8BtxSabjP-lrZVyzTG8hOmz-o8loWpG1hdMgZ5qKdZbuWZwMO_HjJio7lvoKQLmMHMx-LiFiyAFIZnJWAsS32N5AytrcJ8Jm8_91ie7D90D_SklQkBpknmonTzLxyDgNF1RuwurU51cwbSDJSa.Bc7yfn1vlY7RaMBcxYg04g.521ff4b5b76d96636f1b74c12ce29a6053f5cb768b389b8842ecd2adb552edc6",
       "mime": "application/json",
       "size_bytes": 1697
     },
@@ -159,7 +159,7 @@
       "status": 200,
       "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement?budgetYear=2569&announcementTodayFlag=false&page=1",
       "mime": "application/json",
-      "size_bytes": 11427
+      "size_bytes": 10836
     },
     {
       "method": "GET",
@@ -169,9 +169,100 @@
       "size_bytes": 1587
     },
     {
+      "method": "POST",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/generateToken",
+      "mime": "application/json",
+      "size_bytes": 1808
+    },
+    {
       "method": "GET",
       "status": 200,
-      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.jwvcsKFNh47oIw6FF4pTJRi1rjdVmxslc0uuKd5nG96HYUuXRRGSjlTef_At1Q52iOGwnaO_gFrb05LkG1sRm2EDwjUPTGzgpmpIgmfGTGtxydJ1PjNV6JtsC_0IjISVLO5n5ViW2UsckQFH7j9W0bYi7WHADL23Aj0gqxiN7v6GSzBir9KmGvjUlhDI0HDUpF-ua4GH6mFrC_ERZvJsF_CjVjrbud_Jg2fe13iIB__CVks1_YDdlpts0skBBc7pvlk0xaam0YxVtJTeKo0fIxVeO08RGuLYYVS0LpkZpptvCyXO0HugIWlOKbYilb_gBa2dAiTqSF6h-oiPcM4U5JC7NfUhf96NPL3p1vLLirEtDW5yuMCX7emfy_3qSXA5G_NnIItskOFUsMaKKcT2IuKIKVm_pAkfPhPjFFzuoPNhCDbIeHstMHOMndanU-DHDLEXPCsXsk-7MpFGO7VJrS7RxjGFNHsAUkeC4wbaums3I-KKqsgJhOlJlpMf1MlBZAfw70R9x0mDsVtZRLRZLl-lrylJfXfmlV5D3tQUBMy-g4iXM7YOevud4mmyVz0R5ncV3sXhDrxhmpXJWSUfQKrLCPY2N5I-YUB3QjMVzfq7JLs84e0887YZ3zmR-r1VOXc7sz6NzmmvhsC32Wbwed6KOZb1CuJd0iQdME8hFkquAB3cjMrZumb2Jfqm6uuH.vHfqlLQjAKg13VmWnl13_Q.cdebb75267efd195f54d526b2db1653bf607198113da7e0140b7db22b3a0d44e",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod",
+      "mime": "application/json",
+      "size_bytes": 5246
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getProjectDetail?projectId=69069212137",
+      "mime": "application/json",
+      "size_bytes": 2145
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getProcurementDetail?projectId=69069212137",
+      "mime": "application/json",
+      "size_bytes": 2683
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod",
+      "mime": "application/json",
+      "size_bytes": 5246
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listGoods",
+      "mime": "application/json",
+      "size_bytes": 10709
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/rdbsysm011/listProvince",
+      "mime": "application/json",
+      "size_bytes": 8178
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/greenBook?mode=LINK&methodId=19&tempProjectId=69069212137&pageAnnounceType=W0",
+      "mime": "application/json",
+      "size_bytes": 3086
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/infoDeptSub?deptId=2033&deptSubId=203310000849",
+      "mime": "application/json",
+      "size_bytes": 2273
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/validateProcureProjectStep?projectId=69069212137&flowType=I&realMethodId=182&flowSeqno=7&typeId=03",
+      "mime": "application/json",
+      "size_bytes": 1545
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/rdbsysm011/listProvince",
+      "mime": "application/json",
+      "size_bytes": 8178
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod",
+      "mime": "application/json",
+      "size_bytes": 5246
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/bypasscloudflare?systemName=PROD",
+      "mime": "application/json",
+      "size_bytes": 1627
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.5BcxUnhovY7aFlM5k0mTWxT3ZHXJs1eOdX_Q7uuqsF4JRgPG81ZLAtp62dKaxL6cdqQ7m38GBpMvMrXHJr61DCDj6vLaXsE5PFYRs5zcc8nMs8mS_CKd2TMjZ4WgPLTS5MyQDRkJKaUk4DwrWZ7wdCzTFbL7zCCSmhCDlHCZnmm358I2DfqK0AXAyqqZrnawLtYRXf1ety40ayU8d3TjDzoNNYYlEtyR6HeiZTZg7oMEbwg2wEyhjE5Yx3jWN4eaCvLuBKtcOQib8qS6Ez74qBP7q3JLj35bg5k_icSDF-CarEvI79151cjl-6v9NdMid1glAZ_ObFOdqGpehJQ3_DUbr6eLxuvN4pR9BQg2d0kgJHXZ5G_E3blzUbqu_P7Xh1oSTomMBOhUQXouKUCuK6VIlu1z-u8rdPJyad4dakTqkCm0ZdOPkH6loMgE-fVBa0arF6dSyaQzQc-ACzMQ7BrdzWhLhnwtQr9CLE8iUS47rDuSkD8zS9TDsV89jDtlIFAS6EzWOF4gnGjD15Ze4XRWW0aLvE5M2HCPzj1RPKSliCl3f5nXOR6Yrm-ZizYbgnlsAW58I4Bn3E0x9ZM6QPggG7FL6Fsn8atWbfzfQwttIqBGI2W2jvRkxpWm5bwaW_KyLMW609NW5p1jtRfBYlBS-ov7EwlZNrSyPM73HpIlEOKRm3AwbaXj5AwHyIHq.6HurijVBTAsA7EMQB1Ygkw.28111d5f20bed104bfbc63f34ae7345bf750f8cb48f3d5ef09c320b568b24312",
       "mime": "application/json",
       "size_bytes": 1697
     },
@@ -180,27 +271,97 @@
       "status": 200,
       "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement?budgetYear=2569&announcementTodayFlag=false&page=1",
       "mime": "application/json",
-      "size_bytes": 11138
+      "size_bytes": 10836
     },
     {
       "method": "GET",
       "status": 200,
       "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/sumProjectMoneyAndCount?budgetYear=2569&announcementTodayFlag=false",
       "mime": "application/json",
-      "size_bytes": 1586
+      "size_bytes": 1587
+    },
+    {
+      "method": "POST",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/generateToken",
+      "mime": "application/json",
+      "size_bytes": 1812
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod",
+      "mime": "application/json",
+      "size_bytes": 5246
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getProjectDetail?projectId=69069201777",
+      "mime": "application/json",
+      "size_bytes": 2299
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getProcurementDetail?projectId=69069201777",
+      "mime": "application/json",
+      "size_bytes": 2855
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod",
+      "mime": "application/json",
+      "size_bytes": 5246
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listGoods",
+      "mime": "application/json",
+      "size_bytes": 10709
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/rdbsysm011/listProvince",
+      "mime": "application/json",
+      "size_bytes": 8178
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/greenBook?mode=LINK&methodId=19&tempProjectId=69069201777&pageAnnounceType=W0",
+      "mime": "application/json",
+      "size_bytes": 3466
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/infoDeptSub?deptId=1020010014&deptSubId=102001001420000000",
+      "mime": "application/json",
+      "size_bytes": 2214
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/validateProcureProjectStep?projectId=69069201777&flowType=I&realMethodId=182&flowSeqno=7&typeId=03",
+      "mime": "application/json",
+      "size_bytes": 1545
     }
   ],
   "hosts": [
     {
       "host": "process5.gprocurement.go.th",
-      "requests": 40,
-      "bytes": 12361216,
+      "requests": 68,
+      "bytes": 12817808,
       "is_protection": false
     },
     {
       "host": "challenges.cloudflare.com",
-      "requests": 14,
-      "bytes": 904820,
+      "requests": 16,
+      "bytes": 978751,
       "is_protection": true
     },
     {
@@ -212,18 +373,18 @@
   ],
   "stats": {
     "by_status": {
-      "200": 53,
-      "302": 2,
+      "200": 82,
+      "302": 3,
       "401": 2
     },
     "by_type": {
-      "script": 20,
-      "json": 11,
-      "image": 10,
+      "json": 34,
+      "script": 21,
+      "image": 11,
+      "font": 7,
       "document": 6,
       "xhr": 4,
-      "font": 3,
-      "other": 2,
+      "other": 3,
       "stylesheet": 1
     }
   },
@@ -231,7 +392,7 @@
     {
       "n": 0,
       "offset_ms": 0.0,
-      "time_ms": 1687.8,
+      "time_ms": 1666.2,
       "method": "GET",
       "status": 302,
       "type": "other",
@@ -241,8 +402,8 @@
     },
     {
       "n": 1,
-      "offset_ms": 1267.0,
-      "time_ms": 556.5,
+      "offset_ms": 1247.0,
+      "time_ms": 609.3,
       "method": "GET",
       "status": 200,
       "type": "document",
@@ -252,8 +413,8 @@
     },
     {
       "n": 2,
-      "offset_ms": 1829.0,
-      "time_ms": 32.9,
+      "offset_ms": 1861.0,
+      "time_ms": 31.5,
       "method": "GET",
       "status": 200,
       "type": "image",
@@ -263,8 +424,8 @@
     },
     {
       "n": 3,
-      "offset_ms": 2620.0,
-      "time_ms": 2022.7,
+      "offset_ms": 2640.0,
+      "time_ms": 1962.7,
       "method": "GET",
       "status": 200,
       "type": "document",
@@ -275,18 +436,18 @@
     {
       "n": 4,
       "offset_ms": 3989.0,
-      "time_ms": 4754.6,
+      "time_ms": 3974.3,
       "method": "GET",
       "status": 200,
       "type": "stylesheet",
-      "size_bytes": 274320,
+      "size_bytes": 274294,
       "host": "process5.gprocurement.go.th",
       "url": "https://process5.gprocurement.go.th/egp-agpc01-web/styles.124878ba6c377991.css"
     },
     {
       "n": 5,
-      "offset_ms": 3990.0,
-      "time_ms": 1297.4,
+      "offset_ms": 3992.0,
+      "time_ms": 1077.0,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -296,30 +457,30 @@
     },
     {
       "n": 6,
-      "offset_ms": 3990.0,
-      "time_ms": 16633.8,
+      "offset_ms": 3992.0,
+      "time_ms": 10033.2,
       "method": "GET",
       "status": 200,
       "type": "script",
-      "size_bytes": 630754,
+      "size_bytes": 630794,
       "host": "process5.gprocurement.go.th",
       "url": "https://process5.gprocurement.go.th/egp-agpc01-web/scripts.c8f2401c9e4496c4.js"
     },
     {
       "n": 7,
-      "offset_ms": 3991.0,
-      "time_ms": 1291.0,
+      "offset_ms": 3993.0,
+      "time_ms": 1129.5,
       "method": "GET",
       "status": 200,
       "type": "script",
-      "size_bytes": 5041,
+      "size_bytes": 5042,
       "host": "process5.gprocurement.go.th",
       "url": "https://process5.gprocurement.go.th/egp-agpc01-web/main.04c281d2396cb9f9.js"
     },
     {
       "n": 8,
-      "offset_ms": 8793.0,
-      "time_ms": 31.9,
+      "offset_ms": 8005.0,
+      "time_ms": 30.8,
       "method": "GET",
       "status": 200,
       "type": "image",
@@ -329,8 +490,8 @@
     },
     {
       "n": 9,
-      "offset_ms": 8793.0,
-      "time_ms": 26.1,
+      "offset_ms": 8005.0,
+      "time_ms": 25.4,
       "method": "GET",
       "status": 200,
       "type": "font",
@@ -340,8 +501,8 @@
     },
     {
       "n": 10,
-      "offset_ms": 20356.0,
-      "time_ms": 30.5,
+      "offset_ms": 13863.0,
+      "time_ms": 71.9,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -351,8 +512,8 @@
     },
     {
       "n": 11,
-      "offset_ms": 20357.0,
-      "time_ms": 30.9,
+      "offset_ms": 13864.0,
+      "time_ms": 72.7,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -362,8 +523,8 @@
     },
     {
       "n": 12,
-      "offset_ms": 20357.0,
-      "time_ms": 30.9,
+      "offset_ms": 13864.0,
+      "time_ms": 74.2,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -373,8 +534,8 @@
     },
     {
       "n": 13,
-      "offset_ms": 20357.0,
-      "time_ms": 42.5,
+      "offset_ms": 13865.0,
+      "time_ms": 84.3,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -384,8 +545,8 @@
     },
     {
       "n": 14,
-      "offset_ms": 20358.0,
-      "time_ms": 42.3,
+      "offset_ms": 13865.0,
+      "time_ms": 84.0,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -395,8 +556,8 @@
     },
     {
       "n": 15,
-      "offset_ms": 20358.0,
-      "time_ms": 61.1,
+      "offset_ms": 13865.0,
+      "time_ms": 86.5,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -406,8 +567,8 @@
     },
     {
       "n": 16,
-      "offset_ms": 20358.0,
-      "time_ms": 61.1,
+      "offset_ms": 13865.0,
+      "time_ms": 86.4,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -417,8 +578,8 @@
     },
     {
       "n": 17,
-      "offset_ms": 20358.0,
-      "time_ms": 79.9,
+      "offset_ms": 13866.0,
+      "time_ms": 86.9,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -428,8 +589,8 @@
     },
     {
       "n": 18,
-      "offset_ms": 20359.0,
-      "time_ms": 699.6,
+      "offset_ms": 13866.0,
+      "time_ms": 699.8,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -439,8 +600,8 @@
     },
     {
       "n": 19,
-      "offset_ms": 20359.0,
-      "time_ms": 699.9,
+      "offset_ms": 13866.0,
+      "time_ms": 700.0,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -450,8 +611,8 @@
     },
     {
       "n": 20,
-      "offset_ms": 20359.0,
-      "time_ms": 805.1,
+      "offset_ms": 13866.0,
+      "time_ms": 812.7,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -461,8 +622,8 @@
     },
     {
       "n": 21,
-      "offset_ms": 20359.0,
-      "time_ms": 808.6,
+      "offset_ms": 13866.0,
+      "time_ms": 816.2,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -472,8 +633,8 @@
     },
     {
       "n": 22,
-      "offset_ms": 20359.0,
-      "time_ms": 816.4,
+      "offset_ms": 13866.0,
+      "time_ms": 823.2,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -483,8 +644,8 @@
     },
     {
       "n": 23,
-      "offset_ms": 20360.0,
-      "time_ms": 828.3,
+      "offset_ms": 13867.0,
+      "time_ms": 835.4,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -494,8 +655,8 @@
     },
     {
       "n": 24,
-      "offset_ms": 21618.0,
-      "time_ms": 729.4,
+      "offset_ms": 15101.0,
+      "time_ms": 451.2,
       "method": "GET",
       "status": 200,
       "type": "script",
@@ -505,19 +666,19 @@
     },
     {
       "n": 25,
-      "offset_ms": 22351.0,
-      "time_ms": 9409.6,
+      "offset_ms": 15557.0,
+      "time_ms": 9409.5,
       "method": "GET",
       "status": 200,
       "type": "script",
-      "size_bytes": 418091,
+      "size_bytes": 417809,
       "host": "process5.gprocurement.go.th",
       "url": "https://process5.gprocurement.go.th/egp-aann09-web/594.dcabd3aaef1da851.js"
     },
     {
       "n": 26,
-      "offset_ms": 31941.0,
-      "time_ms": 432.1,
+      "offset_ms": 25140.0,
+      "time_ms": 447.5,
       "method": "GET",
       "status": 200,
       "type": "image",
@@ -527,8 +688,8 @@
     },
     {
       "n": 27,
-      "offset_ms": 31942.0,
-      "time_ms": 19.9,
+      "offset_ms": 25140.0,
+      "time_ms": 22.1,
       "method": "GET",
       "status": 200,
       "type": "image",
@@ -538,8 +699,8 @@
     },
     {
       "n": 28,
-      "offset_ms": 31942.0,
-      "time_ms": 447.3,
+      "offset_ms": 25141.0,
+      "time_ms": 469.0,
       "method": "GET",
       "status": 200,
       "type": "image",
@@ -549,8 +710,8 @@
     },
     {
       "n": 29,
-      "offset_ms": 31990.0,
-      "time_ms": 3204.7,
+      "offset_ms": 25180.0,
+      "time_ms": 2791.0,
       "method": "GET",
       "status": 200,
       "type": "image",
@@ -560,8 +721,8 @@
     },
     {
       "n": 30,
-      "offset_ms": 31991.0,
-      "time_ms": 66.7,
+      "offset_ms": 25180.0,
+      "time_ms": 54.9,
       "method": "GET",
       "status": 200,
       "type": "font",
@@ -571,8 +732,8 @@
     },
     {
       "n": 31,
-      "offset_ms": 31991.0,
-      "time_ms": 76.2,
+      "offset_ms": 25180.0,
+      "time_ms": 63.6,
       "method": "GET",
       "status": 200,
       "type": "font",
@@ -582,8 +743,8 @@
     },
     {
       "n": 32,
-      "offset_ms": 32043.0,
-      "time_ms": 467.4,
+      "offset_ms": 25233.0,
+      "time_ms": 505.6,
       "method": "POST",
       "status": 200,
       "type": "json",
@@ -593,19 +754,19 @@
     },
     {
       "n": 33,
-      "offset_ms": 32044.0,
-      "time_ms": 501.9,
+      "offset_ms": 25234.0,
+      "time_ms": 507.5,
       "method": "POST",
       "status": 200,
       "type": "json",
-      "size_bytes": 1771,
+      "size_bytes": 1772,
       "host": "process5.gprocurement.go.th",
       "url": "https://process5.gprocurement.go.th/egp-amas22-service/pb/a-master/app-ver"
     },
     {
       "n": 34,
-      "offset_ms": 32045.0,
-      "time_ms": 479.7,
+      "offset_ms": 25234.0,
+      "time_ms": 476.4,
       "method": "GET",
       "status": 200,
       "type": "json",
@@ -615,8 +776,8 @@
     },
     {
       "n": 35,
-      "offset_ms": 32045.0,
-      "time_ms": 1093.3,
+      "offset_ms": 25234.0,
+      "time_ms": 1054.4,
       "method": "GET",
       "status": 200,
       "type": "json",
@@ -626,8 +787,8 @@
     },
     {
       "n": 36,
-      "offset_ms": 32046.0,
-      "time_ms": 1151.3,
+      "offset_ms": 25235.0,
+      "time_ms": 1140.0,
       "method": "GET",
       "status": 200,
       "type": "json",
@@ -637,8 +798,8 @@
     },
     {
       "n": 37,
-      "offset_ms": 32997.0,
-      "time_ms": 67.6,
+      "offset_ms": 26174.0,
+      "time_ms": 56.8,
       "method": "GET",
       "status": 302,
       "type": "other",
@@ -648,30 +809,30 @@
     },
     {
       "n": 38,
-      "offset_ms": 33045.0,
-      "time_ms": 35.1,
+      "offset_ms": 26218.0,
+      "time_ms": 28.2,
       "method": "GET",
       "status": 200,
       "type": "script",
-      "size_bytes": 21792,
+      "size_bytes": 21901,
       "host": "challenges.cloudflare.com",
       "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js"
     },
     {
       "n": 39,
-      "offset_ms": 33095.0,
-      "time_ms": 37.9,
+      "offset_ms": 26259.0,
+      "time_ms": 53.3,
       "method": "GET",
       "status": 200,
       "type": "document",
-      "size_bytes": 89288,
+      "size_bytes": 87260,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/kcei5/0x4AAAAAABuINxkTjFy-_hpH/light/fbE/new/normal?lang=auto"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/5l29t/0x4AAAAAABuINxkTjFy-_hpH/light/fbE/new/normal?lang=auto"
     },
     {
       "n": 40,
-      "offset_ms": 33156.0,
-      "time_ms": 44.5,
+      "offset_ms": 26330.0,
+      "time_ms": 33.1,
       "method": "GET",
       "status": 200,
       "type": "image",
@@ -681,74 +842,74 @@
     },
     {
       "n": 41,
-      "offset_ms": 33352.0,
-      "time_ms": 123.5,
+      "offset_ms": 26533.0,
+      "time_ms": 129.4,
       "method": "POST",
       "status": 200,
       "type": "xhr",
-      "size_bytes": 343143,
+      "size_bytes": 371527,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/303501634:1781193923:PHsorZfX2fLjDm7oRpEfba7F0mP7BLh9WgEb7CePoYk/a0a1fe4b2cb08f2b/zKHU2u.DrHPqbKptTT5iPFEM.ccSitCZlajqLFxkiWs-1781195352-1.2.1.1-DH55_h4FfNFHecaDRsa5XycSoQbdsMq456_k3YCh8aqfG543yxbGvL1UubpCergq"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/1944072132:1781204727:0fefwA-G-5AiesEcK7RtSLVoM_4iiv_3c7GmUaW7EOc/a0a31dd72b113ec1/lRipsmnDMutI0uEVor5GIORhs1nzr_W2AWfOyJSUuNs-1781207130-1.2.1.1-xwCvzVQ35CX6EAn_Se8sBQfL.s7qU5GNImYBaixjO3SINMkPUDi4lOrrkRiQET1x"
     },
     {
       "n": 42,
-      "offset_ms": 34486.0,
-      "time_ms": 17.4,
+      "offset_ms": 26870.0,
+      "time_ms": 18.0,
       "method": "GET",
       "status": 200,
       "type": "image",
-      "size_bytes": 818,
+      "size_bytes": 1579,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a0a1fe4b2cb08f2b/1781195353081/nERtZLdAveTNTIU"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a0a31dd72b113ec1/1781207131020/egdCg9gWcTMzVOQ"
     },
     {
       "n": 43,
-      "offset_ms": 34680.0,
-      "time_ms": 21.1,
+      "offset_ms": 28383.0,
+      "time_ms": 25.4,
       "method": "GET",
       "status": 401,
       "type": "xhr",
-      "size_bytes": 1697,
+      "size_bytes": 1702,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a0a1fe4b2cb08f2b/1781195353081/8b14f412e6addd6dd118fbca3b46909b288fbb0aa20906b26401182c3d8d8b09/RVLiROSx-AxHBhf"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a0a31dd72b113ec1/1781207131021/f50e7a707fc2bd5d6d88fda09584c0a5adc35330713be5dd8ef174c390492543/vfwAkwbtJprPpqM"
     },
     {
       "n": 44,
-      "offset_ms": 36605.0,
-      "time_ms": 62.6,
+      "offset_ms": 30025.0,
+      "time_ms": 50.4,
       "method": "POST",
       "status": 200,
       "type": "document",
-      "size_bytes": 5836,
+      "size_bytes": 5814,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/303501634:1781193923:PHsorZfX2fLjDm7oRpEfba7F0mP7BLh9WgEb7CePoYk/a0a1fe4b2cb08f2b/zKHU2u.DrHPqbKptTT5iPFEM.ccSitCZlajqLFxkiWs-1781195352-1.2.1.1-DH55_h4FfNFHecaDRsa5XycSoQbdsMq456_k3YCh8aqfG543yxbGvL1UubpCergq"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/1944072132:1781204727:0fefwA-G-5AiesEcK7RtSLVoM_4iiv_3c7GmUaW7EOc/a0a31dd72b113ec1/lRipsmnDMutI0uEVor5GIORhs1nzr_W2AWfOyJSUuNs-1781207130-1.2.1.1-xwCvzVQ35CX6EAn_Se8sBQfL.s7qU5GNImYBaixjO3SINMkPUDi4lOrrkRiQET1x"
     },
     {
       "n": 45,
-      "offset_ms": 36672.0,
-      "time_ms": 621.9,
+      "offset_ms": 30079.0,
+      "time_ms": 575.0,
       "method": "GET",
       "status": 200,
       "type": "json",
       "size_bytes": 1697,
       "host": "process5.gprocurement.go.th",
-      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.EjI6Z9JzM83_xAqCZIYGqmVtUt2nRfjpIgICNVffVHjdAqq7uy9DIUY9Tvrtmx4Mf82Hs_bs2qviwSYkpoKy7y6qaLTKE9X44x6JSgMnnm-xefUpg6RM_gLZ1cBr1cWs4WapLGJXOgYA1iw01p7-EmXUIIqGyZWQzuNo6bvPFmQT-YLhy7WiHrSzEoUaMTAC4ExUAWKJt7ERpLqsgI3h4qo3CbOAtgxR_17svI8AtoctrfH2olJLH9JeLIvTAuXpxYODZjyjds_BfbO9kgQ6KOylaK1b3jCL7OvaEpP9d0q9E2dnRwRhx01EB-9djBr5JF-AHGRahKlJP3aavcPXuhiFeRF-UKqtd28i_94NBwWxLulUVOtNqpOMi_4ZIOIab_DZ0PABTnzSYf7nOR7KluBK8pFbYYIglrD1Hp2asZ9LYAdEqDC04i67H-8HPi9NbQFmGiJDQ7UW0_XsggSDGuddQyXa3cppgJ4B05_rDam_94QKQJjqnwg056GThOszwdX12HAsxHkD-mQ6hwp4xIJs7Suu53UgASmU6ovryql705qUSZB2daoTaDOAd-hiP7tH-gxCUv1VukhwrN_XaJmLWi5b5w_nL3iBhJjHd6a_4aS4q_KzfgVf9u37ApzNnCZqlUYfVYc1CRaDRO8Ak_Cx4mxuYBXsK-BAIt6V8z8LlCjGuYJJbDWnpXFjktuQ.o31KlX0T5lkQpqSmIFTPWg.4e4e0bde3f1b35110e0b56766181a254aaedec002cb93f8a93a3b27d63ced756"
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.9Ca8PfWtvxI_eNpjpS55Ddt58e64PwPmk78_pQhzs4eNtZYDyc1EaV6-DUXr3zrjpoHNTLMsuaqpxnKT2dsUJj176YvEyrB0KTi_uaNLY9nHnnlQDba_gkOfkwS_BJRml4RotM5Jloiyxc63uZz55h-_BpLBAtc-DAWRnYwXvckNTbeBsqiWIOAMGkBKzSrvNi2-5oPn65fu1EV9RK60hxooguFaatAl_B0PmfmwyAevcwHaw5qypBtFJEA-M-Bchh0oJb_okQ-AlgZLk5z_dZ_5AkmZdzXNyEMp3felrSR9olhYzSdyYUFvwk1omSjLk8Lm8UlXkcQ0HQINT3rg9VjleAP1Tpn0cHGe4AgbLZRojsS7oYvJwZzSZtOnH3FWPsT-dgRDAcIglEgWfiwuKiwZ36GUghfoB8hc0qU5qHcCCNSTVbNfYdsK916v_EriYAqR0kvUiYCiqWSCHuatTTgnyOOJF5rMi-TKy7wNJBR6a-6ImeWvxXRLxau97n9wJOSSSSInH_8Eh-l2O0XtCJ0yYFv9MIR4ONUSsV_azapceW8BtxSabjP-lrZVyzTG8hOmz-o8loWpG1hdMgZ5qKdZbuWZwMO_HjJio7lvoKQLmMHMx-LiFiyAFIZnJWAsS32N5AytrcJ8Jm8_91ie7D90D_SklQkBpknmonTzLxyDgNF1RuwurU51cwbSDJSa.Bc7yfn1vlY7RaMBcxYg04g.521ff4b5b76d96636f1b74c12ce29a6053f5cb768b389b8842ecd2adb552edc6"
     },
     {
       "n": 46,
-      "offset_ms": 37299.0,
-      "time_ms": 735.0,
+      "offset_ms": 30658.0,
+      "time_ms": 757.4,
       "method": "GET",
       "status": 200,
       "type": "json",
-      "size_bytes": 11427,
+      "size_bytes": 10836,
       "host": "process5.gprocurement.go.th",
       "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement?budgetYear=2569&announcementTodayFlag=false&page=1"
     },
     {
       "n": 47,
-      "offset_ms": 38037.0,
-      "time_ms": 1202.6,
+      "offset_ms": 31420.0,
+      "time_ms": 1120.6,
       "method": "GET",
       "status": 200,
       "type": "json",
@@ -758,108 +919,438 @@
     },
     {
       "n": 48,
-      "offset_ms": 326684.0,
-      "time_ms": 1663.0,
+      "offset_ms": 34219.0,
+      "time_ms": 27.9,
       "method": "GET",
       "status": 200,
-      "type": "document",
-      "size_bytes": 87138,
-      "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/kcei5/0x4AAAAAABuINxkTjFy-_hpH/light/fbE/auto_expire/normal?lang=auto"
+      "type": "font",
+      "size_bytes": 129136,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-agpc01-web/material-icon.59322316b3fd6063.woff2"
     },
     {
       "n": 49,
-      "offset_ms": 328323.0,
-      "time_ms": 20.2,
+      "offset_ms": 34219.0,
+      "time_ms": 28.1,
+      "method": "GET",
+      "status": 200,
+      "type": "font",
+      "size_bytes": 15867,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-agpc01-web/CSChatThaiUI.2e18cea3f540614b.woff2"
+    },
+    {
+      "n": 50,
+      "offset_ms": 34219.0,
+      "time_ms": 36.6,
+      "method": "GET",
+      "status": 200,
+      "type": "font",
+      "size_bytes": 49966,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-agpc01-web/KanitRegular.e15eb4fa95ce92c1.woff2"
+    },
+    {
+      "n": 51,
+      "offset_ms": 34223.0,
+      "time_ms": 466.9,
+      "method": "POST",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 1808,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/generateToken"
+    },
+    {
+      "n": 52,
+      "offset_ms": 34224.0,
+      "time_ms": 474.2,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 5246,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod"
+    },
+    {
+      "n": 53,
+      "offset_ms": 34695.0,
+      "time_ms": 612.8,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2145,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getProjectDetail?projectId=69069212137"
+    },
+    {
+      "n": 54,
+      "offset_ms": 35316.0,
+      "time_ms": 546.4,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2683,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getProcurementDetail?projectId=69069212137"
+    },
+    {
+      "n": 55,
+      "offset_ms": 35317.0,
+      "time_ms": 505.1,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 5246,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod"
+    },
+    {
+      "n": 56,
+      "offset_ms": 35317.0,
+      "time_ms": 500.7,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 10709,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listGoods"
+    },
+    {
+      "n": 57,
+      "offset_ms": 35871.0,
+      "time_ms": 452.2,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 8178,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/rdbsysm011/listProvince"
+    },
+    {
+      "n": 58,
+      "offset_ms": 35873.0,
+      "time_ms": 498.5,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 3086,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/greenBook?mode=LINK&methodId=19&tempProjectId=69069212137&pageAnnounceType=W0"
+    },
+    {
+      "n": 59,
+      "offset_ms": 35873.0,
+      "time_ms": 451.8,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2273,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/infoDeptSub?deptId=2033&deptSubId=203310000849"
+    },
+    {
+      "n": 60,
+      "offset_ms": 36382.0,
+      "time_ms": 494.4,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 1545,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/validateProcureProjectStep?projectId=69069212137&flowType=I&realMethodId=182&flowSeqno=7&typeId=03"
+    },
+    {
+      "n": 61,
+      "offset_ms": 36387.0,
+      "time_ms": 20.1,
+      "method": "GET",
+      "status": 200,
+      "type": "font",
+      "size_bytes": 156060,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-agpc01-web/material-icon-outlined.f86cb7b0aa53f0fe.woff2"
+    },
+    {
+      "n": 62,
+      "offset_ms": 41609.0,
+      "time_ms": 471.5,
       "method": "GET",
       "status": 200,
       "type": "image",
-      "size_bytes": 208,
+      "size_bytes": 5181,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-agpc01-web/assets/images/remark.svg"
+    },
+    {
+      "n": 63,
+      "offset_ms": 41621.0,
+      "time_ms": 644.7,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 8178,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/rdbsysm011/listProvince"
+    },
+    {
+      "n": 64,
+      "offset_ms": 41622.0,
+      "time_ms": 460.8,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 5246,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod"
+    },
+    {
+      "n": 65,
+      "offset_ms": 41623.0,
+      "time_ms": 479.0,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 1627,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/bypasscloudflare?systemName=PROD"
+    },
+    {
+      "n": 66,
+      "offset_ms": 42108.0,
+      "time_ms": 24.5,
+      "method": "GET",
+      "status": 302,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+    },
+    {
+      "n": 67,
+      "offset_ms": 42130.0,
+      "time_ms": 15.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 21784,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js"
+    },
+    {
+      "n": 68,
+      "offset_ms": 42157.0,
+      "time_ms": 32.8,
+      "method": "GET",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 87356,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/8r16y/0x4AAAAAABuINxkTjFy-_hpH/light/fbE/new/normal?lang=auto"
+    },
+    {
+      "n": 69,
+      "offset_ms": 42213.0,
+      "time_ms": 32.6,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 209,
       "host": "challenges.cloudflare.com",
       "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/cmg/1"
     },
     {
-      "n": 50,
-      "offset_ms": 328530.0,
-      "time_ms": 191.0,
+      "n": 70,
+      "offset_ms": 42417.0,
+      "time_ms": 144.6,
       "method": "POST",
       "status": 200,
       "type": "xhr",
-      "size_bytes": 341564,
+      "size_bytes": 371421,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/303501634:1781193923:PHsorZfX2fLjDm7oRpEfba7F0mP7BLh9WgEb7CePoYk/a0a2057ffd485b69/lfbGbvrug1BTyWRWLRkRCGdXRUWlcut73EYH14AWMR4-1781195647-1.2.1.1-690cFa.OlEB6zaUOVwKLgFkWZvQjEhhUuySpYWP_aV8SCwwJbbcEsBop8rOAjsQF"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/1944072132:1781204727:0fefwA-G-5AiesEcK7RtSLVoM_4iiv_3c7GmUaW7EOc/a0a31e3a7ea83ec1/MdAkDK5AecCgq7v6Z76IfGi89RWcN.FAwSPpKIwYT7k-1781207146-1.2.1.1-Fet2OUk7TEVoxG6237i9XREM.cwuBXG.nM1OvSXSWuWu8XvLi0.5IhxxOLDRioT_"
     },
     {
-      "n": 51,
-      "offset_ms": 331091.0,
-      "time_ms": 23.2,
+      "n": 71,
+      "offset_ms": 42905.0,
+      "time_ms": 18.2,
       "method": "GET",
       "status": 200,
       "type": "image",
-      "size_bytes": 5678,
+      "size_bytes": 527,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a0a2057ffd485b69/1781195648266/J3hTY-MJxWpDENX"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a0a31e3a7ea83ec1/1781207146906/zujpTJynwr3AWr5"
     },
     {
-      "n": 52,
-      "offset_ms": 331558.0,
-      "time_ms": 22.7,
+      "n": 72,
+      "offset_ms": 44239.0,
+      "time_ms": 18.3,
       "method": "GET",
       "status": 401,
       "type": "xhr",
-      "size_bytes": 1699,
+      "size_bytes": 1703,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a0a2057ffd485b69/1781195648267/d0f2e26af24ad96c9810fc09c4a08b30d4c0d4aa39b2cee3151f2e77c43ff59a/uvb5W1nUCTQvnpF"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a0a31e3a7ea83ec1/1781207146906/22e9cd67aa9b8e45def1cc4c896a4416ecc8d1308b22c28ae66036609d6ca59a/dUxULL0ORVSj5ZP"
     },
     {
-      "n": 53,
-      "offset_ms": 331716.0,
-      "time_ms": 59.3,
+      "n": 73,
+      "offset_ms": 45553.0,
+      "time_ms": 42.9,
       "method": "POST",
       "status": 200,
       "type": "document",
-      "size_bytes": 5751,
+      "size_bytes": 5760,
       "host": "challenges.cloudflare.com",
-      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/303501634:1781193923:PHsorZfX2fLjDm7oRpEfba7F0mP7BLh9WgEb7CePoYk/a0a2057ffd485b69/lfbGbvrug1BTyWRWLRkRCGdXRUWlcut73EYH14AWMR4-1781195647-1.2.1.1-690cFa.OlEB6zaUOVwKLgFkWZvQjEhhUuySpYWP_aV8SCwwJbbcEsBop8rOAjsQF"
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/1944072132:1781204727:0fefwA-G-5AiesEcK7RtSLVoM_4iiv_3c7GmUaW7EOc/a0a31e3a7ea83ec1/MdAkDK5AecCgq7v6Z76IfGi89RWcN.FAwSPpKIwYT7k-1781207146-1.2.1.1-Fet2OUk7TEVoxG6237i9XREM.cwuBXG.nM1OvSXSWuWu8XvLi0.5IhxxOLDRioT_"
     },
     {
-      "n": 54,
-      "offset_ms": 331781.0,
-      "time_ms": 1809.2,
+      "n": 74,
+      "offset_ms": 45599.0,
+      "time_ms": 756.7,
       "method": "GET",
       "status": 200,
       "type": "json",
       "size_bytes": 1697,
       "host": "process5.gprocurement.go.th",
-      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.jwvcsKFNh47oIw6FF4pTJRi1rjdVmxslc0uuKd5nG96HYUuXRRGSjlTef_At1Q52iOGwnaO_gFrb05LkG1sRm2EDwjUPTGzgpmpIgmfGTGtxydJ1PjNV6JtsC_0IjISVLO5n5ViW2UsckQFH7j9W0bYi7WHADL23Aj0gqxiN7v6GSzBir9KmGvjUlhDI0HDUpF-ua4GH6mFrC_ERZvJsF_CjVjrbud_Jg2fe13iIB__CVks1_YDdlpts0skBBc7pvlk0xaam0YxVtJTeKo0fIxVeO08RGuLYYVS0LpkZpptvCyXO0HugIWlOKbYilb_gBa2dAiTqSF6h-oiPcM4U5JC7NfUhf96NPL3p1vLLirEtDW5yuMCX7emfy_3qSXA5G_NnIItskOFUsMaKKcT2IuKIKVm_pAkfPhPjFFzuoPNhCDbIeHstMHOMndanU-DHDLEXPCsXsk-7MpFGO7VJrS7RxjGFNHsAUkeC4wbaums3I-KKqsgJhOlJlpMf1MlBZAfw70R9x0mDsVtZRLRZLl-lrylJfXfmlV5D3tQUBMy-g4iXM7YOevud4mmyVz0R5ncV3sXhDrxhmpXJWSUfQKrLCPY2N5I-YUB3QjMVzfq7JLs84e0887YZ3zmR-r1VOXc7sz6NzmmvhsC32Wbwed6KOZb1CuJd0iQdME8hFkquAB3cjMrZumb2Jfqm6uuH.vHfqlLQjAKg13VmWnl13_Q.cdebb75267efd195f54d526b2db1653bf607198113da7e0140b7db22b3a0d44e"
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/api/v1/cfturnstile/validate/1.5BcxUnhovY7aFlM5k0mTWxT3ZHXJs1eOdX_Q7uuqsF4JRgPG81ZLAtp62dKaxL6cdqQ7m38GBpMvMrXHJr61DCDj6vLaXsE5PFYRs5zcc8nMs8mS_CKd2TMjZ4WgPLTS5MyQDRkJKaUk4DwrWZ7wdCzTFbL7zCCSmhCDlHCZnmm358I2DfqK0AXAyqqZrnawLtYRXf1ety40ayU8d3TjDzoNNYYlEtyR6HeiZTZg7oMEbwg2wEyhjE5Yx3jWN4eaCvLuBKtcOQib8qS6Ez74qBP7q3JLj35bg5k_icSDF-CarEvI79151cjl-6v9NdMid1glAZ_ObFOdqGpehJQ3_DUbr6eLxuvN4pR9BQg2d0kgJHXZ5G_E3blzUbqu_P7Xh1oSTomMBOhUQXouKUCuK6VIlu1z-u8rdPJyad4dakTqkCm0ZdOPkH6loMgE-fVBa0arF6dSyaQzQc-ACzMQ7BrdzWhLhnwtQr9CLE8iUS47rDuSkD8zS9TDsV89jDtlIFAS6EzWOF4gnGjD15Ze4XRWW0aLvE5M2HCPzj1RPKSliCl3f5nXOR6Yrm-ZizYbgnlsAW58I4Bn3E0x9ZM6QPggG7FL6Fsn8atWbfzfQwttIqBGI2W2jvRkxpWm5bwaW_KyLMW609NW5p1jtRfBYlBS-ov7EwlZNrSyPM73HpIlEOKRm3AwbaXj5AwHyIHq.6HurijVBTAsA7EMQB1Ygkw.28111d5f20bed104bfbc63f34ae7345bf750f8cb48f3d5ef09c320b568b24312"
     },
     {
-      "n": 55,
-      "offset_ms": 333363.0,
-      "time_ms": 748.4,
+      "n": 75,
+      "offset_ms": 46360.0,
+      "time_ms": 715.3,
       "method": "GET",
       "status": 200,
       "type": "json",
-      "size_bytes": 11138,
+      "size_bytes": 10836,
       "host": "process5.gprocurement.go.th",
       "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement?budgetYear=2569&announcementTodayFlag=false&page=1"
     },
     {
-      "n": 56,
-      "offset_ms": 334114.0,
-      "time_ms": 552.7,
+      "n": 76,
+      "offset_ms": 47078.0,
+      "time_ms": 619.5,
       "method": "GET",
       "status": 200,
       "type": "json",
-      "size_bytes": 1586,
+      "size_bytes": 1587,
       "host": "process5.gprocurement.go.th",
       "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/sumProjectMoneyAndCount?budgetYear=2569&announcementTodayFlag=false"
+    },
+    {
+      "n": 77,
+      "offset_ms": 48738.0,
+      "time_ms": 421.8,
+      "method": "POST",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 1812,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/generateToken"
+    },
+    {
+      "n": 78,
+      "offset_ms": 48738.0,
+      "time_ms": 457.5,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 5246,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod"
+    },
+    {
+      "n": 79,
+      "offset_ms": 49165.0,
+      "time_ms": 580.4,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2299,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getProjectDetail?projectId=69069201777"
+    },
+    {
+      "n": 80,
+      "offset_ms": 49758.0,
+      "time_ms": 499.3,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2855,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getProcurementDetail?projectId=69069201777"
+    },
+    {
+      "n": 81,
+      "offset_ms": 49759.0,
+      "time_ms": 462.1,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 5246,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod"
+    },
+    {
+      "n": 82,
+      "offset_ms": 49760.0,
+      "time_ms": 462.8,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 10709,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/listGoods"
+    },
+    {
+      "n": 83,
+      "offset_ms": 50260.0,
+      "time_ms": 480.0,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 8178,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/rdbsysm011/listProvince"
+    },
+    {
+      "n": 84,
+      "offset_ms": 50261.0,
+      "time_ms": 520.5,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 3466,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/greenBook?mode=LINK&methodId=19&tempProjectId=69069201777&pageAnnounceType=W0"
+    },
+    {
+      "n": 85,
+      "offset_ms": 50262.0,
+      "time_ms": 505.1,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2214,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-rdb-service/infoDeptSub?deptId=1020010014&deptSubId=102001001420000000"
+    },
+    {
+      "n": 86,
+      "offset_ms": 50787.0,
+      "time_ms": 498.2,
+      "method": "GET",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 1545,
+      "host": "process5.gprocurement.go.th",
+      "url": "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/validateProcureProjectStep?projectId=69069201777&flowType=I&realMethodId=182&flowSeqno=7&typeId=03"
     }
   ],
   "recommendations": [
     "Cloudflare challenge in play — use a real browser (scrapy-playwright/stealth) to solve it, or reuse a valid `cf_clearance` cookie + the *exact* matching User-Agent.",
     "Persist & replay these cookies across requests: www_visit, TS01e91d66, TS7431b39c027, TS4c538cb7027, Xsrf-Token, TS0174b17a",
-    "11 JSON/API endpoint(s) seen — consider scraping them directly instead of parsing HTML (check whether they need the session cookies above)."
+    "34 JSON/API endpoint(s) seen — consider scraping them directly instead of parsing HTML (check whether they need the session cookies above)."
   ],
   "_meta": {
     "source_har": "har_file.har",

@@ -1,0 +1,22 @@
+{
+    "status": 302,
+    "url": "https://www.gprocurement.go.th/new_index.html",
+    "headers": {
+        "cache-control": "no-store",
+        "connection": "Keep-Alive",
+        "content-length": "0",
+        "location": "https://www.gprocurement.go.th/homepage.html",
+        "pragma": "no-cache"
+    },
+    "timing": {
+        "startTime": 1781207104479.2559,
+        "domainLookupStart": 0,
+        "domainLookupEnd": 404.079,
+        "connectStart": 404.254,
+        "secureConnectionStart": 601.589,
+        "connectEnd": 1021.641,
+        "requestStart": 1021.76,
+        "responseStart": 1233.001,
+        "responseEnd": -1
+    }
+}
