@@ -36,7 +36,8 @@ REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 # playwright spiders only need to add the DOWNLOAD_HANDLERS in their custom_settings.
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 
-LOG_LEVEL = "INFO"
+# LOG_LEVEL = "INFO"
+LOG_LEVEL = "DEBUG"
 LOGSTATS_INTERVAL = 3
 # Colored logs via Rich (see scraper.logconf). LOG_ENABLED=False makes Scrapy install a no-op
 # handler instead of its own plain StreamHandler, so the Rich handler owns the root logger alone.

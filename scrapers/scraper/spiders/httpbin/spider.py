@@ -1,24 +1,19 @@
-from typing import Any
-import json
-import scrapy
-from scraper.items import BaseItem
-from scraper.spiders.base import BaseSpider
-from scraper.browser_profile import navigation_headers, IMPERSONATE
 import collections
-from scrapy_playwright.page import PageMethod
+import json
+from typing import Any
+
+import scrapy
+
+from scraper.browser_profile import IMPERSONATE, navigation_headers
+
 
 async def handler_request(event: str, r, hc: dict[str, Any]):
-    hc[event].append(
-        {
-            "r": r,
-            "method": r.method,
-            "url": r.url,
-            "headers": r.headers
-        }
-    )
+    hc[event].append({"r": r, "method": r.method, "url": r.url, "headers": r.headers})
 
 
-async def handler_response(event: str, r, hc: dict[str, Any]):               # 3xx redirects / failed responses have no body
+async def handler_response(
+    event: str, r, hc: dict[str, Any]
+):  # 3xx redirects / failed responses have no body
     t = r.request.timing
     hc[event].append(
         {
@@ -31,17 +26,18 @@ async def handler_response(event: str, r, hc: dict[str, Any]):               # 3
     )
 
 
-async def populate_body(response):               # 3xx redirects / failed responses have no body
+async def populate_body(response):  # 3xx redirects / failed responses have no body
     # playwright page musdt be present
     page = response.meta["playwright_page"]
 
-    for entry in response.meta['handlers_context'].get("response", []):
+    for entry in response.meta["handlers_context"].get("response", []):
         try:
             entry["body"] = await entry["r"].body()
         except Exception:
             entry["body"] = None
 
     await page.close()
+
 
 def _value_diff(a: str, b: str) -> str:
     """One-line summary of where two header values diverge.
@@ -55,7 +51,7 @@ def _value_diff(a: str, b: str) -> str:
     shared = a[:i]
     return (
         f"first differ at index {i} after {shared!r}: "
-        f"browser→{a[i:i+12]!r} candidate→{b[i:i+12]!r}"
+        f"browser→{a[i : i + 12]!r} candidate→{b[i : i + 12]!r}"
     )
 
 
@@ -153,29 +149,32 @@ def _normalize(headers: dict, ignore: frozenset) -> dict:
         if name.lower() not in ignore
     }
 
-DEFAULT_IGNORE = frozenset({
-    "host",
-    "content-length",
-    "connection",
-    # Request cache directives: present only when the cache is bypassed (hard
-    # reload, DevTools "disable cache", or Playwright HAR recording). They track
-    # cache state, not browser identity, so they are noise for a consistency
-    # check — real Chrome omits them on a normal navigation.
-    "pragma",
-    "cache-control",
-    "x-amzn-trace-id",     # httpbin / AWS
-    "x-forwarded-for",
-    "x-forwarded-proto",
-    "x-forwarded-port",
-    "x-forwarded-host",
-    "x-real-ip",
-    "cf-connecting-ip",
-    "cf-ray",
-    "cdn-loop",
-    "forwarded",
-    "via",
-})
- 
+
+DEFAULT_IGNORE = frozenset(
+    {
+        "host",
+        "content-length",
+        "connection",
+        # Request cache directives: present only when the cache is bypassed (hard
+        # reload, DevTools "disable cache", or Playwright HAR recording). They track
+        # cache state, not browser identity, so they are noise for a consistency
+        # check — real Chrome omits them on a normal navigation.
+        "pragma",
+        "cache-control",
+        "x-amzn-trace-id",  # httpbin / AWS
+        "x-forwarded-for",
+        "x-forwarded-proto",
+        "x-forwarded-port",
+        "x-forwarded-host",
+        "x-real-ip",
+        "cf-connecting-ip",
+        "cf-ray",
+        "cdn-loop",
+        "forwarded",
+        "via",
+    }
+)
+
 
 def compare_headers(
     reference: dict,
@@ -185,10 +184,10 @@ def compare_headers(
 ) -> list[str]:
     """
     Compare candidate headers against a reference (the real browser).
- 
+
     Returns a list of human-readable problems. If raise_on_diff is True and
     any problem is found, raises HeaderMismatch instead of returning.
- 
+
     Three failure modes are reported:
       - missing : header the real browser sends but the candidate omits
       - extra   : header the candidate sends that the browser does not (a tell)
@@ -202,8 +201,8 @@ def compare_headers(
         extra_label="extra (candidate sends, browser does not — a tell)",
         raise_on_diff=raise_on_diff,
     )
- 
- 
+
+
 def assert_headers_match(reference: dict, candidate: dict, **kw) -> None:
     """Convenience wrapper: raise HeaderMismatch unless headers match."""
     compare_headers(reference, candidate, raise_on_diff=True, **kw)
@@ -292,10 +291,18 @@ def _flatten_fingerprint(payload: dict) -> dict:
         "tls_version_negotiated": tls.get("tls_version_negotiated"),
         # GREASE-stripped lists; cipher/group/version order is stable in Chrome
         "ciphers": _degrease(tls.get("ciphers")),
-        "supported_groups": _degrease(_extension_field(exts, "supported_groups", "supported_groups")),
-        "supported_versions": _degrease(_extension_field(exts, "supported_versions", "versions")),
-        "signature_algorithms": _extension_field(exts, "signature_algorithms", "signature_algorithms"),
-        "alpn": _extension_field(exts, "application_layer_protocol_negotiation", "protocols"),
+        "supported_groups": _degrease(
+            _extension_field(exts, "supported_groups", "supported_groups")
+        ),
+        "supported_versions": _degrease(
+            _extension_field(exts, "supported_versions", "versions")
+        ),
+        "signature_algorithms": _extension_field(
+            exts, "signature_algorithms", "signature_algorithms"
+        ),
+        "alpn": _extension_field(
+            exts, "application_layer_protocol_negotiation", "protocols"
+        ),
         # extension order is randomized by Chrome -> compare the set, not order
         "extension_set": sorted(extension_names) if extension_names else None,
         "h2_settings": _h2_frame(http2, "SETTINGS").get("settings"),
@@ -348,8 +355,7 @@ def compare_tls(
 def assert_tls_match(reference: dict, candidate: dict, **kw) -> None:
     """Convenience wrapper: raise unless the TLS/HTTP2 fingerprint matches."""
     compare_tls(reference, candidate, raise_on_diff=True, **kw)
- 
- 
+
 
 class HTTPBinHeadersSpider(scrapy.Spider):
     name = "httpbin"
@@ -359,6 +365,7 @@ class HTTPBinHeadersSpider(scrapy.Spider):
         playwright = {
             "PLAYWRIGHT_BROWSER_TYPE": "chromium",
             "PLAYWRIGHT_LAUNCH_OPTIONS": {
+                "executable_path": "/usr/bin/google-chrome",
                 "headless": False,
                 "channel": "chrome",
                 # Kept for parity with the default variant so the A/B isolates the engine. patchright
@@ -366,7 +373,9 @@ class HTTPBinHeadersSpider(scrapy.Spider):
                 # cleaner.
                 "args": ["--disable-blink-features=AutomationControlled"],
             },
-            "PLAYWRIGHT_CONTEXTS": {"default": {"no_viewport": True, "locale": "en-US"}},
+            "PLAYWRIGHT_CONTEXTS": {
+                "default": {"no_viewport": True, "locale": "en-US"}
+            },
             "PLAYWRIGHT_PROCESS_REQUEST_HEADERS": None,
         }
         handlers = {
@@ -375,48 +384,44 @@ class HTTPBinHeadersSpider(scrapy.Spider):
                 "http": "scraper.handlers.HybridDownloadHandler",
             },
         }
-        
-        super().update_settings(settings) # type: ignore
+
+        super().update_settings(settings)  # type: ignore
         settings.setdict(
             {
                 "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
-                'HTTPERROR_ALLOW_ALL': True,
+                "HTTPERROR_ALLOW_ALL": True,
                 "ROBOTSTXT_OBEY": False,
                 "RETRY_ENABLED": False,
                 **playwright,
-                **handlers
-                
+                **handlers,
             },
             priority="spider",
         )
-    
 
     async def start(self):
         # must be initialized here, to be able to mutate in handlers
         hc = collections.defaultdict(list)
         meta = {
-                "playwright": True,
-                "playwright_include_page": True, # needed to await page events
-                "playwright_page_event_handlers":{
-                    "requestfinished": lambda request: handler_request("requestfinished", request, hc),
-                    "requestfailed": lambda request: handler_request("requestfailed", request, hc),
-                    "request": lambda request: handler_request("request", request, hc),
-                    "response": lambda response: handler_response("response", response, hc),
-                },
-                "handlers_context": hc,
-            }
+            "playwright": True,
+            "playwright_include_page": True,  # needed to await page events
+            "playwright_page_event_handlers": {
+                "requestfinished": lambda request: handler_request(
+                    "requestfinished", request, hc
+                ),
+                "requestfailed": lambda request: handler_request(
+                    "requestfailed", request, hc
+                ),
+                "request": lambda request: handler_request("request", request, hc),
+                "response": lambda response: handler_response("response", response, hc),
+            },
+            "handlers_context": hc,
+        }
         yield scrapy.Request(
-            "https://httpbin.org/headers",
-            callback=self.parse_playwright,
-            meta=meta
+            "https://httpbin.org/headers", callback=self.parse_playwright, meta=meta
         )
         yield scrapy.Request(
-            "https://tls.peet.ws/api/all",
-            callback=self.parse_playwright,
-            meta=meta
+            "https://tls.peet.ws/api/all", callback=self.parse_playwright, meta=meta
         )
-        
-
 
     def parse_playwright(self, response):
         body = response.selector.xpath("//pre/text()").get()
@@ -431,9 +436,9 @@ class HTTPBinHeadersSpider(scrapy.Spider):
             # Stop RefererMiddleware adding a Referer the real navigation lacked.
             "referrer_policy": "no-referrer",
         }
-        print("-"*80)
+        print("-" * 80)
         print("playwright")
-        print("-"*80)
+        print("-" * 80)
         print(response.url)
         loaded = json.loads(body)
         print(json.dumps(loaded, indent=4))
@@ -441,38 +446,36 @@ class HTTPBinHeadersSpider(scrapy.Spider):
         replay_headers = navigation_headers()
 
         if "httpbin.org" in response.url:
-            meta = {
-                **impersonate_meta,
-                "palywright_headers": loaded
-            }
+            meta = {**impersonate_meta, "palywright_headers": loaded}
             yield scrapy.Request(
                 "https://httpbin.org/headers",
                 callback=self.parse_cffi,
                 dont_filter=True,
                 headers=replay_headers,
-                meta=meta
+                meta=meta,
             )
         else:
-            meta = {
-                **impersonate_meta,
-                "palywright_tls_handshake": loaded
-            }
+            meta = {**impersonate_meta, "palywright_tls_handshake": loaded}
             yield scrapy.Request(
                 "https://tls.peet.ws/api/all",
                 callback=self.parse_cffi,
                 dont_filter=True,
                 headers=replay_headers,
-                meta=meta
+                meta=meta,
             )
 
     def parse_cffi(self, response):
-        print("-"*80)
+        print("-" * 80)
         print("cffi")
-        print("-"*80)
+        print("-" * 80)
         loaded = response.json()
         print(response.url)
         print(json.dumps(loaded, indent=4))
         if "httpbin.org" in response.url:
-            compare_headers(response.meta['palywright_headers'], loaded, raise_on_diff=True)
+            compare_headers(
+                response.meta["palywright_headers"], loaded, raise_on_diff=True
+            )
         else:
-            compare_tls(response.meta['palywright_tls_handshake'], loaded, raise_on_diff=True)
+            compare_tls(
+                response.meta["palywright_tls_handshake"], loaded, raise_on_diff=True
+            )

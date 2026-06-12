@@ -61,6 +61,6 @@ def _parse(line: str) -> Proxy:
 PROXIES: list[Proxy] = [_parse(line) for line in _RAW_PROXIES.split() if line.strip()]
 
 
-def pick_proxy() -> Proxy:
+def pick_proxy() -> Proxy | None:
     """One proxy for the whole crawl — same egress IP across the Playwright + curl_cffi legs."""
-    return random.choice(PROXIES)
+    return random.choice(PROXIES) if PROXIES else None
