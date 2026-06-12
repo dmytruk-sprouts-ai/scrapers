@@ -60,14 +60,20 @@ crawl-httpbin:
 crawl-cloudflare-challange:
     just crawl-vpn cloudflare-challange
 
+crawl-th:
+    xdg-open "http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale"
+    just crawl-vpn gprocurement_go_th
+
+crawl-th-details:
+    just crawl-vpn gprocurement_details
+
 test-vnc: vpn-up
     {{_compose}} run --build --service-ports scraper sleep infinity
 
 prod-deploy:
-    sudo apt install pv
     docker build --platform linux/amd64 -t scrapers:latest -f docker/Dockerfile .
     docker image ls scrapers:latest
-    docker save scrapers:latest | gzip | ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa scraping@104.64.207.128 'gunzip | docker load'
+    docker save scrapers:latest | pv | gzip | ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa scraping@104.64.207.128 'gunzip | docker load'
     ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa scraping@104.64.207.128 'docker image ls'
 
 
@@ -80,13 +86,15 @@ prod-run-vnc:
         'cd ~/scraping-procurement && docker compose -f ./docker/docker-compose.prod.yml up vnc-test'
     # access VNC: http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
 
-prod-run-scrape:
+
+
+prod-run CONTAINER:
     # 1. Copy ./docker -> ~/scraping-procurement on the VM
     rsync -avz --mkpath -e "ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa" ./docker scraping@104.64.207.128:~/scraping-procurement
     xdg-open "http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale"
     # 2. Open SSH with VNC forwarding, then run the scraper container in the foreground
     ssh -t -i ~/.ssh/sprouts_scraping_vm_id_rsa -L 6080:localhost:6080 scraping@104.64.207.128 \
-        'cd ~/scraping-procurement && docker compose -f ./docker/docker-compose.prod.yml up cloudflare-challange'
+        'cd ~/scraping-procurement && docker compose -f ./docker/docker-compose.prod.yml up {{CONTAINER}}'
     
 
 prod-stop:
@@ -101,3 +109,22 @@ setup-vm:
         exec newgrp docker'
 
 
+
+
+# https://process5.gprocurement.go.th/egp-upload-service/v1/downloadFileTest?fileId=f2b4f0a0f2a54c1d9ee7a31aa7b76938
+
+# 2
+# 69059344814
+# https://process5.gprocurement.go.th/egp-upload-service/v1/downloadFileTest?fileId=20000f60dee74b4e891c0c4e4785c8a9
+
+# 3
+# 69069229752
+# https://process3.gprocurement.go.th/egp2procmainWeb/jsp/procsearch.sch?pid=69069229752&servlet=gojsp&proc_id=ShowHTMLFile&processFlows=Procure
+
+# 4
+# 69069237412
+# https://process3.gprocurement.go.th/egp2procmainWeb/jsp/procsearch.sch?pid=69069237412&servlet=gojsp&proc_id=ShowHTMLFile&processFlows=Procure
+
+# 5
+# 69069237331
+# https://process3.gprocurement.go.th/egp2procmainWeb/jsp/procsearch.sch?pid=69069237331&servlet=gojsp&proc_id=ShowHTMLFile&processFlows=Procure

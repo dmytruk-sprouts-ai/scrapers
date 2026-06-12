@@ -1,33 +1,27 @@
-from typing import Any, TYPE_CHECKING
-from datetime import UTC, datetime
-from dataclasses import dataclass, replace, field
-from urllib.parse import urlencode, urlsplit, parse_qsl
-import scrapy
-from scrapy.exceptions import CloseSpider
-from scrapy.utils.request import RequestFingerprinter
-from w3lib.url import url_query_cleaner
-from scraper.items import BaseItem
-from scraper.spiders.base import BaseSpider
-from scraper.browser_profile import navigation_headers, IMPERSONATE
-from scrapy_playwright.page import PageMethod
-import structlog
-from scrapy.extensions.httpcache import DummyPolicy
-from scrapy.utils.httpobj import urlparse_cached
-from .cache_router import cache_route
-from . import crypto
 import collections
-import json
-from scrapy.http.request import Request
-from scrapy.http import Headers, Response
-if TYPE_CHECKING:
-    import os
-    from collections.abc import Callable
-    from types import ModuleType
+from dataclasses import dataclass, replace
+from pathlib import Path
+from typing import TYPE_CHECKING, Any
+from urllib.parse import parse_qsl, urlencode, urlsplit
 
+import scrapy
+import structlog
+from scrapy.exceptions import CloseSpider
+from scrapy.extensions.httpcache import DummyPolicy
+from scrapy.http import Response
+from scrapy.http.request import Request
+from scrapy.utils.httpobj import urlparse_cached
+from scrapy.utils.project import data_path
+from scrapy_playwright.page import PageMethod
+
+from scraper.browser_profile import IMPERSONATE, navigation_headers
+
+from .cache_router import cache_route
+from .facets import STEP_ID_MAPPING
+from .facets_translation import get_step_grp
+
+if TYPE_CHECKING:
     from scrapy.http.request import Request
-    from scrapy.settings import BaseSettings
-    from scrapy.spiders import Spider
-    from scrapy.utils.request import RequestFingerprinterProtocol
 
 logger = structlog.get_logger(__name__)
 
@@ -35,25 +29,35 @@ logger = structlog.get_logger(__name__)
 # endpoint (announcement/sumProjectMoneyAndCount -> totalPages / recordsTotal). The
 # listing response's own `totalPages` is 0, so we stop on an empty `data.data`.
 LIST_URL = "https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement"
+# Summary endpoint (sibling of the listing): totals/count for the same filter, no page.
+COUNT_URL = f"{LIST_URL}/sumProjectMoneyAndCount"
 # The browser's Angular app sends this as Referer on every announcement XHR.
-ANNOUNCEMENT_REFERER = "https://process5.gprocurement.go.th/egp-agpc01-web/announcement?keywordSearch="
+ANNOUNCEMENT_REFERER = (
+    "https://process5.gprocurement.go.th/egp-agpc01-web/announcement?keywordSearch="
+)
 
 
 class GPRocurementCachePolicy(DummyPolicy):
-
     @classmethod
     def is_blocked_pagination(cls, response: Response):
-        if 'process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement' in response.url:
+        if (
+            "process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement"
+            in response.url
+        ):
             try:
-                if 'validateCfTurnTile' in response.json():
+                if "validateCfTurnTile" in response.json():
                     return True
             except Exception:
                 return True
-    @classmethod    
+
+    @classmethod
     def non_complete_page(cls, response: Response):
-        if 'process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement' in response.url:
+        if (
+            "process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement"
+            in response.url
+        ):
             try:
-                if len(response.json()['data'].get('data', [])) != 10:
+                if len(response.json()["data"].get("data", [])) != 10:
                     return True
             except Exception as e:
                 logger.error(e, response=response)
@@ -75,12 +79,10 @@ class GPRocurementCachePolicy(DummyPolicy):
         if self.non_complete_page(cachedresponse):
             return False
         return True
-    
 
     def is_cached_response_valid(
         self, cachedresponse: Response, response: Response, request: Request
-    ) -> bool:
-        ...
+    ) -> bool: ...
 
 
 @dataclass(frozen=True)
@@ -92,25 +94,36 @@ class ListingQuery:
     the exact page that failed and resume there. Being frozen, advancing returns
     a *new* query rather than mutating this one.
 
-    page:        1-based page index (the API is 1-based).
-    budget_year: Thai Buddhist-calendar year (2569 == 2026 CE).
-    today_flag:  the API's announcementTodayFlag.
+    page:           1-based page index (the API is 1-based).
+    budget_year:    Thai Buddhist-calendar year (2569 == 2026 CE).
+    today_flag:     the API's announcementTodayFlag.
+    project_status: the API's projectStatus (the stepGrp id, e.g. "1" for the
+                    draft-TOR stage). None leaves the listing unfiltered.
     """
 
     page: int = 1
     budget_year: int = 2569
     today_flag: bool = False
+    project_status: str | None = None
 
     def next_page(self) -> "ListingQuery":
         return replace(self, page=self.page + 1)
 
+    def _filter_params(self) -> list[tuple[str, Any]]:
+        # Param order mirrors the SPA's XHR: budgetYear, projectStatus (when filtering),
+        # announcementTodayFlag. Shared by the listing and the summary endpoints.
+        params: list[tuple[str, Any]] = [("budgetYear", self.budget_year)]
+        if self.project_status:
+            params.append(("projectStatus", self.project_status))
+        params.append(("announcementTodayFlag", "true" if self.today_flag else "false"))
+        return params
+
     def to_url(self) -> str:
-        params = [
-            ("budgetYear", self.budget_year),
-            ("announcementTodayFlag", "true" if self.today_flag else "false"),
-            ("page", self.page),
-        ]
-        return f"{LIST_URL}?{urlencode(params)}"
+        return f"{LIST_URL}?{urlencode([*self._filter_params(), ('page', self.page)])}"
+
+    def to_count_url(self) -> str:
+        # Same filter as the listing, but no page — returns totals/count for the filter.
+        return f"{COUNT_URL}?{urlencode(self._filter_params())}"
 
     @classmethod
     def from_url(cls, url: str) -> "ListingQuery":
@@ -119,6 +132,7 @@ class ListingQuery:
             page=int(q.get("page", 1)),
             budget_year=int(q.get("budgetYear", cls.budget_year)),
             today_flag=q.get("announcementTodayFlag", "false") == "true",
+            project_status=q.get("projectStatus") or None,
         )
 
 
@@ -157,8 +171,53 @@ async def populate_body(response):  # 3xx redirects / failed responses have no b
             entry["body"] = None
 
 
+STAGES = {
+    "draft": "Draft TOR Preparation",
+    "draft-approval": "Head of Government Agency Approval",
+    "invitation": "Invitation Announcement",
+    "purchase-approval": "Head of Government Agency Purchase Approval",
+    "contract-value": "Contract Value",
+}
+OPPORTUNITY_STAGES = {"draft", "draft-approval", "invitation"}
+
+
+def map_stage_to_original(stage_eng: str) -> str:
+    revers = {v: k for k, v in get_step_grp.items()}
+    return revers[stage_eng]
+
+
+def map_stage_to_english(stage: str) -> str:
+    return get_step_grp[stage]
+
+
+def get_stage_id(stage: str) -> str:
+    if stage not in STEP_ID_MAPPING:
+        stage = map_stage_to_original(stage)
+    return STEP_ID_MAPPING[stage]
+
+
+# The API's budgetYear is a Thai Buddhist-calendar year, 543 ahead of the Gregorian
+# (CE) year the spider is configured with: 2026 CE == 2569 BE.
+BUDDHIST_YEAR_OFFSET = 543
+
+
+def to_budget_year(year_ce: int) -> int:
+    """Gregorian (CE) year -> the API's Thai Buddhist budgetYear."""
+    return year_ce + BUDDHIST_YEAR_OFFSET
+
+
+def from_budget_year(budget_year: int) -> int:
+    """Thai Buddhist budgetYear -> Gregorian (CE) year."""
+    return budget_year - BUDDHIST_YEAR_OFFSET
+
+
 class GprocurementGoTh(scrapy.Spider):
     name = "gprocurement_go_th"
+
+    # will be configured later
+    stage = "draft"
+    # Gregorian (CE) year to crawl; converted to the API's Thai Buddhist budgetYear.
+    year = 2026
 
     # Pagination outranks any future detail fetching: drain every listing page first.
     PAGINATION_PRIORITY = 100
@@ -179,7 +238,7 @@ class GprocurementGoTh(scrapy.Spider):
                 "default": {"no_viewport": True, "locale": "en-US"}
             },
             "PLAYWRIGHT_PROCESS_REQUEST_HEADERS": None,
-            "HTTPCACHE_POLICY": GPRocurementCachePolicy
+            "HTTPCACHE_POLICY": GPRocurementCachePolicy,
         }
         handlers = {
             "DOWNLOAD_HANDLERS": {
@@ -204,7 +263,7 @@ class GprocurementGoTh(scrapy.Spider):
                 "DOWNLOAD_DELAY": 3.0,
                 "RANDOMIZE_DOWNLOAD_DELAY": True,  # actual delay = 0.5x–1.5x DOWNLOAD_DELAY
                 "AUTOTHROTTLE_ENABLED": True,
-                "AUTOTHROTTLE_START_DELAY": 3.0,
+                "AUTOTHROTTLE_START_DELAY": 5.0,
                 "AUTOTHROTTLE_MAX_DELAY": 30.0,
                 "AUTOTHROTTLE_TARGET_CONCURRENCY": 1.0,
                 # DataTables search URL is ~2.4k chars; disable the 2083 cap (0 = no limit).
@@ -219,13 +278,36 @@ class GprocurementGoTh(scrapy.Spider):
             },
             priority="spider",
         )
-    
-    yielded = 0
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Per-partition set of project ids already written this run, so cache replays /
+        # overlapping pages don't append duplicates to the on-disk file.
+        self._seen_ids: dict[str, set[str]] = {}
+        # Partitions whose summary counts have already been fetched, so a mid-crawl
+        # re-bootstrap doesn't re-request them.
+        self._counts_fetched: set[str] = set()
+
+    @property
+    def project_status(self) -> str:
+        # Resolve the configured stage ("draft", ...) to the API's projectStatus id (the
+        # stepGrp id, "1".."5") used to filter the listing.
+        return get_stage_id(STAGES[self.stage])
+
+    @property
+    def budget_year(self) -> int:
+        # Resolve the configured Gregorian year to the API's Thai Buddhist budgetYear.
+        return to_budget_year(self.year)
 
     async def start(self):
         # Bootstrap the session in a real browser, then resume curl_cffi pagination at page 1.
         # yield self._playwright_request(resume_query=ListingQuery())
-        yield self._listing_request(query=ListingQuery(), tokens={})
+        yield self._listing_request(
+            query=ListingQuery(
+                budget_year=self.budget_year, project_status=self.project_status
+            ),
+            tokens={},
+        )
 
     def _playwright_request(
         self,
@@ -289,13 +371,13 @@ class GprocurementGoTh(scrapy.Spider):
             list_items_responses = response.meta["handlers_context"].get("response", [])
             assert len(list_items_responses) == 1
             req_headers = list_items_responses[0]["req_headers"]
-            # req_headers_access example                                                                                                                                                                                                                                                 
-            # {                                                                                                                                                                                                                                                                          
-            #     'x-announcement-token': 'RUdQLUFOTk9VTkNFTUVOVC1LRVk6MTc4MTIwMjU1NDU2NjpheDRaVkdtem1LcEFGTHBVZmtVMzFXWE5odGlqSEo0amI1bEhqMEtzTFBRPQ==',                                                                                                                                
-            #     'x-xsrf-token': '+JDBxwZsPXXECdkSKzbFZ9MfScktVZzsgYN1Cngmen2JX1i9DsSFoVScCvsPS34z3ihvnb3iMjarVswFcgBeJw==',                                                                                                                                                            
-            #     'cookie': 'Xsrf-Token=69b8cfd1c3c28d712a56a782dd46c59cf9d0d3ad; TS0174b17a=010cf4a45346ec5e1bc07a4f0af15ce67ef30ce496551758aebf4c07bc52fdc60e2472e0556e84841ee882b46638df47b80125ed031a9d23181471366bed915490e6671b20; TS4c538cb7027=0851e63e8dab20005320710dcc62c43e46663bc269d7deffe3bccb156fe3b933721c41433fcdeb31086b8f4e13113000b54befa53198f3a7bcf33a9c7cfbb3646ccdd5a1d043fb6f7550b24d76309c14a733ae91b2e0144e8898c3d193badca6'                                                                                                                          
-            # }  
-    
+            # req_headers_access example
+            # {
+            #     'x-announcement-token': 'RUdQLUFOTk9VTkNFTUVOVC1LRVk6MTc4MTIwMjU1NDU2NjpheDRaVkdtem1LcEFGTHBVZmtVMzFXWE5odGlqSEo0amI1bEhqMEtzTFBRPQ==',
+            #     'x-xsrf-token': '+JDBxwZsPXXECdkSKzbFZ9MfScktVZzsgYN1Cngmen2JX1i9DsSFoVScCvsPS34z3ihvnb3iMjarVswFcgBeJw==',
+            #     'cookie': 'Xsrf-Token=69b8cfd1c3c28d712a56a782dd46c59cf9d0d3ad; TS0174b17a=010cf4a45346ec5e1bc07a4f0af15ce67ef30ce496551758aebf4c07bc52fdc60e2472e0556e84841ee882b46638df47b80125ed031a9d23181471366bed915490e6671b20; TS4c538cb7027=0851e63e8dab20005320710dcc62c43e46663bc269d7deffe3bccb156fe3b933721c41433fcdeb31086b8f4e13113000b54befa53198f3a7bcf33a9c7cfbb3646ccdd5a1d043fb6f7550b24d76309c14a733ae91b2e0144e8898c3d193badca6'
+            # }
+
             # The token carries an embedded expiry (~2h out), so it's reusable across the
             # whole pagination chain until it lapses — at which point parse() re-bootstraps.
             api_tokens = {
@@ -312,8 +394,16 @@ class GprocurementGoTh(scrapy.Spider):
         # Detail requests re-sign X-Xsrf-Token per call from the (session-stable) Xsrf-Token
         # cookie, so carry its value alongside the harvested tokens.
         api_tokens["xsrf-cookie"] = cookie_dict.get("Xsrf-Token")
+        resume_query = response.meta["resume_query"]
+        # Cloudflare is cleared and the session earned — fetch the summary counts once per
+        # partition before resuming pagination on the same session.
+        if self._partition_key(resume_query) not in self._counts_fetched:
+            self._counts_fetched.add(self._partition_key(resume_query))
+            yield self._count_request(
+                resume_query, tokens=api_tokens, cookies=cookie_dict
+            )
         yield self._listing_request(
-            response.meta["resume_query"], tokens=api_tokens, cookies=cookie_dict
+            resume_query, tokens=api_tokens, cookies=cookie_dict
         )
 
     def _api_headers(self, tokens: dict) -> dict:
@@ -331,14 +421,15 @@ class GprocurementGoTh(scrapy.Spider):
                 "sec-fetch-mode": "cors",
                 "sec-fetch-dest": "empty",
                 "referer": ANNOUNCEMENT_REFERER,
-    
             }
         )
         if tokens:
-            headers.update({
-                "x-announcement-token": tokens["x-announcement-token"],
-                "x-xsrf-token": tokens["x-xsrf-token"],
-            })
+            headers.update(
+                {
+                    "x-announcement-token": tokens["x-announcement-token"],
+                    "x-xsrf-token": tokens["x-xsrf-token"],
+                }
+            )
         return headers
 
     def _listing_request(
@@ -365,325 +456,148 @@ class GprocurementGoTh(scrapy.Spider):
                 # Carry the session tokens forward to the next page (Scrapy won't replay them).
                 "api_tokens": tokens,
                 # caching
-                "cache_partition_key": f"{self.name}-pagination-{query.budget_year}",
+                "cache_partition_key": self._partition_key(query),
             },
             dont_filter=True,
         )
 
-    def parse(self, response):
-        # 401/403 => the session/token is no longer accepted (token expired or jar lapsed).
-        # Re-run Playwright to earn a fresh jar + tokens, then resume *this* page (not page 1).
-        if response.status in (401, 403) or GPRocurementCachePolicy.is_blocked_pagination(response):
-            self.logger.warning(
-                "%s on %s — re-bootstrapping session via Playwright",
-                response.status,
-                response.url,
-            )
-            yield self._playwright_request(resume_query=ListingQuery.from_url(response.url))
-            return
-
-        assert response.status == 200
-        # TODO: MUST NOT STORE BAD RESPONSES
-        query = ListingQuery.from_url(response.url)
-        try:
-            payload = response.json()["data"] # fails here
-            rows = payload.get("data", [])
-            logger.warning(
-                "scraped page",
-                status=response.status,
-                n=len(rows),
-                page=query.page,
-                url=response.url,
-            )
-        except Exception:
-            logger.error(
-                "malformed pagination page",
-                status=response.status,
-                url=response.url,
-                payload=response.json(),
-                meta=response.meta,
-                flags=response.flags
-            )
-            rows = []
-
-        tokens = response.meta["api_tokens"]
-
-        # TODO: this does not look good, we will skip many pages
-        # TODO: add errorbacks
-        # Fan out one detail chain per project. Detail requests run at default priority, so the
-        # whole listing (priority=PAGINATION_PRIORITY) is drained first. They need a live session
-        # (cookies + a per-session Xsrf-Token to re-sign): when pagination is served straight from
-        # cache we have no tokens yet, so skip details until a bootstrap has populated them.
-        if tokens.get("xsrf-cookie"):
-
-            for row in rows:
-                if row.get("projectId"):
-                    logger.warning(
-                        "issueing details request", project_id=row.get("projectId")
-                    )
-                    yield self._generate_token_request(row, tokens)
-
-        # The listing response's own totalPages is 0, so terminate when a page comes back empty.
-        if rows and self.yielded < 15:
-            self.yielded +=1
-            yield self._listing_request(query.next_page(), tokens=tokens)
-
-    # ------------------------------------------------------------------ details
-    # Per-project detail chain. The SPA fetches these after the user opens a row:
-    #   generateToken -> getProjectDetail -> getProcurementDetail -> greenBook -> infoDeptSub
-    # generateToken mints an X-Announcement-Token bound to the (double-encrypted) project id;
-    # every later call carries that token plus a freshly re-signed X-Xsrf-Token. We chain them
-    # sequentially, accumulating each raw body, and emit a single record at the end.
-
-    DETAIL_ENDPOINT = LIST_URL  # ".../a-egp-allt-project/announcement"
-    RDB_DEPT_URL = "https://process5.gprocurement.go.th/egp-rdb-service/infoDeptSub"
-    ORIGIN = "https://process5.gprocurement.go.th"
-
-    # Within a project's chain each step outranks the previous, so an in-progress project finishes
-    # (token -> projectDetail -> procurement -> greenBook -> deptSub) before the next project's
-    # generateToken is dequeued. All stay below PAGINATION_PRIORITY so the listing still drains
-    # first. With CONCURRENT_REQUESTS=1 only one chain is ever above the token tier at a time.
-    DETAIL_TOKEN_PRIORITY = 1
-    DETAIL_PROJECT_PRIORITY = 2
-    DETAIL_PROCUREMENT_PRIORITY = 3
-    DETAIL_GREENBOOK_PRIORITY = 4
-    DETAIL_DEPTSUB_PRIORITY = 5
-
-    def _detail_headers(
-        self, tokens: dict, announcement_token: str | None = None, post: bool = False
-    ) -> dict:
-        # Same fetch/CORS shape as the listing XHR, but X-Xsrf-Token is re-minted per request from
-        # the Xsrf-Token cookie (the SPA signs "{cookie}:{now_ms}" on every call) and the
-        # announcement token, when present, authorizes the detail endpoints.
-        headers = self._api_headers({})
-        headers["x-xsrf-token"] = crypto.xsrf_token(tokens["xsrf-cookie"])
-        if announcement_token:
-            headers["x-announcement-token"] = announcement_token
-        if post:
-            # generateToken is a CORS POST; the browser sends an explicit Origin.
-            headers["origin"] = self.ORIGIN
-        return headers
-
-    def _detail_request(
-        self,
-        url: str,
-        callback,
-        tokens: dict,
-        meta_extra: dict,
-        announcement_token: str | None = None,
-        method: str = "GET",
-        body: str | None = None,
-        priority: int = 0,
+    def _count_request(
+        self, query: "ListingQuery", tokens: dict, cookies: dict | None = None
     ) -> scrapy.Request:
-        # curl_cffi (impersonate) request on the shared "cf" jar, mirroring _listing_request.
-        # dont_cache: generateToken is single-use POST; the detail GETs ride the same flag so a
-        # stale cached body can never stand in for a live, token-bound fetch.
+        # One-off summary fetch on the same impersonated "cf" session as the listing. Not
+        # cached — we persist the JSON to the partition's counts file ourselves.
         return scrapy.Request(
-            url,
-            method=method,
-            body=body,
-            callback=callback,
-            headers=self._detail_headers(
-                tokens, announcement_token=announcement_token, post=method == "POST"
-            ),
-            priority=priority,
-            dont_filter=True,
+            query.to_count_url(),
+            callback=self.parse_count,
+            headers=self._api_headers(tokens),
+            cookies=cookies,
+            priority=self.PAGINATION_PRIORITY,
             meta={
                 "impersonate": IMPERSONATE,
                 "impersonate_args": {"default_headers": False},
                 "referrer_policy": "no-referrer",
                 "cookiejar": "cf",
-                "dont_cache": True,
                 "api_tokens": tokens,
-                **meta_extra,
+                "dont_cache": True,
+                # Carry the query so parse_count can resolve the output path.
+                "count_query": query,
             },
+            dont_filter=True,
         )
 
-    def _generate_token_request(self, row: dict, tokens: dict) -> scrapy.Request:
-        project_id = str(row["projectId"])
-        body = json.dumps({"key": crypto.generate_token_key(project_id)})
-        logger.info("detail 1/5 generateToken queued", project_id=project_id)
-        return self._detail_request(
-            f"{self.DETAIL_ENDPOINT}/generateToken",
-            self.parse_token,
-            tokens,
-            method="POST",
-            body=body,
-            priority=self.DETAIL_TOKEN_PRIORITY,
-            meta_extra={"project_id": project_id, "detail": {"listing": row}},
-        )
-
-    def _detail_json(self, response):
-        # Detail endpoints answer {"response": {"responseCode": "0", ...}, "data": ...}.
-        # Treat anything but a 200 with responseCode "0" as a failed hop.
+    def parse_count(self, response):
+        query = response.meta["count_query"]
         if response.status != 200:
-            return None
-        try:
-            payload = response.json()
-        except Exception:
-            return None
-        if (payload.get("response") or {}).get("responseCode") != "0":
-            return None
-        return payload.get("data")
-
-    def parse_token(self, response):
-        project_id = response.meta["project_id"]
-        token = self._detail_json(response)
-        if not token:
             logger.warning(
-                "generateToken failed; skipping detail",
+                "sumProjectMoneyAndCount failed",
                 status=response.status,
-                project_id=project_id,
+                url=response.url,
             )
             return
+        self._store_counts(query, response.text)
         logger.info(
-            "detail 1/5 generateToken done", project_id=project_id, status=response.status
-        )
-        meta = response.meta["detail"]
-        logger.info("detail 2/5 getProjectDetail queued", project_id=project_id)
-        yield self._detail_request(
-            f"{self.DETAIL_ENDPOINT}/getProjectDetail?projectId={project_id}",
-            self.parse_project_detail,
-            response.meta["api_tokens"],
-            announcement_token=token,
-            priority=self.DETAIL_PROJECT_PRIORITY,
-            meta_extra={
-                "project_id": project_id,
-                "announcement_token": token,
-                "detail": meta,
-            },
+            "stored summary counts",
+            path=str(self._counts_path(query)),
+            url=response.url,
         )
 
-    def parse_project_detail(self, response):
-        project_id = response.meta["project_id"]
-        token = response.meta["announcement_token"]
-        detail = response.meta["detail"]
-        detail["getProjectDetail"] = response.text
-        logger.info(
-            "detail 2/5 getProjectDetail done",
-            project_id=project_id,
-            status=response.status,
-            bytes=len(response.body),
-        )
-        logger.info("detail 3/5 getProcurementDetail queued", project_id=project_id)
-        yield self._detail_request(
-            f"{self.DETAIL_ENDPOINT}/getProcurementDetail?projectId={project_id}",
-            self.parse_procurement_detail,
-            response.meta["api_tokens"],
-            announcement_token=token,
-            priority=self.DETAIL_PROCUREMENT_PRIORITY,
-            meta_extra={
-                "project_id": project_id,
-                "announcement_token": token,
-                # methodId/announceType drive the greenBook call; pull them off this body.
-                "project_data": self._detail_json(response) or {},
-                "detail": detail,
-            },
-        )
+    def _partition_key(self, query: "ListingQuery") -> str:
+        # One partition per (spider, budgetYear, stage). The pagination cache and the
+        # project-ids file are both keyed by this so they stay aligned.
+        return f"{self.name}-pagination-{query.budget_year}-{query.project_status or 'all'}"
 
-    def parse_procurement_detail(self, response):
-        project_id = response.meta["project_id"]
-        token = response.meta["announcement_token"]
-        detail = response.meta["detail"]
-        detail["getProcurementDetail"] = response.text
-        project_data = response.meta["project_data"]
-        procurement_data = self._detail_json(response) or {}
+    def _partition_dir(self) -> Path:
+        # Same folder the cache storage writes its partitions into:
+        # data_path(HTTPCACHE_DIR) / <safe_spider_name> (see ZstdSqliteCacheStorage).
+        cachedir = data_path(self.settings["HTTPCACHE_DIR"], createdir=True)
+        safe_name = "".join(c if c.isalnum() else "_" for c in self.name).rstrip("_")
+        out_dir = Path(cachedir) / safe_name
+        out_dir.mkdir(parents=True, exist_ok=True)
+        return out_dir
 
-        method_id = project_data.get("methodId") or procurement_data.get("methodId")
-        announce_type = project_data.get("announceType", "")
-        logger.info(
-            "detail 3/5 getProcurementDetail done",
-            project_id=project_id,
-            status=response.status,
-            method_id=method_id,
-            dept_id=procurement_data.get("deptId"),
-        )
-        params = urlencode(
-            {
-                "mode": "LINK",
-                "methodId": method_id or "",
-                "tempProjectId": project_id,
-                "pageAnnounceType": announce_type,
-            }
-        )
-        logger.info("detail 4/5 greenBook queued", project_id=project_id)
-        yield self._detail_request(
-            f"{self.DETAIL_ENDPOINT}/greenBook?{params}",
-            self.parse_green_book,
-            response.meta["api_tokens"],
-            announcement_token=token,
-            priority=self.DETAIL_GREENBOOK_PRIORITY,
-            meta_extra={
-                "project_id": project_id,
-                "announcement_token": token,
-                # deptId/deptSubId drive infoDeptSub.
-                "dept_id": procurement_data.get("deptId"),
-                "dept_sub_id": procurement_data.get("deptSubId"),
-                "detail": detail,
-            },
-        )
+    def _project_ids_path(self, query: "ListingQuery") -> Path:
+        # Project ids: one id per line, keyed by the same partition as the cache.
+        return self._partition_dir() / f"{self._partition_key(query)}.project_ids.txt"
 
-    def parse_green_book(self, response):
-        project_id = response.meta["project_id"]
-        detail = response.meta["detail"]
-        detail["greenBook"] = response.text
-        dept_id = response.meta["dept_id"]
-        dept_sub_id = response.meta["dept_sub_id"]
-        logger.info(
-            "detail 4/5 greenBook done",
-            project_id=project_id,
-            status=response.status,
-            bytes=len(response.body),
-        )
+    def _counts_path(self, query: "ListingQuery") -> Path:
+        # Summary counts JSON, partitioned alongside the project-ids file.
+        return self._partition_dir() / f"{self._partition_key(query)}.counts.json"
 
-        # infoDeptSub lives on a different service and needs no announcement token — just the
-        # session cookies + a signed X-Xsrf-Token. Skip it if the procurement body had no dept ids.
-        if dept_id and dept_sub_id:
-            params = urlencode({"deptId": dept_id, "deptSubId": dept_sub_id})
-            logger.info("detail 5/5 infoDeptSub queued", project_id=project_id)
-            yield self._detail_request(
-                f"{self.RDB_DEPT_URL}?{params}",
-                self.parse_dept_sub,
-                response.meta["api_tokens"],
-                priority=self.DETAIL_DEPTSUB_PRIORITY,
-                meta_extra={"project_id": project_id, "detail": detail},
+    def _store_counts(self, query: "ListingQuery", body: str) -> None:
+        self._counts_path(query).write_text(body, encoding="utf-8")
+
+    def _store_project_ids(self, query: "ListingQuery", rows: list[dict]) -> None:
+        # Append this page's project ids to the partition's file, skipping any already
+        # written this run so the file holds each id once.
+        seen = self._seen_ids.setdefault(self._partition_key(query), set())
+        new_ids = []
+        for row in rows:
+            pid = row.get("projectId")
+            if pid is None:
+                continue
+            pid = str(pid)
+            if pid not in seen:
+                seen.add(pid)
+                new_ids.append(pid)
+        if not new_ids:
+            return
+        with self._project_ids_path(query).open("a", encoding="utf-8") as f:
+            f.write("".join(f"{pid}\n" for pid in new_ids))
+
+    def parse(self, response):
+        # if response.status == 429:
+        #     # timelimited, neew context needed
+        #     raise CloseSpider(reason="429 too many requests")
+        # 401/403 => the session/token is no longer accepted (token expired or jar lapsed).
+        # Re-run Playwright to earn a fresh jar + tokens, then resume *this* page (not page 1).
+        if response.status in (
+            401,
+            403,
+            429,
+        ) or GPRocurementCachePolicy.is_blocked_pagination(response):
+            self.logger.warning(
+                "%s on %s — re-bootstrapping session via Playwright",
+                response.status,
+                response.url,
+            )
+            yield self._playwright_request(
+                resume_query=ListingQuery.from_url(response.url)
             )
         else:
-            logger.info(
-                "detail done (no dept ids; skipping infoDeptSub), emitting item",
-                project_id=project_id,
-            )
-            yield self._build_detail_item(project_id, detail, response)
+            assert response.status == 200
+            # TODO: MUST NOT STORE BAD RESPONSES
+            query = ListingQuery.from_url(response.url)
+            try:
+                payload = response.json()["data"]  # fails here
+                rows = payload.get("data", [])
+                logger.info(
+                    "scraped page",
+                    status=response.status,
+                    n=len(rows),
+                    page=query.page,
+                    url=response.url,
+                )
+            except Exception:
+                logger.error(
+                    "malformed pagination page",
+                    status=response.status,
+                    url=response.url,
+                    payload=response.json(),
+                    meta=response.meta,
+                    flags=response.flags,
+                )
+                rows = []
 
-    def parse_dept_sub(self, response):
-        project_id = response.meta["project_id"]
-        detail = response.meta["detail"]
-        detail["infoDeptSub"] = response.text
-        logger.info(
-            "detail 5/5 infoDeptSub done, emitting item",
-            project_id=project_id,
-            status=response.status,
-        )
-        yield self._build_detail_item(project_id, detail, response)
+            tokens = response.meta["api_tokens"]
 
-    def _build_detail_item(self, project_id: str, detail: dict, response) -> BaseItem:
-        # One record per project. getProjectDetail is the "main" body (-> content); the listing
-        # row and the other endpoints ride along in extra so the record stays whole.
-        item = BaseItem()
-        item["request_url"] = (
-            f"{self.ORIGIN}/egp-agpc01-web/announcement/procurement/"
-            f"{crypto.route_param(project_id)}"
-        )
-        item["response_url"] = response.url
-        item["domain"] = "gprocurement.go.th"
-        item["status"] = response.status
-        item["scraped_at"] = datetime.now(UTC).isoformat()
-        item["content"] = detail.get("getProjectDetail", "")
-        item["extra"] = {
-            "project_id": project_id,
-            "listing": detail.get("listing"),
-            "getProcurementDetail": detail.get("getProcurementDetail"),
-            "greenBook": detail.get("greenBook"),
-            "infoDeptSub": detail.get("infoDeptSub"),
-        }
-        return item
+            # Persist this page's project ids; detail collection is a separate pass that reads
+            # these files. Stored alongside the pagination cache, keyed by the same partition.
+            self._store_project_ids(query, rows)
+
+            # The listing response's own totalPages is 0, so terminate when a page comes back empty.
+            if rows:
+                yield self._listing_request(query.next_page(), tokens=tokens)
+            else:
+                logger.warning(
+                    "no more pages to follow (empty page encountered)", url=response.url
+                )

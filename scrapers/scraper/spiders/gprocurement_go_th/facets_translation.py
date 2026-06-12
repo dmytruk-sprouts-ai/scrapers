@@ -1,15 +1,15 @@
 # https://process5.gprocurement.go.th/egp-atpj27-service/pb/a-egp-allt-project/announcement/getStepGrp
 get_step_grp = {
     "จัดทำร่าง TOR": "Draft TOR Preparation",
-    "จัดทำ TOR": "Prepare TOR",
+    # "จัดทำ TOR": "Prepare TOR",
     "หน.ส่วนราชการเห็นชอบฯ": "Head of Government Agency Approval",
-    "รายงานขอซื้อขอจ้าง": "Procurement Report",
+    # "รายงานขอซื้อขอจ้าง": "Procurement Report",
     "ประกาศเชิญชวน": "Invitation Announcement",
-    "หนังสือเชิญชวน/ประกาศเชิญชวน": "Invitation Letter/Public Announcement",
+    # "หนังสือเชิญชวน/ประกาศเชิญชวน": "Invitation Letter/Public Announcement",
     "หน.ส่วนราชการอนุมัติฯ": "Head of Government Agency Purchase Approval",
-    "อนุมัติสั่งซื้อสั่งจ้างและประกาศผู้ชนะการเสนอราคา": "Approve Purchase/Hire and Announce Winner",
+    # "อนุมัติสั่งซื้อสั่งจ้างและประกาศผู้ชนะการเสนอราคา": "Approve Purchase/Hire and Announce Winner",
     "มูลค่าตามสัญญา": "Contract Value",
-    "จัดทำสัญญา/บริหารสัญญา": "Contract Preparation/Management",
+    # "จัดทำสัญญา/บริหารสัญญา": "Contract Preparation/Management",
 }
 
 # https://process5.gprocurement.go.th/egp-rdb-service/listProcureMethod

@@ -26,9 +26,13 @@ services:
       # Pick the exit country. Indonesia matches the geo-gated LKPP targets
       # (sirup/spce_inaproc_id). Any country still hides your IP, but won't
       # satisfy a geo-restriction. Examples: Indonesia | Singapore | Netherlands
-      - SERVER_COUNTRIES=${SERVER_COUNTRIES:-Indonesia}
+      - SERVER_COUNTRIES=${SERVER_COUNTRIES:-Singapore}
       # Uncomment if gluetun complains it needs an address (Proton default):
       # - WIREGUARD_ADDRESSES=10.2.0.2/32
+    ports:
+      # Published here, but actually served by the scraper container,
+      # since both share this network namespace.
+      - "6080:6080"   # noVNC: http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
     healthcheck:
       test: ["CMD", "wget", "-qO-", "https://ipinfo.io/ip"]
       interval: 10s
@@ -41,7 +45,7 @@ services:
       context: ..
       dockerfile: docker/Dockerfile
     # Share gluetun's netns => all scraper traffic goes through the VPN, kill-switched.
-    # network_mode: "service:gluetun"
+    network_mode: "service:gluetun"
     depends_on:
       gluetun:
         condition: service_healthy
@@ -51,12 +55,6 @@ services:
       - ../scrapers:/workspace/scrapers
     working_dir: /workspace/scrapers
     init: true # dedded to run xvfb
-    # Harmless default; real runs override the command, e.g.
-    #   docker compose run --rm scraper scrapy crawl <spider> [args]
-    # command: ["scrapy", "crawl"]
-    ports:
-      # http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
-      - "6080:6080"   # VNC access
     environment:
       DISPLAY: ":99"
     entrypoint: ["/entrypoint.sh"]

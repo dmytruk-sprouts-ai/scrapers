@@ -11,11 +11,35 @@
 #   4. docker compose run --rm scraper \
 #          python -c "import urllib.request; print(urllib.request.urlopen('https://ipinfo.io/json',timeout=15).read().decode())"
 #   5. docker compose run --rm scraper scrapy crawl books_toscrape_com -s CLOSESPIDER_PAGECOUNT=2
+
+x-scraper-base: &scraper-base
+  image: scrapers:latest
+  # Live-mount the project (rw) so feed exports (-O out.jsonl), samples/,
+  # outputs/, and .scrapy/httpcache land back on the host.
+  volumes:
+    - ./cache:/workspace/scrapers/.scrapy
+  working_dir: /workspace/scrapers
+  init: true # dedded to run xvfb
+  tty: true
+  environment:
+    DISPLAY: ":99"
+    SCRAPER_PW_ENGINE: patchright
+  entrypoint: ["/entrypoint.sh"]
+  # Share gluetun's netns => all scraper traffic goes through the VPN, kill-switched.
+  network_mode: "service:gluetun"
+  depends_on:
+    gluetun:
+      condition: service_healthy
+  # vnc is mapped over gluetun
+
+
+
 services:
+
   gluetun:
-  
     image: qmcgaw/gluetun:latest
     container_name: scraper_gluetun
+    tty: true
     cap_add:
       - NET_ADMIN
     devices:
@@ -30,6 +54,10 @@ services:
       - SERVER_COUNTRIES=${SERVER_COUNTRIES:-Indonesia}
       # Uncomment if gluetun complains it needs an address (Proton default):
       # - WIREGUARD_ADDRESSES=10.2.0.2/32
+    ports:
+      # Published here, but actually served by the scraper container,
+      # since both share this network namespace.
+      - "127.0.0.1:6080:6080"   # noVNC: http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
     healthcheck:
       test: ["CMD", "wget", "-qO-", "https://ipinfo.io/ip"]
       interval: 10s
@@ -38,57 +66,16 @@ services:
     restart: unless-stopped
 
   scraper:
-    image: scrapers:latest
-    # Share gluetun's netns => all scraper traffic goes through the VPN, kill-switched.
-    # network_mode: "service:gluetun"
-    depends_on:
-      gluetun:
-        condition: service_healthy
-    # Live-mount the project (rw) so feed exports (-O out.jsonl), samples/,
-    # outputs/, and .scrapy/httpcache land back on the host.
-    volumes:
-      - ./cache:/workspace/scrapers/.scrapy
-    working_dir: /workspace/scrapers
-    init: true # dedded to run xvfb
-    # Harmless default; real runs override the command, e.g.
-    #   docker compose run --rm scraper scrapy crawl <spider> [args]
-    # command: ["scrapy", "crawl"]
-    ports:
-      # http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
-      - "127.0.0.1:6080:6080"   # VNC access
-    environment:
-      DISPLAY: ":99"
-    entrypoint: ["/entrypoint.sh"]
+    <<: *scraper-base
 
   vnc-test:
-    image: scrapers:latest
-    init: true # dedded to run xvfb
-    tty: true
-    ports:
-      # http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
-      - "127.0.0.1:6080:6080"   # VNC access
-    environment:
-      DISPLAY: ":99"
-    entrypoint: ["/entrypoint.sh"]
+    <<: *scraper-base
     command: sleep infinity
 
   cloudflare-challange:
-    image: scrapers:latest
-    # Share gluetun's netns => all scraper traffic goes through the VPN, kill-switched.
-    # network_mode: "service:gluetun"
-    depends_on:
-      gluetun:
-        condition: service_healthy
-    working_dir: /workspace/scrapers
-    tty: true
-    init: true # dedded to run xvfb
-    # Harmless default; real runs override the command, e.g.
-    #   docker compose run --rm scraper scrapy crawl <spider> [args]
-    # command: ["scrapy", "crawl"]
-    ports:
-      # http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
-      - "127.0.0.1:6080:6080"   # VNC access
-    environment:
-      DISPLAY: ":99"
-    entrypoint: ["/entrypoint.sh"]
+    <<: *scraper-base
     command: scrapy crawl cloudflare-challange
+
+  th:
+    <<: *scraper-base
+    command: scrapy crawl gprocurement_go_th

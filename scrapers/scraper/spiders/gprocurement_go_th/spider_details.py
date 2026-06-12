@@ -43,6 +43,12 @@ ORIGIN = "https://process5.gprocurement.go.th"
 # Base for the announcement service the detail endpoints live under.
 DETAIL_ENDPOINT = f"{ORIGIN}/egp-atpj27-service/pb/a-egp-allt-project/announcement"
 RDB_DEPT_URL = f"{ORIGIN}/egp-rdb-service/infoDeptSub"
+# Legacy "view announcement document" servlet (lives on process3). The SPA's chkProject() builds a
+# hidden form and POSTs it here in a new tab; the response is the announcement HTML document. It is
+# authorized by the session cookies alone — no X-Xsrf-Token / X-Announcement-Token. The per-document
+# fields (templateType / announceFlag / itemNumber / seqNo) come straight out of the greenBook list.
+DOC_HOST = "https://process3.gprocurement.go.th"
+SHOWFILE_URL = f"{DOC_HOST}/egp2procmainWeb/jsp/procsearch.sch"
 # The Angular SPA shell — fetching it earns the first F5 cookie (TS4c538cb7027).
 SPA_URL = f"{ORIGIN}/egp-agpc01-web/announcement?keywordSearch="
 # Bootstraps the Xsrf-Token + TS0174b17a cookies; the SPA posts this on load.
@@ -73,6 +79,9 @@ class GprocurementDetailsSpider(scrapy.Spider):
     DETAIL_PROCUREMENT_PRIORITY = 3
     DETAIL_GREENBOOK_PRIORITY = 4
     DETAIL_DEPTSUB_PRIORITY = 5
+    # Documents fan out after greenBook; keep them ahead of infoDeptSub so a started chain drains
+    # all its documents before the final step (higher priority value = served first).
+    DETAIL_DOC_PRIORITY = 6
 
     @classmethod
     def update_settings(cls, settings):
@@ -363,15 +372,37 @@ class GprocurementDetailsSpider(scrapy.Spider):
         project_id = response.meta["project_id"]
         detail = response.meta["detail"]
         detail["greenBook"] = response.text
+        detail.setdefault("documents", [])
         dept_id = response.meta["dept_id"]
         dept_sub_id = response.meta["dept_sub_id"]
+
+        # The greenBook payload carries the list of downloadable announcement documents. Each entry
+        # has everything chkProject() needs to POST the ShowHTMLFile servlet.
+        data = self._detail_json(response) or {}
+        docs = data.get("greenBookAnnouncementTypeLinkDto") or []
         logger.info(
             "detail 4/5 greenBook done",
             project_id=project_id,
             status=response.status,
             bytes=len(response.body),
+            n_documents=len(docs),
+        )
+        yield from self._drain_documents(
+            response, project_id, detail, list(docs), dept_id, dept_sub_id
         )
 
+    # ------------------------------------------------------------------ document download
+    def _drain_documents(
+        self, response, project_id, detail, pending, dept_id, dept_sub_id
+    ):
+        """Fetch the next pending announcement document, or move on once they're all done."""
+        if pending:
+            doc, *rest = pending
+            yield self._document_request(
+                response, project_id, detail, doc, rest, dept_id, dept_sub_id
+            )
+            return
+        # All documents fetched (or none) — continue the chain.
         # infoDeptSub lives on a different service and needs no announcement token — just the
         # session cookies + a signed X-Xsrf-Token. Skip it if no dept ids were found.
         if dept_id and dept_sub_id:
@@ -389,8 +420,100 @@ class GprocurementDetailsSpider(scrapy.Spider):
             logger.info(
                 "detail done (no dept ids; skipping infoDeptSub), emitting item",
                 project_id=project_id,
+                n_documents=len(detail.get("documents", [])),
             )
             yield self._build_detail_item(project_id, detail, response)
+
+    def _document_request(
+        self, response, project_id, detail, doc, pending, dept_id, dept_sub_id
+    ):
+        # ShowHTMLFile is a plain top-level form navigation (sec-fetch-dest: document), not an XHR:
+        # so we send the navigation headers + an x-www-form-urlencoded body, no XSRF/announce token.
+        doc_project_id = str(doc.get("projectId") or project_id)
+        body = urlencode(
+            {
+                "pass": "F",
+                "templateType": doc.get("templateType", ""),
+                "temp_Announ": doc.get("announceFlag", ""),
+                "temp_itemNo": doc.get("itemNumber", ""),
+                "seqNo": doc.get("seqNo", ""),
+                "announceId": "",
+                "projectId": doc_project_id,
+            }
+        )
+        params = urlencode(
+            {
+                "pid": doc_project_id,
+                "servlet": "gojsp",
+                "proc_id": "ShowHTMLFile",
+                "processFlows": "Procure",
+            }
+        )
+        headers = navigation_headers()
+        headers["content-type"] = "application/x-www-form-urlencoded"
+        headers["origin"] = ORIGIN
+        headers["referer"] = f"{ORIGIN}/"
+        # process3 is the same registrable domain as process5 but a different host.
+        headers["sec-fetch-site"] = "same-site"
+        logger.info(
+            "document queued",
+            project_id=project_id,
+            announce_type=doc.get("announceType"),
+            seq_no=doc.get("seqNo"),
+        )
+        return scrapy.Request(
+            f"{SHOWFILE_URL}?{params}",
+            method="POST",
+            body=body,
+            callback=self.parse_document,
+            headers=headers,
+            priority=self.DETAIL_DOC_PRIORITY,
+            dont_filter=True,
+            meta={
+                "impersonate": IMPERSONATE,
+                "impersonate_args": {"default_headers": False},
+                "referrer_policy": "no-referrer",
+                "cookiejar": "cf",
+                "api_tokens": response.meta["api_tokens"],
+                "project_id": project_id,
+                "detail": detail,
+                "doc": doc,
+                "pending": pending,
+                "dept_id": dept_id,
+                "dept_sub_id": dept_sub_id,
+            },
+        )
+
+    def parse_document(self, response):
+        project_id = response.meta["project_id"]
+        detail = response.meta["detail"]
+        doc = response.meta["doc"]
+        detail.setdefault("documents", []).append(
+            {
+                "announceType": doc.get("announceType"),
+                "templateType": doc.get("templateType"),
+                "itemNumber": doc.get("itemNumber"),
+                "seqNo": doc.get("seqNo"),
+                "url": response.url,
+                "status": response.status,
+                "content": response.text,
+            }
+        )
+        logger.info(
+            "document fetched",
+            project_id=project_id,
+            announce_type=doc.get("announceType"),
+            status=response.status,
+            bytes=len(response.body),
+        )
+        yield from self._drain_documents(
+            response,
+            project_id,
+            detail,
+            response.meta["pending"],
+            response.meta["dept_id"],
+            response.meta["dept_sub_id"],
+        )
 
     def parse_dept_sub(self, response):
         project_id = response.meta["project_id"]
@@ -420,6 +543,8 @@ class GprocurementDetailsSpider(scrapy.Spider):
             "getProcurementDetail": detail.get("getProcurementDetail"),
             "greenBook": detail.get("greenBook"),
             "infoDeptSub": detail.get("infoDeptSub"),
+            # The announcement HTML documents linked from greenBook (ShowHTMLFile servlet).
+            "documents": detail.get("documents", []),
         }
         logger.info("scrapped")
         return item
