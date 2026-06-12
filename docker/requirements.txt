@@ -16,6 +16,7 @@ packaging==23.0 # needed to be locked for undetected-chromedriver, otherwise ttr
 git+https://www.github.com/ultrafunkamsterdam/undetected-chromedriver@master
 playwright-stealth>=2.0.3 
 structlog>=26.1.0
+pydantic>=2.0  # canonical record models + validators (scraper.spiders.*.models)
 PyYAML>=6.0.3
 patchright>=1.60.1
 zstandard>=0.22
