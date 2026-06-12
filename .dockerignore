@@ -1,0 +1,20 @@
+# Ignore all __pycache__ folders anywhere in the project
+**/__pycache__/
+
+# Ignore all compiled Python bytecode files
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Ignore specific custom folders (and all their contents)
+folder_to_ignore/
+path/to/another_folder/
+
+# Optional: Ignore local virtual environments, git data, and environment files
+.git/
+venv/
+.venv/
+.env
+
+outputs/
+.scrapy/

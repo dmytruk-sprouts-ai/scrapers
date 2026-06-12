@@ -13,7 +13,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Scraping toolchain (single source of truth, shared with the local `just scraper-install` venv).
-COPY requirements.txt /tmp/requirements.txt
+COPY docker/requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
 # Browsers + their OS dependencies. The spiders launch with channel="chrome"
@@ -32,9 +32,10 @@ RUN apt-get update && \
 # Skip Playwright browser downloads
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 
-COPY entrypoint.sh /entrypoint.sh
+COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 WORKDIR /workspace
 
+COPY ./scrapers /workspace/scrapers
 

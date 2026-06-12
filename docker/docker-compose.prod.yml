@@ -13,6 +13,7 @@
 #   5. docker compose run --rm scraper scrapy crawl books_toscrape_com -s CLOSESPIDER_PAGECOUNT=2
 services:
   gluetun:
+  
     image: qmcgaw/gluetun:latest
     container_name: scraper_gluetun
     cap_add:
@@ -37,9 +38,7 @@ services:
     restart: unless-stopped
 
   scraper:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
+    image: scrapers:latest
     # Share gluetun's netns => all scraper traffic goes through the VPN, kill-switched.
     # network_mode: "service:gluetun"
     depends_on:
@@ -48,7 +47,7 @@ services:
     # Live-mount the project (rw) so feed exports (-O out.jsonl), samples/,
     # outputs/, and .scrapy/httpcache land back on the host.
     volumes:
-      - ../scrapers:/workspace/scrapers
+      - ./cache:/workspace/scrapers/.scrapy
     working_dir: /workspace/scrapers
     init: true # dedded to run xvfb
     # Harmless default; real runs override the command, e.g.
@@ -56,7 +55,40 @@ services:
     # command: ["scrapy", "crawl"]
     ports:
       # http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
-      - "6080:6080"   # VNC access
+      - "127.0.0.1:6080:6080"   # VNC access
     environment:
       DISPLAY: ":99"
     entrypoint: ["/entrypoint.sh"]
+
+  vnc-test:
+    image: scrapers:latest
+    init: true # dedded to run xvfb
+    tty: true
+    ports:
+      # http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
+      - "127.0.0.1:6080:6080"   # VNC access
+    environment:
+      DISPLAY: ":99"
+    entrypoint: ["/entrypoint.sh"]
+    command: sleep infinity
+
+  cloudflare-challange:
+    image: scrapers:latest
+    # Share gluetun's netns => all scraper traffic goes through the VPN, kill-switched.
+    # network_mode: "service:gluetun"
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    working_dir: /workspace/scrapers
+    tty: true
+    init: true # dedded to run xvfb
+    # Harmless default; real runs override the command, e.g.
+    #   docker compose run --rm scraper scrapy crawl <spider> [args]
+    # command: ["scrapy", "crawl"]
+    ports:
+      # http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
+      - "127.0.0.1:6080:6080"   # VNC access
+    environment:
+      DISPLAY: ":99"
+    entrypoint: ["/entrypoint.sh"]
+    command: scrapy crawl cloudflare-challange

@@ -5,6 +5,7 @@ _require-venv:
     @test -x .venv/bin/scrapy || { echo "scraper venv missing — run: just init"; exit 1; }
 
 init:
+    sudo apt install pv
     uv venv .venv
     uv pip install --python .venv -r docker/requirements.txt
     .venv/bin/playwright install chromium
@@ -61,3 +62,42 @@ crawl-cloudflare-challange:
 
 test-vnc: vpn-up
     {{_compose}} run --build --service-ports scraper sleep infinity
+
+prod-deploy:
+    sudo apt install pv
+    docker build --platform linux/amd64 -t scrapers:latest -f docker/Dockerfile .
+    docker image ls scrapers:latest
+    docker save scrapers:latest | gzip | ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa scraping@104.64.207.128 'gunzip | docker load'
+    ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa scraping@104.64.207.128 'docker image ls'
+
+
+prod-run-vnc:
+    # 1. Copy ./docker -> ~/scraping-procurement on the VM
+    rsync -avz --mkpath -e "ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa" ./docker scraping@104.64.207.128:~/scraping-procurement
+    # 2. Open SSH with VNC forwarding, then run the scraper container in the foreground
+    xdg-open "http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale"
+    ssh -t -i ~/.ssh/sprouts_scraping_vm_id_rsa -L 6080:localhost:6080 scraping@104.64.207.128 \
+        'cd ~/scraping-procurement && docker compose -f ./docker/docker-compose.prod.yml up vnc-test'
+    # access VNC: http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
+
+prod-run-scrape:
+    # 1. Copy ./docker -> ~/scraping-procurement on the VM
+    rsync -avz --mkpath -e "ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa" ./docker scraping@104.64.207.128:~/scraping-procurement
+    xdg-open "http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale"
+    # 2. Open SSH with VNC forwarding, then run the scraper container in the foreground
+    ssh -t -i ~/.ssh/sprouts_scraping_vm_id_rsa -L 6080:localhost:6080 scraping@104.64.207.128 \
+        'cd ~/scraping-procurement && docker compose -f ./docker/docker-compose.prod.yml up cloudflare-challange'
+    
+
+prod-stop:
+    ssh -i ~/.ssh/sprouts_scraping_vm_id_rsa scraping@104.64.207.128 \
+        'cd ~/scraping-procurement && docker compose -f ./docker/docker-compose.prod.yml down'
+
+setup-vm:
+    ssh -t -i ~/.ssh/sprouts_scraping_vm_id_rsa scraping@104.64.207.128 '\
+        curl -fsSL https://get.docker.com -o get-docker.sh && \
+        sudo sh ./get-docker.sh && \
+        sudo usermod -aG docker $USER && \
+        exec newgrp docker'
+
+
