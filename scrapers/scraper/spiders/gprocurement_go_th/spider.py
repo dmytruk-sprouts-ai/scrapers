@@ -15,6 +15,7 @@ from scrapy.utils.project import data_path
 from scrapy_playwright.page import PageMethod
 
 from scraper.browser_profile import IMPERSONATE, navigation_headers
+from scraper.proxies import pick_proxy
 
 from .cache_router import cache_route
 from .facets import STEP_ID_MAPPING
@@ -260,7 +261,7 @@ class GprocurementGoTh(scrapy.Spider):
                 # back off further whenever the server's latency rises.
                 "CONCURRENT_REQUESTS": 1,
                 "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
-                "DOWNLOAD_DELAY": 3.0,
+                "DOWNLOAD_DELAY": 5,
                 "RANDOMIZE_DOWNLOAD_DELAY": True,  # actual delay = 0.5x–1.5x DOWNLOAD_DELAY
                 "AUTOTHROTTLE_ENABLED": True,
                 "AUTOTHROTTLE_START_DELAY": 5.0,
@@ -287,6 +288,13 @@ class GprocurementGoTh(scrapy.Spider):
         # Partitions whose summary counts have already been fetched, so a mid-crawl
         # re-bootstrap doesn't re-request them.
         self._counts_fetched: set[str] = set()
+        # One sticky-session proxy for the whole crawl. Cloudflare binds the cf_clearance /
+        # TS* anti-bot cookies to the egress IP that solved the challenge, so the Playwright
+        # bootstrap and every curl_cffi pagination leg MUST exit from the same IP. We pick it
+        # once here and thread it through both legs (and through any mid-crawl re-bootstrap).
+        self.proxy = pick_proxy()
+        if self.proxy:
+            self.logger.info("using proxy session %s", self.proxy.username)
 
     @property
     def project_status(self) -> str:
@@ -300,6 +308,47 @@ class GprocurementGoTh(scrapy.Spider):
         return to_budget_year(self.year)
 
     async def start(self):
+        # TEMP proxy check: fire a few ipinfo.io/json requests through the chosen proxy and log the
+        # egress IP. If the proxy is wired in correctly every line shows the proxy's exit IP, not
+        # this host's. Remove once verified.
+        for i in range(3):
+            yield scrapy.Request(
+                "https://ipinfo.io/json",
+                callback=self.parse_ipinfo,
+                headers=navigation_headers(),
+                meta={
+                    "impersonate": IMPERSONATE,
+                    "impersonate_args": {"default_headers": False},
+                    "referrer_policy": "no-referrer",
+                    "ipinfo_n": i,
+                    **({"proxy": self.proxy.url} if self.proxy else {}),
+                },
+                dont_filter=True,
+            )
+
+        # TEMP proxy check, browser leg: open ipinfo.io in the real browser through the same
+        # proxy-bound Playwright context as the bootstrap, so we can confirm Playwright egresses
+        # from the proxy IP too (not just the curl_cffi legs above). Remove once verified.
+        yield scrapy.Request(
+            "https://ipinfo.io/json",
+            callback=self.parse_ipinfo_playwright,
+            dont_filter=True,
+            meta={
+                "dont_cache": True,
+                "playwright": True,
+                # Reuse the exact context name + kwargs the bootstrap builds, so this rides the
+                # same proxy-bound context instead of the proxy-less startup one.
+                "playwright_context": (
+                    f"cf-{self.proxy.username}" if self.proxy else "default"
+                ),
+                "playwright_context_kwargs": {
+                    "no_viewport": True,
+                    "locale": "en-US",
+                    **({"proxy": self.proxy.playwright} if self.proxy else {}),
+                },
+            },
+        )
+
         # Bootstrap the session in a real browser, then resume curl_cffi pagination at page 1.
         # yield self._playwright_request(resume_query=ListingQuery())
         yield self._listing_request(
@@ -307,6 +356,38 @@ class GprocurementGoTh(scrapy.Spider):
                 budget_year=self.budget_year, project_status=self.project_status
             ),
             tokens={},
+        )
+
+    def parse_ipinfo(self, response):
+        # TEMP: log the egress IP seen by ipinfo.io so we can confirm the proxy is in use.
+        try:
+            data = response.json()
+        except Exception:
+            data = {"raw": response.text[:200]}
+        logger.info(
+            "ipinfo proxy check",
+            n=response.meta.get("ipinfo_n"),
+            status=response.status,
+            ip=data.get("ip"),
+            org=data.get("org"),
+            country=data.get("country"),
+            via_proxy=self.proxy.username if self.proxy else None,
+        )
+
+    def parse_ipinfo_playwright(self, response):
+        # TEMP: same check as parse_ipinfo but for the Playwright (browser) leg. ipinfo.io/json
+        # returns JSON even when rendered in the browser, so we can read the egress IP directly.
+        try:
+            data = response.json()
+        except Exception:
+            data = {"raw": response.text[:200]}
+        logger.info(
+            "ipinfo proxy check (playwright)",
+            status=response.status,
+            ip=data.get("ip"),
+            org=data.get("org"),
+            country=data.get("country"),
+            via_proxy=self.proxy.username if self.proxy else None,
         )
 
     def _playwright_request(
@@ -323,6 +404,17 @@ class GprocurementGoTh(scrapy.Spider):
                 "dont_cache": True,
                 "playwright": True,
                 "playwright_include_page": True,  # needed to harvest the context jar
+                # Per-crawl context bound to the chosen proxy. A dedicated (non-"default")
+                # context name forces scrapy-playwright to build a fresh context with these
+                # kwargs instead of reusing the proxy-less startup context.
+                "playwright_context": (
+                    f"cf-{self.proxy.username}" if self.proxy else "default"
+                ),
+                "playwright_context_kwargs": {
+                    "no_viewport": True,
+                    "locale": "en-US",
+                    **({"proxy": self.proxy.playwright} if self.proxy else {}),
+                },
                 "playwright_page_init_callback": init_page,
                 "playwright_page_goto_kwargs": {
                     "timeout": 600000,  # Individual 60-second limit for this specific URL
@@ -449,6 +541,11 @@ class GprocurementGoTh(scrapy.Spider):
             meta={
                 "impersonate": IMPERSONATE,
                 "impersonate_args": {"default_headers": False},
+                # Same egress IP the Playwright bootstrap used to earn the session — Cloudflare
+                # bound the clearance to it, so curl_cffi must exit there too or the challenge
+                # re-triggers. HttpProxyMiddleware splits the credentials out into
+                # Proxy-Authorization, which scrapy_impersonate re-applies to curl_cffi.
+                **({"proxy": self.proxy.url} if self.proxy else {}),
                 # Stop RefererMiddleware adding a Referer; we set the exact one ourselves.
                 "referrer_policy": "no-referrer",
                 # One jar for the whole curl_cffi chain; the middleware owns send + Set-Cookie.
@@ -475,6 +572,8 @@ class GprocurementGoTh(scrapy.Spider):
             meta={
                 "impersonate": IMPERSONATE,
                 "impersonate_args": {"default_headers": False},
+                # Same egress IP as the Playwright bootstrap + listing chain (see _listing_request).
+                **({"proxy": self.proxy.url} if self.proxy else {}),
                 "referrer_policy": "no-referrer",
                 "cookiejar": "cf",
                 "api_tokens": tokens,
@@ -533,8 +632,8 @@ class GprocurementGoTh(scrapy.Spider):
         new_ids = []
         for row in rows:
             pid = row.get("projectId")
-            if pid is None:
-                continue
+            # if pid is None:
+            #     continue
             pid = str(pid)
             if pid not in seen:
                 seen.add(pid)

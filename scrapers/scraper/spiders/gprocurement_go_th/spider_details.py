@@ -21,16 +21,26 @@ Usage::
     scrapy crawl gprocurement_details -a ids=69069212137,69069212138
     scrapy crawl gprocurement_details -a ids_file=ids.txt   # one id per line
 
-With no ids supplied it falls back to ``DEFAULT_IDS`` (a single known-good id from the HAR).
+    # Read ids straight out of the listing spider's partition files (the default source):
+    scrapy crawl gprocurement_details                       # every partition found
+    scrapy crawl gprocurement_details -a partitions=2569-1  # one partition
+    scrapy crawl gprocurement_details -a partitions=2569-1,2569-all  # a chosen subset
+
+With no ``ids``/``ids_file`` and no ``partitions`` filter, every partition file the listing
+spider has written is read. Explicit ``ids``/``ids_file`` take precedence and suppress the
+partition default unless ``partitions`` is also passed (then both sources are merged, de-
+duplicated). If nothing is found it falls back to ``DEFAULT_IDS`` (a known-good HAR id).
 """
 
 import json
 from datetime import UTC, datetime
+from pathlib import Path
 from urllib.parse import urlencode
 
 import scrapy
 import structlog
 from scrapy.exceptions import CloseSpider
+from scrapy.utils.project import data_path
 
 from scraper.browser_profile import IMPERSONATE, navigation_headers
 from scraper.items import BaseItem
@@ -56,6 +66,18 @@ SPA_URL = f"{ORIGIN}/egp-agpc01-web/announcement?keywordSearch="
 APP_HIDDEN_URL = f"{ORIGIN}/egp-amas22-service/pb/a-master/app-hidden"
 APP_HIDDEN_BODY = json.dumps({"appname": "agpc01"})
 
+# The project ids consumed here are produced by the *listing* spider (gprocurement_go_th),
+# which appends them to one file per partition inside its httpcache dir. We mirror that
+# spider's name — not this one's — when locating the directory and files (see
+# GprocurementGoTh._project_ids_path / _partition_dir in spider.py).
+LISTING_SPIDER_NAME = "gprocurement_go_th"
+# Per-partition id files look like "<listing-spider>-pagination-<spec>.project_ids.txt",
+# where <spec> is "<budgetYear>-<projectStatus|all>" (e.g. "2569-1", "2569-all"). That
+# <spec> is what `partitions=` selects on.
+PROJECT_IDS_PREFIX = f"{LISTING_SPIDER_NAME}-pagination-"
+PROJECT_IDS_SUFFIX = ".project_ids.txt"
+PROJECT_IDS_GLOB = f"{PROJECT_IDS_PREFIX}*{PROJECT_IDS_SUFFIX}"
+
 
 def _set_cookie_value(response, name: str) -> str | None:
     """Pull one cookie's value out of a response's Set-Cookie headers."""
@@ -72,8 +94,6 @@ class GprocurementDetailsSpider(scrapy.Spider):
     name = "gprocurement_details"
 
     # Known-good id captured in the HAR; used when no ids are passed on the command line.
-    DEFAULT_IDS = ["69069199750"]
-
     # One in-flight chain at a time, mirroring the listing spider's polite cadence.
     DETAIL_TOKEN_PRIORITY = 1
     DETAIL_PROJECT_PRIORITY = 2
@@ -94,8 +114,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                     "http": "scraper.handlers.HybridDownloadHandler",
                 },
                 # Polite, single-flight — no browser, but still gentle on the API.
-                "CONCURRENT_REQUESTS": 1,
-                "CONCURRENT_REQUESTS_PER_DOMAIN": 1,
+                "CONCURRENT_REQUESTS": 5,
                 "DOWNLOAD_DELAY": 1.0,
                 "RANDOMIZE_DOWNLOAD_DELAY": True,
                 "URLLENGTH_LIMIT": 0,
@@ -109,25 +128,110 @@ class GprocurementDetailsSpider(scrapy.Spider):
         )
 
     def __init__(
-        self, ids: str | None = None, ids_file: str | None = None, *args, **kwargs
+        self,
+        ids: str | None = None,
+        ids_file: str | None = None,
+        partitions: str | None = None,
+        *args,
+        **kwargs,
     ):
         super().__init__(*args, **kwargs)
-        project_ids: list[str] = []
-        if ids:
-            project_ids += [s.strip() for s in ids.split(",") if s.strip()]
-        if ids_file:
-            with open(ids_file, encoding="utf-8") as fh:
-                project_ids += [line.strip() for line in fh if line.strip()]
-        self.project_ids = project_ids or list(self.DEFAULT_IDS)
+        # Stash the id-source args; resolution is deferred to start(), where self.settings
+        # (and thus the httpcache dir) is finally available — it isn't set yet in __init__.
+        self._ids_arg = ids
+        self._ids_file_arg = ids_file
+        self._partitions_arg = partitions
         # One sticky-session proxy for the whole crawl. The detail chain shares a single cookie
         # jar (cf) and the API may bind / rate-limit on egress IP, so every leg must exit from the
         # same IP. Pick once here and thread it through every request via meta['proxy'].
         self.proxy = pick_proxy()
         logger.info(
             "details spider configured",
-            n_ids=len(self.project_ids),
             proxy=self.proxy.username if self.proxy else None,
         )
+
+    # ------------------------------------------------------------------ id sources
+    def _partition_dir(self) -> Path:
+        # The listing spider writes its partitions into data_path(HTTPCACHE_DIR)/<safe name>,
+        # keyed off *its* name. Reproduce that path so we read the same folder it wrote.
+        cachedir = data_path(self.settings["HTTPCACHE_DIR"], createdir=True)
+        safe_name = "".join(
+            c if c.isalnum() else "_" for c in LISTING_SPIDER_NAME
+        ).rstrip("_")
+        return Path(cachedir) / safe_name
+
+    def _partition_files(self) -> dict[str, Path]:
+        # Map partition spec ("<budgetYear>-<projectStatus|all>") -> its id file, for every
+        # partition the listing spider has written. Sorted for a stable, predictable order.
+        out: dict[str, Path] = {}
+        for path in sorted(self._partition_dir().glob(PROJECT_IDS_GLOB)):
+            spec = path.name[len(PROJECT_IDS_PREFIX) : -len(PROJECT_IDS_SUFFIX)]
+            out[spec] = path
+        return out
+
+    def _load_partition_ids(self, wanted: list[str] | None) -> list[str]:
+        # Read ids from the selected partition files. wanted=None means "all partitions";
+        # otherwise only the listed specs are read (unknown ones are warned and skipped).
+        available = self._partition_files()
+        if not available:
+            logger.warning(
+                "no partition id files found", dir=str(self._partition_dir())
+            )
+            return []
+        if wanted is None:
+            specs = list(available)
+        else:
+            specs = []
+            for spec in wanted:
+                if spec in available:
+                    specs.append(spec)
+                else:
+                    logger.warning(
+                        "requested partition not found; skipping",
+                        partition=spec,
+                        available=list(available),
+                    )
+        ids: list[str] = []
+        for spec in specs:
+            with available[spec].open(encoding="utf-8") as fh:
+                file_ids = [line.strip() for line in fh if line.strip()]
+            logger.info(
+                "loaded partition ids",
+                partition=spec,
+                n=len(file_ids),
+                path=str(available[spec]),
+            )
+            ids += file_ids
+        return ids
+
+    def _resolve_project_ids(self) -> list[str]:
+        # Merge every configured id source, de-duplicating while preserving first-seen order.
+        project_ids: list[str] = []
+        seen: set[str] = set()
+
+        def add(values) -> None:
+            for value in values:
+                value = str(value).strip()
+                if value and value not in seen:
+                    seen.add(value)
+                    project_ids.append(value)
+
+        if self._ids_arg:
+            add(self._ids_arg.split(","))
+        if self._ids_file_arg:
+            with open(self._ids_file_arg, encoding="utf-8") as fh:
+                add(fh)
+        # Partition files are the default source: read them when no explicit ids were given,
+        # or whenever `partitions=` is passed (a chosen subset; None here means all of them).
+        if self._partitions_arg or not (self._ids_arg or self._ids_file_arg):
+            wanted = (
+                [p.strip() for p in self._partitions_arg.split(",") if p.strip()]
+                if self._partitions_arg
+                else None
+            )
+            add(self._load_partition_ids(wanted))
+
+        return project_ids or list(self.DEFAULT_IDS)
 
     def _proxy_meta(self) -> dict:
         # HttpProxyMiddleware reads meta['proxy'] and splits the credentials out into a
@@ -137,6 +241,11 @@ class GprocurementDetailsSpider(scrapy.Spider):
 
     # ------------------------------------------------------------------ bootstrap
     async def start(self):
+        # Resolve ids now (not in __init__): partition files live under the httpcache dir,
+        # which is only knowable once self.settings is wired up by the crawler.
+        self.project_ids = self._resolve_project_ids()
+        logger.info("details spider ids resolved", n_ids=len(self.project_ids))
+
         # TEMP proxy check: fire a few ipinfo.io/json requests through the chosen proxy and log the
         # egress IP. If the proxy is wired in correctly every line shows the proxy's exit IP, not
         # this host's. Remove once verified.
