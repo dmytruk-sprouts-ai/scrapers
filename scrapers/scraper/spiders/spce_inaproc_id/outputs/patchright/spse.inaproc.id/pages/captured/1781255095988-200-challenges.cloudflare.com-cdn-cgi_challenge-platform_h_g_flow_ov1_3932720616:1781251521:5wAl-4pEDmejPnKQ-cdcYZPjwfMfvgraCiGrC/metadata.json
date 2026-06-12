@@ -1,0 +1,28 @@
+{
+    "status": 200,
+    "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/3932720616:1781251521:5wAl-4pEDmejPnKQ-cdcYZPjwfMfvgraCiGrCsvIQHc/a0a7b0c7bd34c214/MLBUi4cAT8c_RhCrneHFidtMohY2NyMds1FagrRLeE8-1781255092-1.2.1.1-ySYX4xGSHWbDmzKvym.669JMqKCKCwKIy7jhz417xUzaJ_s4QE0brkDJH_uFAXG7",
+    "headers": {
+        "cf-chl-out": "PZvOuEuYXofldONoJSihKc9rOVjJFyT6ImcRgeuR3qkpYqWMhJ6kSRZgK8rQxT5fyq+Zl+gArf65GDbTeRcnWWMYMvKmGe+Vh72JIqEN+vpqm/5bZDk/jB+NPhUgBq4MwZiALSlXCDM7MjaChBqrjQ==$EJ5Prruu6OjijrU8MmHqVg==",
+        "timing-allow-origin": "https://challenges.cloudflare.com",
+        "content-encoding": "br",
+        "cf-ray": "a0a7b0ddfbd2c214-VIE",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "cf-chl-out-s": "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$jaqvRgorXlkrw2EA9j4hSA==",
+        "date": "Fri, 12 Jun 2026 09:04:56 GMT",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "priority": "u=1,i"
+    },
+    "timing": {
+        "startTime": 1781255095988.6301,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.475,
+        "responseStart": 38.518,
+        "responseEnd": -1
+    }
+}

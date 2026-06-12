@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/inaproc.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062052Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=3264ea5604e13367f513ca236b3df66d5f85a723801cb50257c845d1bff1381b8dc8ad7df046ea41edb6c9283a91edf1cfc7320350c5d52767ad963af9b91ecfd4775ed7a5af7cbbe949bad8e35bf588dfb0fd77325452368ae825a249d9cae82663c5322cf140c463ff7ff90a2f56657782aa4853814720fe581b8c4f3764db6dfb5066acbcc67ae3424bb8bbc5d56bc16c67f37e1857e80ad018e6a4cf669dc398f2a9d19aaf1d7b172c934969bc0d929a7d98b0c7deecead050300f8f9409b01ea23e2b270f527b0065ebce0606035db8f2723a226051ab4e125e6fb7027ad733a270ee260e9a47517ba893aefdfffb71cc9d38659842c29cd5ba3aee7f29",
+    "headers": {
+        "x-goog-metageneration": "1",
+        "access-control-expose-headers": "*",
+        "x-goog-hash": "crc32c=pjw9fw==, md5=/UGSOFjYkBwNE+dZw3hQCg==",
+        "etag": "\"fd41923858d8901c0d13e759c378500a\"",
+        "x-goog-stored-content-encoding": "identity",
+        "expires": "Fri, 12 Jun 2026 09:05:00 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "x-goog-stored-content-length": "10664",
+        "date": "Fri, 12 Jun 2026 09:05:00 GMT",
+        "content-type": "image/png",
+        "last-modified": "Thu, 12 Jun 2025 14:51:20 GMT",
+        "x-guploader-uploadid": "AJ5rDhEZXvnTdtIfRfhRIM5h0K0CiXvTodHnbWVDeypvNmTu6J5Q369IumO3aCHyKJuJo_2H",
+        "cache-control": "private, max-age=0",
+        "x-goog-storage-class": "STANDARD",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "x-goog-generation": "1749739880649277",
+        "content-length": "10664",
+        "server": "UploadServer"
+    },
+    "timing": {
+        "startTime": 1781255100085.392,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.204,
+        "responseStart": 449.305,
+        "responseEnd": -1
+    }
+}

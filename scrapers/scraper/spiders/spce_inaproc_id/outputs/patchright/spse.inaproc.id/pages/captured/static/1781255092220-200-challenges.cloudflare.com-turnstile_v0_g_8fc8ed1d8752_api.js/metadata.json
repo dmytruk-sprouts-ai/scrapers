@@ -1,0 +1,30 @@
+{
+    "status": 200,
+    "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+    "headers": {
+        "cache-control": "max-age=31536000, stale-if-error=10800, stale-while-revalidate=31536000, public",
+        "timing-allow-origin": "https://spse.inaproc.id",
+        "content-encoding": "br",
+        "cross-origin-resource-policy": "cross-origin",
+        "cf-ray": "a0a7b0c68ae690bb-VIE",
+        "access-control-allow-origin": "*",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "date": "Fri, 12 Jun 2026 09:04:52 GMT",
+        "content-type": "application/javascript; charset=UTF-8",
+        "last-modified": "Thu, 28 May 2026 15:08:54 GMT",
+        "server": "cloudflare",
+        "priority": "u=3,i=?0"
+    },
+    "timing": {
+        "startTime": 1781255092220.556,
+        "domainLookupStart": 0.219,
+        "domainLookupEnd": 0.859,
+        "connectStart": 1.023,
+        "secureConnectionStart": 1.023,
+        "connectEnd": 24.276,
+        "requestStart": 24.416,
+        "responseStart": 37.284,
+        "responseEnd": -1
+    }
+}

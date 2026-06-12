@@ -1,0 +1,38 @@
+{
+    "status": 200,
+    "url": "https://storage.googleapis.com/spse-public-prod/127/public/images/imgng/lpse-nama.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260611%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260611T032436Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=3d64a377fb92da369c6e1a4fa439f43afd9887ade70a3df71ae961e30a3ced241f4cef5c7081db23c2bd448652a2ea17026a8c9468b1497817b89d8a21cd0aa51c6bf889ad306d5a2bca0e2446d6e767c738b6047dda472659879f7c9201fc1ed36dbf698a9179bbcb699b0f1bd718c4acae78aa1033c1c660c0fc58902eb7efc1f392e2f85675de14977b422d7c2ca0ccacce2530c95d5b4770052c206ce7798d132e6c2c7b93b98ab3e3551326400e4052d42116e3b5ab0558a2c44dd3c0c3adaf337e7e0f0f1c2d9ea9a025b7ace50962e513208bc3e6efc7d19667e7fcc7b0c7399495189185502e7483731e7119acaec9a3afba8535e18a04f08afcc0d0",
+    "headers": {
+        "x-goog-metageneration": "1",
+        "x-goog-meta-goog-reserved-file-mtime": "1716640892",
+        "access-control-expose-headers": "*",
+        "x-goog-hash": "crc32c=9xd7Fg==, md5=w57Apn0SUiltkoBCLn/N/Q==",
+        "etag": "\"c39ec0a67d1252296d9280422e7fcdfd\"",
+        "x-goog-stored-content-encoding": "identity",
+        "expires": "Fri, 12 Jun 2026 09:04:58 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "x-goog-stored-content-length": "142",
+        "x-goog-meta-mtime": "2024-05-25T19:41:32.383005254+07:00",
+        "date": "Fri, 12 Jun 2026 09:04:58 GMT",
+        "content-type": "image/png",
+        "last-modified": "Tue, 23 Jul 2024 10:02:52 GMT",
+        "x-guploader-uploadid": "AJ5rDhEtgicZvohCqF8OxjkGP85i8Z13pCGkWPoy0gRJHCjyHK1c9ir9ZITB036SBOwuYB-R",
+        "cache-control": "private, max-age=0",
+        "x-goog-storage-class": "STANDARD",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "x-goog-generation": "1721728972232059",
+        "content-length": "142",
+        "server": "UploadServer"
+    },
+    "timing": {
+        "startTime": 1781255096729.7969,
+        "domainLookupStart": 1.047,
+        "domainLookupEnd": 1.056,
+        "connectStart": 1.056,
+        "secureConnectionStart": 16.32,
+        "connectEnd": 46.774,
+        "requestStart": 47.208,
+        "responseStart": 2062.303,
+        "responseEnd": -1
+    }
+}

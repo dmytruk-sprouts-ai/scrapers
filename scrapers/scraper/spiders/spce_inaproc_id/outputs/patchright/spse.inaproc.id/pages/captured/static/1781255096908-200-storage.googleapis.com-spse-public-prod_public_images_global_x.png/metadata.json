@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/x.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062148Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=6ee2bf11441876125e0b1fe50e919ecbf85e552cd820b92657467d788cdf6dee75d4c16e10531a2eb2ddfe63788a70abaef1f88d2da3dec169046d7526a4d7131846d0fdb6e351aea61a123ad89b8056685c97421a6ac2dcb04c520d70c0d9fab89de2ac09e47f54c24bb2ba895c6fbe0cf45ad8cf827b30f9b03fe5fe902fbb76ec5b4a11522b0a1fc61723ffbb4d915a03dc40e2447bf09fa0aaaaeecbd47b2bad2004b42bd2af0703a4937c0dbe2caeef5f499c2e91a7d97f02d7872e7d549b615ec989cc66dd49fed8a1ccf3b8c3a14e3b450cbe0178f9148549d2e91211e68e75e92ac3bdb4b6d790b3a2e61bcc365544e460f90d7d960f6e338ed86b9d",
+    "headers": {
+        "x-goog-metageneration": "1",
+        "access-control-expose-headers": "*",
+        "x-goog-hash": "crc32c=7vgRVw==, md5=0YqrB8kYAKVVnA205S6rQA==",
+        "etag": "\"d18aab07c91800a5559c0db4e52eab40\"",
+        "x-goog-stored-content-encoding": "identity",
+        "expires": "Fri, 12 Jun 2026 09:04:58 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "x-goog-stored-content-length": "660",
+        "date": "Fri, 12 Jun 2026 09:04:58 GMT",
+        "content-type": "image/png",
+        "last-modified": "Thu, 12 Jun 2025 04:14:17 GMT",
+        "x-guploader-uploadid": "AJ5rDhFQLANm8eVDMuTJlmkKC4kKro-V_5H_v9kxU3xkVwnLe8oXwb2xzNYG9qgfWt0kLFV5",
+        "cache-control": "private, max-age=0",
+        "x-goog-storage-class": "STANDARD",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "x-goog-generation": "1749701657603809",
+        "content-length": "660",
+        "server": "UploadServer"
+    },
+    "timing": {
+        "startTime": 1781255096908.123,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.43,
+        "responseStart": 1993.076,
+        "responseEnd": -1
+    }
+}

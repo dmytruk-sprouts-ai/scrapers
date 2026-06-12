@@ -1,0 +1,39 @@
+{
+    "status": 200,
+    "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2",
+    "headers": {
+        "cf-cdnjs-via": "cfworker/r2",
+        "cf-cache-status": "HIT",
+        "age": "242541",
+        "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=c7avCcd9D9kyv7KgGbpmEsJ%2Fn72CBVv5ThoeVgiBE5JjoqIy%2Bj1PH4lyTZnVeiwjbSZ5mAcPCO80n3ehtEnY3uEny6ceXZpAc7oAhwBYDBROa8d6yCjnJpvQStB4xxDXiYbHiCt00AazHWCArkc8EWmN\"}]}",
+        "x-content-type-options": "nosniff",
+        "expires": "Fri, 12 Jun 2026 13:04:56 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "x-cdnjs-cache": "HIT",
+        "date": "Fri, 12 Jun 2026 09:04:56 GMT",
+        "content-type": "application/octet-stream; charset=utf-8",
+        "last-modified": "Tue, 28 Nov 2023 18:34:15 GMT",
+        "vary": "Accept-Encoding",
+        "priority": "u=0,i=?0",
+        "strict-transport-security": "max-age=15780000",
+        "cache-control": "public, max-age=14400",
+        "timing-allow-origin": "*",
+        "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+        "cross-origin-resource-policy": "cross-origin",
+        "cf-ray": "a0a7b0e40eca3a0d-VIE",
+        "access-control-allow-origin": "*",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781255096962.976,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.323,
+        "responseStart": 25.736,
+        "responseEnd": -1
+    }
+}

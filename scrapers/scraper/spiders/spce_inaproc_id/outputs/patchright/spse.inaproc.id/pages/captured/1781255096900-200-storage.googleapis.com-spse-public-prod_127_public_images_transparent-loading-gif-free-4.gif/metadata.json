@@ -1,0 +1,38 @@
+{
+    "status": 200,
+    "url": "https://storage.googleapis.com/spse-public-prod/127/public/images/transparent-loading-gif-free-4.gif?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T023530Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=8cd71a6e2bfe86440a7f935fb2edc7bca5502d75e4cfc110db8deb0c6e52c3d5cd917d4c73594375c2c6223152b35fb122d5e976545feb570f97ae1d05e215d2725ea172d2fceb60ff349e8b64f7301ecd93407213179830beed18d26f3b7b9af46c6a06e7f8a6dea2475cb9d91aaba2333953e68be9019d79d72944e774cac1a9deef77e8b83cb7dd8ca8fc65d39ee41595a75e21a3c416663c900e8986e52e84d1478f561fca039d66b41665898f3e369d1f65dcb10479fb65e34d8dbb4e1c879bc70c2cefe09ff499f0a6af585da299080d4198f3be2944ba781339d66f036f7e111e1e59ef9615687ea11b8d42d2d1315e4fa714affa7004867cf41c7144",
+    "headers": {
+        "x-goog-metageneration": "1",
+        "x-goog-meta-goog-reserved-file-mtime": "1715904580",
+        "access-control-expose-headers": "*",
+        "x-goog-hash": "crc32c=XY5b6Q==, md5=pb4xg6b8nzP9Jg3AsK1anw==",
+        "etag": "\"a5be3183a6fc9f33fd260dc0b0ad5a9f\"",
+        "x-goog-stored-content-encoding": "identity",
+        "expires": "Fri, 12 Jun 2026 09:04:58 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "x-goog-stored-content-length": "124849",
+        "x-goog-meta-mtime": "2024-05-17T07:09:40.149861828+07:00",
+        "date": "Fri, 12 Jun 2026 09:04:58 GMT",
+        "content-type": "image/gif",
+        "last-modified": "Tue, 23 Jul 2024 10:02:51 GMT",
+        "x-guploader-uploadid": "AJ5rDhF-0xptYYXGq9rfHWL-08vCSkE7yyJU9wzbUeiezEuzHcOhm6OI_FqknYRdawFP0Qyy",
+        "cache-control": "private, max-age=0",
+        "x-goog-storage-class": "STANDARD",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "x-goog-generation": "1721728971972626",
+        "content-length": "124849",
+        "server": "UploadServer"
+    },
+    "timing": {
+        "startTime": 1781255096900.311,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.562,
+        "responseStart": 2000.993,
+        "responseEnd": -1
+    }
+}

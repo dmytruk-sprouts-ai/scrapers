@@ -1,0 +1,20 @@
+{
+    "Cache-Control": "no-cache",
+    "Cf-Cache-Status": "DYNAMIC",
+    "Cf-Ray": "a0a7b0f98ab7c2fa-VIE",
+    "Content-Security-Policy": "default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' ajax.cloudflare.com code.jquery.com cdn.datatables.net cdnjs.cloudflare.com cdn.jsdelivr.net unpkg.com static.cloudflareinsights.com www.googletagmanager.com www.gstatic.com www.google.com code.highcharts.com maxcdn.bootstrapcdn.com challenges.cloudflare.com blob:; connect-src 'self' static.cloudflareinsights.com cdn.jsdelivr.net storage.googleapis.com www.googletagmanager.com www.google.com; img-src 'self' data: blob: storage.googleapis.com www.googletagmanager.com asset.inaproc.id public-assets.eproc.dev; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net unpkg.com cdnjs.cloudflare.com fonts.googleapis.com cdn.datatables.net; base-uri 'self'; form-action *; font-src 'self' data: cdnjs.cloudflare.com fonts.gstatic.com cdn.jsdelivr.net unpkg.com; object-src 'none'; frame-src 'self' challenges.cloudflare.com;",
+    "Content-Type": "application/json; charset=utf-8",
+    "Date": "Fri, 12 Jun 2026 09:05:01 GMT",
+    "Permissions-Policy": "geolocation=(), microphone=(), camera=(), fullscreen=(), autoplay=(), accelerometer=(), gyroscope=(), magnetometer=(), payment=(), usb=()",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Server": "cloudflare",
+    "Set-Cookie": "SPSE_ERRORS=; Max-Age=0; Expires=Fri, 12 Jun 2026 09:05:00 GMT; Path=/; Secure; SameSite=Lax\nSPSE_SESSION=a366a05031c45544567971a8fad75be890bff0f1-___AT=04959d8f73249a78aa68ea44da462806f7e6cadf&___TS=1781256900905&___ID=c16def12-9778-493e-b3b7-c5fd3efa2019; Max-Age=1800; Expires=Fri, 12 Jun 2026 09:35:00 GMT; Path=/; Secure; HTTPOnly; SameSite=Lax\nSPSE_FLASH=; Max-Age=0; Expires=Fri, 12 Jun 2026 09:05:00 GMT; Path=/; Secure; HTTPOnly; SameSite=Lax",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+    "Via": "1.1 google",
+    "X-Content-Type-Options": "nosniff",
+    "X-Envoy-Upstream-Service-Time": "77",
+    "X-Frame-Options": "SAMEORIGIN",
+    "X-Request-Id": "c0eb75b3-cdc3-42db-9231-f67b546f773c",
+    "X-Xss-Protection": "1; mode=block",
+    "Location": ""
+}

@@ -1,0 +1,62 @@
+# Runs full `scrapy crawl` jobs through ProtonVPN (WireGuard) with a kill switch.
+# The `scraper` service shares gluetun's network namespace, so EVERY request it
+# makes -- curl_cffi, requests, and Playwright/Chromium alike -- egresses through
+# the VPN tunnel. If the tunnel drops, gluetun's firewall blocks everything and
+# the crawl can never leak to your real IP.
+#
+# Quick start (or use the `just` wrappers: vpn-up / crawl-vpn / vpn-down):
+#   1. cp .env.example .env   and fill WIREGUARD_PRIVATE_KEY (see README)
+#   2. docker compose up -d gluetun
+#   3. docker compose logs -f gluetun        # wait for "healthy" / public IP
+#   4. docker compose run --rm scraper \
+#          python -c "import urllib.request; print(urllib.request.urlopen('https://ipinfo.io/json',timeout=15).read().decode())"
+#   5. docker compose run --rm scraper scrapy crawl books_toscrape_com -s CLOSESPIDER_PAGECOUNT=2
+services:
+  gluetun:
+    image: qmcgaw/gluetun:latest
+    container_name: scraper_gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - VPN_SERVICE_PROVIDER=protonvpn
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=${WIREGUARD_PRIVATE_KEY:?set WIREGUARD_PRIVATE_KEY in .env}
+      # Pick the exit country. Indonesia matches the geo-gated LKPP targets
+      # (sirup/spce_inaproc_id). Any country still hides your IP, but won't
+      # satisfy a geo-restriction. Examples: Indonesia | Singapore | Netherlands
+      - SERVER_COUNTRIES=${SERVER_COUNTRIES:-Indonesia}
+      # Uncomment if gluetun complains it needs an address (Proton default):
+      # - WIREGUARD_ADDRESSES=10.2.0.2/32
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "https://ipinfo.io/ip"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+    restart: unless-stopped
+
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Share gluetun's netns => all scraper traffic goes through the VPN, kill-switched.
+    # network_mode: "service:gluetun"
+    depends_on:
+      gluetun:
+        condition: service_healthy
+    # Live-mount the project (rw) so feed exports (-O out.jsonl), samples/,
+    # outputs/, and .scrapy/httpcache land back on the host.
+    volumes:
+      - ../scrapers:/workspace/scrapers
+    working_dir: /workspace/scrapers
+    init: true # dedded to run xvfb
+    # Harmless default; real runs override the command, e.g.
+    #   docker compose run --rm scraper scrapy crawl <spider> [args]
+    # command: ["scrapy", "crawl"]
+    ports:
+      # http://localhost:6080/vnc_lite.html?autoconnect=true&resize=scale
+      - "6080:6080"   # VNC access
+    environment:
+      DISPLAY: ":99"
+    entrypoint: ["/entrypoint.sh"]

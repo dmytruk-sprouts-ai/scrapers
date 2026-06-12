@@ -23,6 +23,25 @@ sample SPIDER LIMIT='20': _require-venv
 crawl SPIDER *ARGS: _require-venv
     cd scrapers && ../.venv/bin/scrapy crawl {{SPIDER}} {{ARGS}}
 
+_compose := "docker compose -f docker/docker-compose.yml"
+
+# Bring up the ProtonVPN tunnel (gluetun) in the background. Needs docker/.env
+# (cp docker/.env.example docker/.env, fill WIREGUARD_PRIVATE_KEY -- see docker/README.md).
+vpn-up:
+    {{_compose}} up -d gluetun
+
+# Tear down the VPN tunnel and any scraper containers.
+vpn-down:
+    {{_compose}} down
+
+# Like `crawl`, but routed through the VPN (kill-switched). Brings gluetun up
+# first (idempotent), then runs the crawl in a netns-shared container. e.g.
+#   just crawl-vpn sirup_inaproc_id -O out.jsonl -s CLOSESPIDER_PAGECOUNT=5
+# xvfb-run gives the headed (patchright stealth) browser a virtual display.
+crawl-vpn SPIDER *ARGS: vpn-up
+    {{_compose}} run --build --service-ports scraper scrapy crawl {{SPIDER}}
+
+
 # Capture a HAR for SPIDER, writing into scraper/spiders/<SPIDER>/outputs/<engine>/.
 # ENGINE=patchright (default) or playwright; each writes its own tree, so run both to compare:
 #   just capture-har sirup_inaproc_id            # patchright
@@ -30,7 +49,15 @@ crawl SPIDER *ARGS: _require-venv
 capture-har SPIDER ENGINE='patchright': _require-venv
     cd scrapers && SCRAPER_PW_ENGINE={{ENGINE}} ../.venv/bin/python -m scraper.spiders.{{SPIDER}}.capture_har
 
-# Run the detection harness. Runs every engine (playwright + patchright) — each in its own isolated
-# subprocess — then writes the combined comparison. Outputs land under outputs/<variant>/.
-crawl-check-protection: _require-venv
-    cd scrapers && ../.venv/bin/python -m scraper.spiders._detection_check.detection_check
+
+crawl-ip:
+    just crawl-vpn ipinfo_io
+
+crawl-httpbin:
+    just crawl-vpn httpbin
+
+crawl-cloudflare-challange:
+    just crawl-vpn cloudflare-challange
+
+test-vnc: vpn-up
+    {{_compose}} run --build --service-ports scraper sleep infinity

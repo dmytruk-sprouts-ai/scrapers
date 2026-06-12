@@ -1,0 +1,25 @@
+{
+    "status": 200,
+    "url": "https://spse.inaproc.id/cdn-cgi/challenge-platform/h/g/flow/ov1/2900657561:1781251519:eZJk-GzEvdkJp8Gak6GSwNCsWVIhoADdWDmiNpoAk3A/a0a7b0c55e25c2fa/x7PnX.bDtA4s1s_kBr3rJ.nZKGhTanB2GfyClsQQ2yc-1781255092-1.2.1.1-YOuq7otN6doIm_AfGW42JFVi0VhZdlol7sSp5PF9_lsDdw6KwQnKUaxfAGN0inE9",
+    "headers": {
+        "cf-chl-out": "NnUkSXdPynL2V74ZmBI1i//jEoPmoBYaTYJpvdAXxzTYG31DqfWsO7LIRq/sVk92FOtRp4/nx80R5SntV+YbZpqnJ7dvu+4DwOCW09DjGgcab5Y9me9yk+2nrQcg/CEoLzi3oHoM+0nfscnygP1QRQ==$HWiVHTnWuwgJR6au5uekgw==",
+        "timing-allow-origin": "https://spse.inaproc.id",
+        "content-encoding": "br",
+        "cf-ray": "a0a7b0de7b35c2fa-VIE",
+        "cf-chl-out-s": "YmdQJScFemyCU1AF9XX5nG/+Cm/ml4stF9EB+OSUSDf+op1wuX28WsMcniTgSMBOyBYv4Fy5Q0xPvXFagV240IJlPWaB8NLBsBG+UB5Ewmz2HD8T/QJjC2WyuWPa8Y7JPa8XyxuG85i3ffmSkzE/s9EfLbqa//tRRW4H0dYXBiOUimKQCHKkFK19jAAnWeFVCJFHWJZMVlF7gfq4kJMZuhdvq/+O0DC4nLKcpirP8b/p2o7OlycN4whRCXoebZbIzeI8WCewHjLi+l1AjSYeJ2N35z/rQyERWVYi4dA5gMprfQiv3BueeMyMoNpLY1T679RIuEkO5zmstRU/1hO2ZPd3mmW8tKotd9+Z0UB8U2dpti/C4SfwnHzFSs2jBThZBd29HfIbVAFX/ECm/s5a0eTp9HBfzPAm9sSV47DKcGcts2YwhGeFfxz8r/8b79Cr3vQt+F3nXIjJvqO25cnnfSCEd8vOI0C66iuV4bxiaNDsBkQnRuJgZ4SM63gYPxAyQZsvYjhp0roo4iDiyRawSnecaHS5BA4pPRDaqizmwzzRhSpkzEhJN9mzohwneyxQaDgvKB1fP0WdKqvEjBArQhpILbcntvPNqSbt+lXWh7Qeddu4CtroWmzlY5y+x4qMwL6ZIw54shUNAeDo17JBRUyXLxEUnCQJCzINvyEVP4gmz9Jqps3lau7az5Vob1AevX9AP3gEQDhBFoJkTIQRqyqhKetbZPJe09j5K3+KfGOalB44PrradOrlfwANmp/PrT4ptRg1HBBLjYsbPC40RqsND0RAAxnMwIJGSSx4N0jF2exEVk+8GoK6HMP40IWriqxyNRtNd1R82Elw5rakrksYANRYhsaW0FYRink54lDl7/eNz9v+E+Sg99PbqjGvISS2gvb9hHbYAFYOP9+5Ocry4UR2E/FjZ26LxL0NFfOH8UA7MBvlV/C9EG09CFbyHLb2yky2KWaQBjNU/si7/hlbZ05yengFQc8nsvkcXb2plwFenXGFvyp0iFmdRoEX5d305NZFpPhiuIUjFoNZZqz9iwJr9LMJaVURu8n0SDyeKY1gcJo30/+hBBbw8P54dK6zPxjcaSi6btNGhbxs1E1dPjqGSJfZqFdsyr0a/x2gIiM3c5yCVNqg4Hmc5CVg1zIJ3lV3d7VuLJPdhEj5pHQGd8fYI4FMG8fGpyOlvtW+dbXcuREVvuYE1Bh0z1rQIzP1gIoDHGH6Et2VXSPQdzxQvyaiLppPRxTBFU7m5dJuNETvI7PZvAOH2LZ7lU9h$9lkKw5hMgYJ6GiFBIAmsgQ==",
+        "date": "Fri, 12 Jun 2026 09:04:56 GMT",
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781255096072.1262,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.43,
+        "responseStart": 103.644,
+        "responseEnd": -1
+    }
+}

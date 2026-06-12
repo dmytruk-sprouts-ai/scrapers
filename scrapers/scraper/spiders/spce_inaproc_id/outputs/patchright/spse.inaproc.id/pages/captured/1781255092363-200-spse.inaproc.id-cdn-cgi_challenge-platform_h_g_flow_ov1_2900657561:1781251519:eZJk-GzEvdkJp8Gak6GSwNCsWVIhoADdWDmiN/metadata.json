@@ -1,0 +1,24 @@
+{
+    "status": 200,
+    "url": "https://spse.inaproc.id/cdn-cgi/challenge-platform/h/g/flow/ov1/2900657561:1781251519:eZJk-GzEvdkJp8Gak6GSwNCsWVIhoADdWDmiNpoAk3A/a0a7b0c55e25c2fa/x7PnX.bDtA4s1s_kBr3rJ.nZKGhTanB2GfyClsQQ2yc-1781255092-1.2.1.1-YOuq7otN6doIm_AfGW42JFVi0VhZdlol7sSp5PF9_lsDdw6KwQnKUaxfAGN0inE9",
+    "headers": {
+        "cf-ray": "a0a7b0c74fddc2fa-VIE",
+        "timing-allow-origin": "https://spse.inaproc.id",
+        "content-encoding": "br",
+        "date": "Fri, 12 Jun 2026 09:04:52 GMT",
+        "content-type": "text/plain; charset=UTF-8",
+        "cf-chl-gen": "0K3j+GES7QaO4Kg8asY4QBHwnCO1AHXZAArNYTTL/2Q=$SD8HTjLKywsVnjt9IWDl4w==",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781255092363.41,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.378,
+        "responseStart": 21.012,
+        "responseEnd": -1
+    }
+}

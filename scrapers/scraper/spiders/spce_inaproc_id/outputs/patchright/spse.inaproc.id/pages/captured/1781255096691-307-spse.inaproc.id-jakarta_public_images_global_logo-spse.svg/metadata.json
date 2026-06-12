@@ -1,0 +1,39 @@
+{
+    "status": 307,
+    "url": "https://spse.inaproc.id/jakarta/public/images/global/logo-spse.svg",
+    "headers": {
+        "x-request-id": "dacd44ac-972c-45c4-90e7-45ba0aa3472e",
+        "cf-cache-status": "HIT",
+        "age": "9833",
+        "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "date": "Fri, 12 Jun 2026 09:04:56 GMT",
+        "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+        "access-control-allow-headers": "Accept, Authorization, Content-Type",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' ajax.cloudflare.com code.jquery.com cdn.datatables.net cdnjs.cloudflare.com cdn.jsdelivr.net unpkg.com static.cloudflareinsights.com www.googletagmanager.com www.gstatic.com www.google.com code.highcharts.com maxcdn.bootstrapcdn.com challenges.cloudflare.com blob:; connect-src 'self' static.cloudflareinsights.com cdn.jsdelivr.net storage.googleapis.com www.googletagmanager.com www.google.com; img-src 'self' data: blob: storage.googleapis.com www.googletagmanager.com asset.inaproc.id public-assets.eproc.dev; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net unpkg.com cdnjs.cloudflare.com fonts.googleapis.com cdn.datatables.net; base-uri 'self'; form-action *; font-src 'self' data: cdnjs.cloudflare.com fonts.gstatic.com cdn.jsdelivr.net unpkg.com; object-src 'none'; frame-src 'self' challenges.cloudflare.com;",
+        "cache-control": "public, max-age=259200, must-revalidate",
+        "location": "https://storage.googleapis.com/spse-public-prod/public/images/global/logo-spse.svg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062103Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=33b1b97c8e9f5f8a4d2eb2717c85f2b21878e4a466307323d4b7e0595f6771b6ad5c20893c3d4c862abe09b30789dcfd22b5841defe7a6d27d016742dcd40529b4b5a2d377df7b5c9434ef27e259faf6d5e56c02c983cc515bdf93d279ea42de7af35dd3a8ea16f1930f8b2d46777881fc7f073908aaca2b99c58dabb70826649b5edb10934137a4258cff414714088c47283f727c3df1241c856e6bdf669dc227c7d8c59a9bdd731baa3b413b26fa8328caafe5dd263604862168ca2ac885c8265ba3d1365c506b23b61e12b3c249fcbe01ee970b89b27e1d7bb4f774d3be8160c93f7968df42b9cae4f6c0b4f6cf1b23624f1c00e0d4427a4cf80bb5c2c6d9",
+        "x-envoy-upstream-service-time": "74",
+        "access-control-allow-credentials": "true",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "via": "1.1 google",
+        "cf-ray": "a0a7b0e25fb7c2fa-VIE",
+        "permissions-policy": "geolocation=(), microphone=(), camera=(), fullscreen=(), autoplay=(), accelerometer=(), gyroscope=(), magnetometer=(), payment=(), usb=()",
+        "access-control-allow-origin": "*",
+        "content-length": "0",
+        "x-xss-protection": "1; mode=block",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781255096691.553,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.356,
+        "responseStart": 26.004,
+        "responseEnd": -1
+    }
+}

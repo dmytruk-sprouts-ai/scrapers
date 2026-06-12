@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+.strength_meter {
+	margin-top: 5px;
+	height: 23px;
+	background: #eeeeee;
+
+}
+
+.strength_meter div {
+	height: 23px;
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	line-height: 23px;
+}
+
+.veryweak {
+	width: 100%;
+	background: #eeeeee;
+}
+
+.weak {
+	width: 50%;
+	background: #ff5f5f;
+}
+
+.medium {
+	width: 75%;
+	background: #56e500;
+}
+
+.strong {
+	width: 100%;
+	background: #399800;
+}

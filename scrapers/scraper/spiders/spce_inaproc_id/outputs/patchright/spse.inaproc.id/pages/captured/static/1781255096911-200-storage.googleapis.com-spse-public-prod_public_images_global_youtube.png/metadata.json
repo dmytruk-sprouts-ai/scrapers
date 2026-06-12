@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/youtube.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062148Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=502ca7bc6f2540310d98d9f74b555cab3133ffbd0dac69291a9932002397bb82b50a233c7c30e9eb3d7c612291270f8408a8cd01d8d9c69371f81b80b0ed4e13f175446474ca4d81cd8e77bf6ad8bc7b0e3e08c74a64b351285bf59901b80c3a18319b61c36d9520b2d66819d6ea060e6e9ccf92a92137ce2fa32f1089eabc92191b482d8dadde27bd0688a78c806952cb552db9a2550f5e9a63e982567d7e54b76cdf880be83bf203f2ebacfb3538ad281c5eb93094db658b2d563c668b9105143d0b2ee28021329d9ea7b399bb3fa056380bf98c8f086ae8d11099cc13531700557fe7e3687a6191ca37c41fc7fc778fcfcb5b12598fc1d821e72c00c612ce",
+    "headers": {
+        "x-goog-metageneration": "1",
+        "access-control-expose-headers": "*",
+        "x-goog-hash": "crc32c=htLyKA==, md5=TFgsfBFK1vxaiwrOUVMUpQ==",
+        "etag": "\"4c582c7c114ad6fc5a8b0ace515314a5\"",
+        "x-goog-stored-content-encoding": "identity",
+        "expires": "Fri, 12 Jun 2026 09:04:58 GMT",
+        "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+        "x-goog-stored-content-length": "525",
+        "date": "Fri, 12 Jun 2026 09:04:58 GMT",
+        "content-type": "image/png",
+        "last-modified": "Thu, 12 Jun 2025 04:14:17 GMT",
+        "x-guploader-uploadid": "AJ5rDhFaBiqXJmK9RNLVoux_Ul6cgvPjspS2EnqjkUEJeQfp_T3QsoMndcka5KPOvpOkNgSZ",
+        "cache-control": "private, max-age=0",
+        "x-goog-storage-class": "STANDARD",
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "x-goog-generation": "1749701657602947",
+        "content-length": "525",
+        "server": "UploadServer"
+    },
+    "timing": {
+        "startTime": 1781255096911.412,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.703,
+        "responseStart": 1990.047,
+        "responseEnd": -1
+    }
+}

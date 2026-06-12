@@ -1,0 +1,970 @@
+{
+  "target_url": "https://spse.inaproc.id/jakarta/lelang",
+  "page_title": "LPSE Provinsi DKI Jakarta - Cari Paket",
+  "verdict": "protected-but-delivered",
+  "verdict_detail": "Cloudflare, Cloudflare Turnstile present but the document was delivered — protection is passive.",
+  "captured_entries": 67,
+  "total_bytes": 1436220,
+  "page_load_time_ms": 8054,
+  "time_to_first_byte_ms": 127.3,
+  "protections": [
+    {
+      "vendor": "Cloudflare",
+      "category": "CDN / WAF / Bot Management",
+      "evidence": [
+        {
+          "via": "header",
+          "signal": "cf-ray",
+          "example": "cf-ray: a0a7b0c55e25c2fa-VIE",
+          "count": 57
+        },
+        {
+          "via": "header",
+          "signal": "cf-mitigated",
+          "example": "cf-mitigated: challenge",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "server",
+          "example": "server: cloudflare",
+          "count": 57
+        },
+        {
+          "via": "url",
+          "signal": "/cdn-cgi/challenge-platform/",
+          "example": "https://spse.inaproc.id/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a0a7b0c55e25c2fa",
+          "count": 9
+        },
+        {
+          "via": "cookie",
+          "signal": "__cf_bm",
+          "example": "__cf_bm",
+          "count": 3
+        },
+        {
+          "via": "url",
+          "signal": "challenges\\.cloudflare\\.com",
+          "example": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "cf-chl-out",
+          "example": "cf-chl-out: PZvOuEuYXofldONoJSihKc9rOVjJFyT6ImcRgeuR3qkpYqWMhJ6kSRZgK8rQxT5fyq+Zl+gArf65GDbT",
+          "count": 2
+        },
+        {
+          "via": "cookie",
+          "signal": "cf_clearance",
+          "example": "cf_clearance",
+          "count": 1
+        },
+        {
+          "via": "header",
+          "signal": "cf-cache-status",
+          "example": "cf-cache-status: DYNAMIC",
+          "count": 42
+        },
+        {
+          "via": "url",
+          "signal": "/cdn-cgi/",
+          "example": "https://spse.inaproc.id/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "vendor": "Cloudflare Turnstile",
+      "category": "CAPTCHA / challenge widget",
+      "evidence": [
+        {
+          "via": "url",
+          "signal": "challenges\\.cloudflare\\.com/turnstile",
+          "example": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "session_cookies": [
+    {
+      "name": "__cf_bm",
+      "set_by": "spse.inaproc.id",
+      "attributes": "HttpOnly; SameSite=None; Secure; Path=/; Domain=inaproc.id; Expires=Fri, 12 Jun 2026 09:34:52 GMT"
+    },
+    {
+      "name": "cf_clearance",
+      "set_by": "spse.inaproc.id",
+      "attributes": "HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=inaproc.id; Expires=Sat, 12 Jun 2027 09:04:56 GMT"
+    },
+    {
+      "name": "SPSE_ERRORS",
+      "set_by": "spse.inaproc.id",
+      "attributes": "Max-Age=0; Expires=Fri, 12 Jun 2026 09:04:56 GMT; Path=/; Secure; SameSite=Lax"
+    },
+    {
+      "name": "SPSE_SESSION",
+      "set_by": "spse.inaproc.id",
+      "attributes": "Max-Age=1800; Expires=Fri, 12 Jun 2026 09:34:56 GMT; Path=/; Secure; HTTPOnly; SameSite=Lax"
+    },
+    {
+      "name": "SPSE_FLASH",
+      "set_by": "spse.inaproc.id",
+      "attributes": "Max-Age=0; Expires=Fri, 12 Jun 2026 09:04:56 GMT; Path=/; Secure; HTTPOnly; SameSite=Lax"
+    },
+    {
+      "name": "_cfuvid",
+      "set_by": "spse.inaproc.id",
+      "attributes": "HttpOnly; SameSite=None; Secure; Path=/; Domain=inaproc.id"
+    }
+  ],
+  "document": {
+    "final_status": 200,
+    "final_mime": "text/html; charset=utf-8",
+    "http_version": "HTTP/2.0",
+    "size_bytes": 8215,
+    "chain": [
+      {
+        "status": 307,
+        "url": "https://spse.inaproc.id/jakarta/lelang"
+      },
+      {
+        "status": 403,
+        "url": "https://spse.inaproc.id/jakarta/lelang"
+      },
+      {
+        "status": 200,
+        "url": "https://spse.inaproc.id/jakarta/lelang"
+      }
+    ],
+    "request_headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "Referer": "https://spse.inaproc.id/jakarta/lelang?__cf_chl_tk=o0ckyxXCdA2hxUS.Q2qovvAfSfNFlYIg7IkcIS2WPOg-1781255092-1.0.1.1-S72qZtmvhVAKipBxz3w8rkf2DAzWmp5.K0u3gnmI03E",
+      "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+      "sec-ch-ua-platform": "\"Linux\"",
+      "sec-ch-ua-mobile": "?0",
+      "Upgrade-Insecure-Requests": "1"
+    },
+    "accept_ch": null,
+    "critical_ch": null
+  },
+  "data_endpoints": [],
+  "hosts": [
+    {
+      "host": "spse.inaproc.id",
+      "requests": 34,
+      "bytes": 174911,
+      "is_protection": true
+    },
+    {
+      "host": "unpkg.com",
+      "requests": 13,
+      "bytes": 161506,
+      "is_protection": false
+    },
+    {
+      "host": "storage.googleapis.com",
+      "requests": 8,
+      "bytes": 153502,
+      "is_protection": false
+    },
+    {
+      "host": "challenges.cloudflare.com",
+      "requests": 7,
+      "bytes": 477848,
+      "is_protection": true
+    },
+    {
+      "host": "cdnjs.cloudflare.com",
+      "requests": 3,
+      "bytes": 294141,
+      "is_protection": false
+    },
+    {
+      "host": "static.cloudflareinsights.com",
+      "requests": 1,
+      "bytes": 11672,
+      "is_protection": false
+    },
+    {
+      "host": "www.googletagmanager.com",
+      "requests": 1,
+      "bytes": 164135,
+      "is_protection": false
+    }
+  ],
+  "stats": {
+    "by_status": {
+      "200": 55,
+      "204": 1,
+      "307": 9,
+      "401": 1,
+      "403": 1
+    },
+    "by_type": {
+      "script": 26,
+      "other": 11,
+      "image": 10,
+      "stylesheet": 10,
+      "document": 5,
+      "xhr": 4,
+      "json": 1
+    }
+  },
+  "timeline": [
+    {
+      "n": 0,
+      "offset_ms": 0.0,
+      "time_ms": 94.4,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 84,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/lelang"
+    },
+    {
+      "n": 1,
+      "offset_ms": 93.0,
+      "time_ms": 16.2,
+      "method": "GET",
+      "status": 403,
+      "type": "document",
+      "size_bytes": 24870,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/lelang"
+    },
+    {
+      "n": 2,
+      "offset_ms": 170.0,
+      "time_ms": 65.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 65764,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a0a7b0c55e25c2fa"
+    },
+    {
+      "n": 3,
+      "offset_ms": 246.0,
+      "time_ms": 100.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 21847,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/turnstile/v0/g/8fc8ed1d8752/api.js?onload=NoWu9&render=explicit"
+    },
+    {
+      "n": 4,
+      "offset_ms": 391.0,
+      "time_ms": 34.0,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 16702,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/cdn-cgi/challenge-platform/h/g/flow/ov1/2900657561:1781251519:eZJk-GzEvdkJp8Gak6GSwNCsWVIhoADdWDmiNpoAk3A/a0a7b0c55e25c2fa/x7PnX.bDtA4s1s_kBr3rJ.nZKGhTanB2GfyClsQQ2yc-1781255092-1.2.1.1-YOuq7otN6doIm_AfGW42JFVi0VhZdlol7sSp5PF9_lsDdw6KwQnKUaxfAGN0inE9"
+    },
+    {
+      "n": 5,
+      "offset_ms": 454.0,
+      "time_ms": 75.1,
+      "method": "GET",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 86170,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/47ov1/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto"
+    },
+    {
+      "n": 6,
+      "offset_ms": 538.0,
+      "time_ms": 33.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 208,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/cmg/1"
+    },
+    {
+      "n": 7,
+      "offset_ms": 748.0,
+      "time_ms": 170.9,
+      "method": "POST",
+      "status": 200,
+      "type": "xhr",
+      "size_bytes": 353760,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/3932720616:1781251521:5wAl-4pEDmejPnKQ-cdcYZPjwfMfvgraCiGrCsvIQHc/a0a7b0c7bd34c214/MLBUi4cAT8c_RhCrneHFidtMohY2NyMds1FagrRLeE8-1781255092-1.2.1.1-ySYX4xGSHWbDmzKvym.669JMqKCKCwKIy7jhz417xUzaJ_s4QE0brkDJH_uFAXG7"
+    },
+    {
+      "n": 8,
+      "offset_ms": 1257.0,
+      "time_ms": 66.5,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 6166,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/d/a0a7b0c7bd34c214/1781255092731/BrBh-bc8zeSIIga"
+    },
+    {
+      "n": 9,
+      "offset_ms": 1699.0,
+      "time_ms": 25.0,
+      "method": "GET",
+      "status": 401,
+      "type": "xhr",
+      "size_bytes": 1702,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/a0a7b0c7bd34c214/1781255092731/41d1b3e905346d862154213a063363fa2954a4e7668cc04cbdc42add0895c92b/o4IVM6T7B27oo30"
+    },
+    {
+      "n": 10,
+      "offset_ms": 4015.0,
+      "time_ms": 59.1,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 7995,
+      "host": "challenges.cloudflare.com",
+      "url": "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/flow/ov1/3932720616:1781251521:5wAl-4pEDmejPnKQ-cdcYZPjwfMfvgraCiGrCsvIQHc/a0a7b0c7bd34c214/MLBUi4cAT8c_RhCrneHFidtMohY2NyMds1FagrRLeE8-1781255092-1.2.1.1-ySYX4xGSHWbDmzKvym.669JMqKCKCwKIy7jhz417xUzaJ_s4QE0brkDJH_uFAXG7"
+    },
+    {
+      "n": 11,
+      "offset_ms": 4101.0,
+      "time_ms": 115.3,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 5091,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/cdn-cgi/challenge-platform/h/g/flow/ov1/2900657561:1781251519:eZJk-GzEvdkJp8Gak6GSwNCsWVIhoADdWDmiNpoAk3A/a0a7b0c55e25c2fa/x7PnX.bDtA4s1s_kBr3rJ.nZKGhTanB2GfyClsQQ2yc-1781255092-1.2.1.1-YOuq7otN6doIm_AfGW42JFVi0VhZdlol7sSp5PF9_lsDdw6KwQnKUaxfAGN0inE9"
+    },
+    {
+      "n": 12,
+      "offset_ms": 4242.0,
+      "time_ms": 391.8,
+      "method": "POST",
+      "status": 200,
+      "type": "document",
+      "size_bytes": 8215,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/lelang"
+    },
+    {
+      "n": 13,
+      "offset_ms": 4634.0,
+      "time_ms": 146.5,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 24533,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    },
+    {
+      "n": 14,
+      "offset_ms": 4635.0,
+      "time_ms": 117.5,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 7344,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"
+    },
+    {
+      "n": 15,
+      "offset_ms": 4635.0,
+      "time_ms": 105.4,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 2376,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/datatables.net-bs4@1.13.5/css/dataTables.bootstrap4.min.css"
+    },
+    {
+      "n": 16,
+      "offset_ms": 4635.0,
+      "time_ms": 105.1,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 1315,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/datatables.net-buttons-bs4@1.6.5/css/buttons.bootstrap4.min.css"
+    },
+    {
+      "n": 17,
+      "offset_ms": 4635.0,
+      "time_ms": 108.2,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 1755,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/eonasdan-bootstrap-datetimepicker@4.17.47/build/css/bootstrap-datetimepicker.min.css"
+    },
+    {
+      "n": 18,
+      "offset_ms": 4636.0,
+      "time_ms": 116.4,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 2644,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css"
+    },
+    {
+      "n": 19,
+      "offset_ms": 4637.0,
+      "time_ms": 117.9,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 732,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/css/bootstrap-dialog.min.css"
+    },
+    {
+      "n": 20,
+      "offset_ms": 4637.0,
+      "time_ms": 129.9,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 7070,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/css/application.css"
+    },
+    {
+      "n": 21,
+      "offset_ms": 4637.0,
+      "time_ms": 128.2,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 317,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/css/strength.css"
+    },
+    {
+      "n": 22,
+      "offset_ms": 4638.0,
+      "time_ms": 160.2,
+      "method": "GET",
+      "status": 200,
+      "type": "stylesheet",
+      "size_bytes": 19527,
+      "host": "cdnjs.cloudflare.com",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    },
+    {
+      "n": 23,
+      "offset_ms": 4638.0,
+      "time_ms": 132.0,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/images/global/logo-spse.svg"
+    },
+    {
+      "n": 24,
+      "offset_ms": 4638.0,
+      "time_ms": 138.4,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/images/imgng/lpse-nama.png"
+    },
+    {
+      "n": 25,
+      "offset_ms": 4639.0,
+      "time_ms": 176.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 11672,
+      "host": "static.cloudflareinsights.com",
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
+    },
+    {
+      "n": 26,
+      "offset_ms": 4639.0,
+      "time_ms": 300.2,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/images/transparent-loading-gif-free-4.gif"
+    },
+    {
+      "n": 27,
+      "offset_ms": 4640.0,
+      "time_ms": 296.2,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/images/global/instagram.png"
+    },
+    {
+      "n": 28,
+      "offset_ms": 4640.0,
+      "time_ms": 298.6,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/images/global/facebook.png"
+    },
+    {
+      "n": 29,
+      "offset_ms": 4640.0,
+      "time_ms": 300.9,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/images/global/x.png"
+    },
+    {
+      "n": 30,
+      "offset_ms": 4640.0,
+      "time_ms": 300.1,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/images/global/youtube.png"
+    },
+    {
+      "n": 31,
+      "offset_ms": 4641.0,
+      "time_ms": 133.2,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 739,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    },
+    {
+      "n": 32,
+      "offset_ms": 4641.0,
+      "time_ms": 141.9,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 3994,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+    },
+    {
+      "n": 33,
+      "offset_ms": 4759.0,
+      "time_ms": 2091.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 12342,
+      "host": "storage.googleapis.com",
+      "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/logo-spse.svg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062103Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=33b1b97c8e9f5f8a4d2eb2717c85f2b21878e4a466307323d4b7e0595f6771b6ad5c20893c3d4c862abe09b30789dcfd22b5841defe7a6d27d016742dcd40529b4b5a2d377df7b5c9434ef27e259faf6d5e56c02c983cc515bdf93d279ea42de7af35dd3a8ea16f1930f8b2d46777881fc7f073908aaca2b99c58dabb70826649b5edb10934137a4258cff414714088c47283f727c3df1241c856e6bdf669dc227c7d8c59a9bdd731baa3b413b26fa8328caafe5dd263604862168ca2ac885c8265ba3d1365c506b23b61e12b3c249fcbe01ee970b89b27e1d7bb4f774d3be8160c93f7968df42b9cae4f6c0b4f6cf1b23624f1c00e0d4427a4cf80bb5c2c6d9"
+    },
+    {
+      "n": 34,
+      "offset_ms": 4766.0,
+      "time_ms": 2104.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 712,
+      "host": "storage.googleapis.com",
+      "url": "https://storage.googleapis.com/spse-public-prod/127/public/images/imgng/lpse-nama.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260611%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260611T032436Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=3d64a377fb92da369c6e1a4fa439f43afd9887ade70a3df71ae961e30a3ced241f4cef5c7081db23c2bd448652a2ea17026a8c9468b1497817b89d8a21cd0aa51c6bf889ad306d5a2bca0e2446d6e767c738b6047dda472659879f7c9201fc1ed36dbf698a9179bbcb699b0f1bd718c4acae78aa1033c1c660c0fc58902eb7efc1f392e2f85675de14977b422d7c2ca0ccacce2530c95d5b4770052c206ce7798d132e6c2c7b93b98ab3e3551326400e4052d42116e3b5ab0558a2c44dd3c0c3adaf337e7e0f0f1c2d9ea9a025b7ace50962e513208bc3e6efc7d19667e7fcc7b0c7399495189185502e7483731e7119acaec9a3afba8535e18a04f08afcc0d0"
+    },
+    {
+      "n": 35,
+      "offset_ms": 4935.0,
+      "time_ms": 258.0,
+      "method": "GET",
+      "status": 200,
+      "type": "other",
+      "size_bytes": 157281,
+      "host": "cdnjs.cloudflare.com",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2"
+    },
+    {
+      "n": 36,
+      "offset_ms": 4936.0,
+      "time_ms": 258.5,
+      "method": "GET",
+      "status": 200,
+      "type": "other",
+      "size_bytes": 117333,
+      "host": "cdnjs.cloudflare.com",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2"
+    },
+    {
+      "n": 37,
+      "offset_ms": 4939.0,
+      "time_ms": 3082.0,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 125205,
+      "host": "storage.googleapis.com",
+      "url": "https://storage.googleapis.com/spse-public-prod/127/public/images/transparent-loading-gif-free-4.gif?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T023530Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=8cd71a6e2bfe86440a7f935fb2edc7bca5502d75e4cfc110db8deb0c6e52c3d5cd917d4c73594375c2c6223152b35fb122d5e976545feb570f97ae1d05e215d2725ea172d2fceb60ff349e8b64f7301ecd93407213179830beed18d26f3b7b9af46c6a06e7f8a6dea2475cb9d91aaba2333953e68be9019d79d72944e774cac1a9deef77e8b83cb7dd8ca8fc65d39ee41595a75e21a3c416663c900e8986e52e84d1478f561fca039d66b41665898f3e369d1f65dcb10479fb65e34d8dbb4e1c879bc70c2cefe09ff499f0a6af585da299080d4198f3be2944ba781339d66f036f7e111e1e59ef9615687ea11b8d42d2d1315e4fa714affa7004867cf41c7144"
+    },
+    {
+      "n": 38,
+      "offset_ms": 4941.0,
+      "time_ms": 2008.4,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 944,
+      "host": "storage.googleapis.com",
+      "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/facebook.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260610%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260610T024344Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=03fc9bbbfc8c01031e654d95eeed30821a493678a8859324d9bbfa956358b11f8cf274ef4d3ffb9b931bc0c09d77e2f73b0b72165f26900f4c0604ed1ef852fd57a2522e63fe89de1ed66487d735afeab9876fc1623f79c1bb575e6e748ab141154bb0ba10f33d751ef34db96461d3e0d7c6253e82f3fe07a2e53b0c8116e2f0f9f7fdf24eedc4d6685bb4f057f9ce98261d097e8e7829a46eca22a5fe7a0568e2ef95fd10c924624222cf483986e082dfc99a69d23334f523ffac16af065c33416d5616d752da9660437984d7d9d3f60686a3b10505eaeca7bcdeadecc139f4a6994d81fc529db641e2cf0b1867efafc6a715afabd37db96d20ad3a9278e722"
+    },
+    {
+      "n": 39,
+      "offset_ms": 4943.0,
+      "time_ms": 2008.8,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 1741,
+      "host": "storage.googleapis.com",
+      "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/instagram.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062148Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=73b1883bcf97d59faa1f592791ad44cd84bac4c90aaf5ea4c863eeb05a28c1c437f8be0fba05ba1f3634ff978718ffa1e7f64a17f5588856ca182617079e826ae1fa1faa2f28719b14a14f3f4051e30ee0610655359257795f216d9f83f9232e46b72095a7986df8387fff52cafaee3b7b4af21c402082df55870f5645264315082bba2195dcace706ccfbeca4239fe727b07497a4f48d939a6e32acc356b101010ddced77dd9837e3296b2b31817433e531309231d6cce866f54b8821cdce5e65407b8ddb735bc1fa239777f519c5185a0ddc6047dc3d91a8a71c3ad79d0774cdf153cabb055f549689aef35242b1e4de8f355dd10a0ce928f875ea9a7736b0"
+    },
+    {
+      "n": 40,
+      "offset_ms": 4946.0,
+      "time_ms": 2008.2,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 879,
+      "host": "storage.googleapis.com",
+      "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/x.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062148Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=6ee2bf11441876125e0b1fe50e919ecbf85e552cd820b92657467d788cdf6dee75d4c16e10531a2eb2ddfe63788a70abaef1f88d2da3dec169046d7526a4d7131846d0fdb6e351aea61a123ad89b8056685c97421a6ac2dcb04c520d70c0d9fab89de2ac09e47f54c24bb2ba895c6fbe0cf45ad8cf827b30f9b03fe5fe902fbb76ec5b4a11522b0a1fc61723ffbb4d915a03dc40e2447bf09fa0aaaaeecbd47b2bad2004b42bd2af0703a4937c0dbe2caeef5f499c2e91a7d97f02d7872e7d549b615ec989cc66dd49fed8a1ccf3b8c3a14e3b450cbe0178f9148549d2e91211e68e75e92ac3bdb4b6d790b3a2e61bcc365544e460f90d7d960f6e338ed86b9d"
+    },
+    {
+      "n": 41,
+      "offset_ms": 4949.0,
+      "time_ms": 2013.3,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 743,
+      "host": "storage.googleapis.com",
+      "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/youtube.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062148Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=502ca7bc6f2540310d98d9f74b555cab3133ffbd0dac69291a9932002397bb82b50a233c7c30e9eb3d7c612291270f8408a8cd01d8d9c69371f81b80b0ed4e13f175446474ca4d81cd8e77bf6ad8bc7b0e3e08c74a64b351285bf59901b80c3a18319b61c36d9520b2d66819d6ea060e6e9ccf92a92137ce2fa32f1089eabc92191b482d8dadde27bd0688a78c806952cb552db9a2550f5e9a63e982567d7e54b76cdf880be83bf203f2ebacfb3538ad281c5eb93094db658b2d563c668b9105143d0b2ee28021329d9ea7b399bb3fa056380bf98c8f086ae8d11099cc13531700557fe7e3687a6191ca37c41fc7fc778fcfcb5b12598fc1d821e72c00c612ce"
+    },
+    {
+      "n": 42,
+      "offset_ms": 4955.0,
+      "time_ms": 124.6,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 4078,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/common-v2.js"
+    },
+    {
+      "n": 43,
+      "offset_ms": 4955.0,
+      "time_ms": 127.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 928,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/datatable-handler.js"
+    },
+    {
+      "n": 44,
+      "offset_ms": 4956.0,
+      "time_ms": 133.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 453,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/message-constants.js"
+    },
+    {
+      "n": 45,
+      "offset_ms": 4956.0,
+      "time_ms": 135.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 2449,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/jquery.webticker.min.js"
+    },
+    {
+      "n": 46,
+      "offset_ms": 4956.0,
+      "time_ms": 137.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 2061,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/jquery.maskedinput.min.js"
+    },
+    {
+      "n": 47,
+      "offset_ms": 4957.0,
+      "time_ms": 145.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1241,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/resumeable-upload.js"
+    },
+    {
+      "n": 48,
+      "offset_ms": 4957.0,
+      "time_ms": 152.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 4747,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/tus/tus.js"
+    },
+    {
+      "n": 49,
+      "offset_ms": 4958.0,
+      "time_ms": 155.0,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1650,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/strength.js"
+    },
+    {
+      "n": 50,
+      "offset_ms": 4959.0,
+      "time_ms": 159.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 803,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/jquery.cookie.min.js"
+    },
+    {
+      "n": 51,
+      "offset_ms": 4959.0,
+      "time_ms": 158.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1464,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/jquery.jclock.min.js"
+    },
+    {
+      "n": 52,
+      "offset_ms": 4959.0,
+      "time_ms": 166.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 6429,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/bootstrap-dialog.min.js"
+    },
+    {
+      "n": 53,
+      "offset_ms": 4960.0,
+      "time_ms": 169.1,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1306,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/datatables-v1.config.js"
+    },
+    {
+      "n": 54,
+      "offset_ms": 4960.0,
+      "time_ms": 189.7,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 10020,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/js/bootstrap-datetimepicker.min.js"
+    },
+    {
+      "n": 55,
+      "offset_ms": 4960.0,
+      "time_ms": 327.8,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 164135,
+      "host": "www.googletagmanager.com",
+      "url": "https://www.googletagmanager.com/gtag/js?id=G-KLDH3FQ7DR"
+    },
+    {
+      "n": 56,
+      "offset_ms": 8020.0,
+      "time_ms": 41.1,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 30796,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/jquery@3.7.1/dist/jquery.min.js"
+    },
+    {
+      "n": 57,
+      "offset_ms": 8081.0,
+      "time_ms": 40.7,
+      "method": "GET",
+      "status": 307,
+      "type": "other",
+      "size_bytes": 0,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/public/images/global/inaproc.png"
+    },
+    {
+      "n": 58,
+      "offset_ms": 8099.0,
+      "time_ms": 39.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 7931,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/popper.js@1.16.1/dist/umd/popper.min.js"
+    },
+    {
+      "n": 59,
+      "offset_ms": 8123.0,
+      "time_ms": 462.6,
+      "method": "GET",
+      "status": 200,
+      "type": "image",
+      "size_bytes": 10936,
+      "host": "storage.googleapis.com",
+      "url": "https://storage.googleapis.com/spse-public-prod/public/images/global/inaproc.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcs-spse-proxy-sa%40spse-prod.iam.gserviceaccount.com%2F20260612%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260612T062052Z&X-Goog-Expires=432000&X-Goog-SignedHeaders=host&X-Goog-Signature=3264ea5604e13367f513ca236b3df66d5f85a723801cb50257c845d1bff1381b8dc8ad7df046ea41edb6c9283a91edf1cfc7320350c5d52767ad963af9b91ecfd4775ed7a5af7cbbe949bad8e35bf588dfb0fd77325452368ae825a249d9cae82663c5322cf140c463ff7ff90a2f56657782aa4853814720fe581b8c4f3764db6dfb5066acbcc67ae3424bb8bbc5d56bc16c67f37e1857e80ad018e6a4cf669dc398f2a9d19aaf1d7b172c934969bc0d929a7d98b0c7deecead050300f8f9409b01ea23e2b270f527b0065ebce0606035db8f2723a226051ab4e125e6fb7027ad733a270ee260e9a47517ba893aefdfffb71cc9d38659842c29cd5ba3aee7f29"
+    },
+    {
+      "n": 60,
+      "offset_ms": 8142.0,
+      "time_ms": 34.3,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 15683,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    },
+    {
+      "n": 61,
+      "offset_ms": 8184.0,
+      "time_ms": 33.5,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 18957,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/moment@2.29.4/min/moment.min.js"
+    },
+    {
+      "n": 62,
+      "offset_ms": 8228.0,
+      "time_ms": 46.2,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 30254,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/datatables.net@1.13.5/js/jquery.dataTables.min.js"
+    },
+    {
+      "n": 63,
+      "offset_ms": 8299.0,
+      "time_ms": 41.0,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 1623,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/datatables.net-bs4@1.13.5/js/dataTables.bootstrap4.min.js"
+    },
+    {
+      "n": 64,
+      "offset_ms": 8346.0,
+      "time_ms": 36.4,
+      "method": "GET",
+      "status": 200,
+      "type": "script",
+      "size_bytes": 16295,
+      "host": "unpkg.com",
+      "url": "https://unpkg.com/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"
+    },
+    {
+      "n": 65,
+      "offset_ms": 8435.0,
+      "time_ms": 726.2,
+      "method": "POST",
+      "status": 200,
+      "type": "json",
+      "size_bytes": 2891,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/jakarta/dt/lelang?tahun=2027"
+    },
+    {
+      "n": 66,
+      "offset_ms": 8445.0,
+      "time_ms": 36.0,
+      "method": "POST",
+      "status": 204,
+      "type": "xhr",
+      "size_bytes": 813,
+      "host": "spse.inaproc.id",
+      "url": "https://spse.inaproc.id/cdn-cgi/rum?"
+    }
+  ],
+  "recommendations": [
+    "Cloudflare challenge in play — use a real browser (scrapy-playwright/stealth) to solve it, or reuse a valid `cf_clearance` cookie + the *exact* matching User-Agent.",
+    "Persist & replay these cookies across requests: __cf_bm, cf_clearance, SPSE_ERRORS, SPSE_SESSION, SPSE_FLASH, _cfuvid"
+  ],
+  "_meta": {
+    "source_har": "har_file.har",
+    "har_creator": {
+      "name": "Playwright",
+      "version": "1.60.0"
+    },
+    "browser": {
+      "name": "chromium",
+      "version": "148.0.7778.178"
+    }
+  }
+}

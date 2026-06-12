@@ -1,0 +1,35 @@
+{
+    "status": 200,
+    "url": "https://spse.inaproc.id/jakarta/lelang",
+    "headers": {
+        "cache-control": "no-cache",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a0a7b0df6c20c2fa-VIE",
+        "content-encoding": "br",
+        "content-security-policy": "default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' ajax.cloudflare.com code.jquery.com cdn.datatables.net cdnjs.cloudflare.com cdn.jsdelivr.net unpkg.com static.cloudflareinsights.com www.googletagmanager.com www.gstatic.com www.google.com code.highcharts.com maxcdn.bootstrapcdn.com challenges.cloudflare.com blob:; connect-src 'self' static.cloudflareinsights.com cdn.jsdelivr.net storage.googleapis.com www.googletagmanager.com www.google.com; img-src 'self' data: blob: storage.googleapis.com www.googletagmanager.com asset.inaproc.id public-assets.eproc.dev; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net unpkg.com cdnjs.cloudflare.com fonts.googleapis.com cdn.datatables.net; base-uri 'self'; form-action *; font-src 'self' data: cdnjs.cloudflare.com fonts.gstatic.com cdn.jsdelivr.net unpkg.com; object-src 'none'; frame-src 'self' challenges.cloudflare.com;",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Fri, 12 Jun 2026 09:04:56 GMT",
+        "permissions-policy": "geolocation=(), microphone=(), camera=(), fullscreen=(), autoplay=(), accelerometer=(), gyroscope=(), magnetometer=(), payment=(), usb=()",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "cloudflare",
+        "server-timing": "cfCacheStatus;desc=\"DYNAMIC\"\ncfEdge;dur=203,cfOrigin;dur=125",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "via": "1.1 google",
+        "x-content-type-options": "nosniff",
+        "x-envoy-upstream-service-time": "112",
+        "x-frame-options": "SAMEORIGIN\nSAMEORIGIN",
+        "x-request-id": "97937a16-9c35-48ca-ae34-729270769ea5",
+        "x-xss-protection": "1; mode=block"
+    },
+    "timing": {
+        "startTime": 1781255096216.219,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.428,
+        "responseStart": 352.402,
+        "responseEnd": -1
+    }
+}

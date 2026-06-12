@@ -1,0 +1,41 @@
+{
+    "status": 200,
+    "url": "https://unpkg.com/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css",
+    "headers": {
+        "access-control-expose-headers": "*",
+        "content-encoding": "gzip",
+        "cf-cache-status": "HIT",
+        "age": "1028",
+        "access-control-allow-methods": "GET, HEAD, OPTIONS",
+        "x-content-type-options": "nosniff",
+        "expires": "Sat, 12 Jun 2027 09:04:56 GMT",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "server-timing": "cfExtPri",
+        "date": "Fri, 12 Jun 2026 09:04:56 GMT",
+        "content-type": "text/css",
+        "last-modified": "Fri, 12 Jun 2026 08:47:48 GMT",
+        "vary": "accept-encoding",
+        "priority": "u=0,i=?0",
+        "access-control-allow-headers": "*",
+        "fly-request-id": "01KTCMXSTR4VR3VB0FTYAXAN1R-fra",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "cache-control": "public, max-age=31536000",
+        "cross-origin-resource-policy": "cross-origin",
+        "via": "1.1 fly.io, 1.1 fly.io",
+        "cf-ray": "a0a7b0e23b744baf-VIE",
+        "content-digest": "sha256=:wiMI7buOV5UBzdWN4s4kXqE/LZ794hx5oJOOIQlDBaM=:",
+        "access-control-allow-origin": "*",
+        "server": "cloudflare"
+    },
+    "timing": {
+        "startTime": 1781255096672.953,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 4.882,
+        "responseStart": 34.25,
+        "responseEnd": -1
+    }
+}
