@@ -14,6 +14,7 @@ import structlog
 from scrapy.extensions.httpcache import DummyPolicy
 from scrapy.utils.httpobj import urlparse_cached
 from .cache_router import cache_route
+from . import crypto
 import collections
 import json
 from scrapy.http.request import Request
@@ -218,6 +219,8 @@ class GprocurementGoTh(scrapy.Spider):
             },
             priority="spider",
         )
+    
+    yielded = 0
 
     async def start(self):
         # Bootstrap the session in a real browser, then resume curl_cffi pagination at page 1.
@@ -306,6 +309,9 @@ class GprocurementGoTh(scrapy.Spider):
         # Pass just name->value: Playwright's full cookie dicts carry a float `expires` that
         # curl_cffi rejects. These seed the shared "cf" jar on the resumed request.
         cookie_dict = {c["name"]: c["value"] for c in cookies}
+        # Detail requests re-sign X-Xsrf-Token per call from the (session-stable) Xsrf-Token
+        # cookie, so carry its value alongside the harvested tokens.
+        api_tokens["xsrf-cookie"] = cookie_dict.get("Xsrf-Token")
         yield self._listing_request(
             response.meta["resume_query"], tokens=api_tokens, cookies=cookie_dict
         )
@@ -400,10 +406,284 @@ class GprocurementGoTh(scrapy.Spider):
             )
             rows = []
 
+        tokens = response.meta["api_tokens"]
 
+        # TODO: this does not look good, we will skip many pages
+        # TODO: add errorbacks
+        # Fan out one detail chain per project. Detail requests run at default priority, so the
+        # whole listing (priority=PAGINATION_PRIORITY) is drained first. They need a live session
+        # (cookies + a per-session Xsrf-Token to re-sign): when pagination is served straight from
+        # cache we have no tokens yet, so skip details until a bootstrap has populated them.
+        if tokens.get("xsrf-cookie"):
+
+            for row in rows:
+                if row.get("projectId"):
+                    logger.warning(
+                        "issueing details request", project_id=row.get("projectId")
+                    )
+                    yield self._generate_token_request(row, tokens)
 
         # The listing response's own totalPages is 0, so terminate when a page comes back empty.
-        if rows:
-            yield self._listing_request(query.next_page(), tokens=response.meta["api_tokens"])
+        if rows and self.yielded < 15:
+            self.yielded +=1
+            yield self._listing_request(query.next_page(), tokens=tokens)
 
-        # TODO now we need to request details
+    # ------------------------------------------------------------------ details
+    # Per-project detail chain. The SPA fetches these after the user opens a row:
+    #   generateToken -> getProjectDetail -> getProcurementDetail -> greenBook -> infoDeptSub
+    # generateToken mints an X-Announcement-Token bound to the (double-encrypted) project id;
+    # every later call carries that token plus a freshly re-signed X-Xsrf-Token. We chain them
+    # sequentially, accumulating each raw body, and emit a single record at the end.
+
+    DETAIL_ENDPOINT = LIST_URL  # ".../a-egp-allt-project/announcement"
+    RDB_DEPT_URL = "https://process5.gprocurement.go.th/egp-rdb-service/infoDeptSub"
+    ORIGIN = "https://process5.gprocurement.go.th"
+
+    # Within a project's chain each step outranks the previous, so an in-progress project finishes
+    # (token -> projectDetail -> procurement -> greenBook -> deptSub) before the next project's
+    # generateToken is dequeued. All stay below PAGINATION_PRIORITY so the listing still drains
+    # first. With CONCURRENT_REQUESTS=1 only one chain is ever above the token tier at a time.
+    DETAIL_TOKEN_PRIORITY = 1
+    DETAIL_PROJECT_PRIORITY = 2
+    DETAIL_PROCUREMENT_PRIORITY = 3
+    DETAIL_GREENBOOK_PRIORITY = 4
+    DETAIL_DEPTSUB_PRIORITY = 5
+
+    def _detail_headers(
+        self, tokens: dict, announcement_token: str | None = None, post: bool = False
+    ) -> dict:
+        # Same fetch/CORS shape as the listing XHR, but X-Xsrf-Token is re-minted per request from
+        # the Xsrf-Token cookie (the SPA signs "{cookie}:{now_ms}" on every call) and the
+        # announcement token, when present, authorizes the detail endpoints.
+        headers = self._api_headers({})
+        headers["x-xsrf-token"] = crypto.xsrf_token(tokens["xsrf-cookie"])
+        if announcement_token:
+            headers["x-announcement-token"] = announcement_token
+        if post:
+            # generateToken is a CORS POST; the browser sends an explicit Origin.
+            headers["origin"] = self.ORIGIN
+        return headers
+
+    def _detail_request(
+        self,
+        url: str,
+        callback,
+        tokens: dict,
+        meta_extra: dict,
+        announcement_token: str | None = None,
+        method: str = "GET",
+        body: str | None = None,
+        priority: int = 0,
+    ) -> scrapy.Request:
+        # curl_cffi (impersonate) request on the shared "cf" jar, mirroring _listing_request.
+        # dont_cache: generateToken is single-use POST; the detail GETs ride the same flag so a
+        # stale cached body can never stand in for a live, token-bound fetch.
+        return scrapy.Request(
+            url,
+            method=method,
+            body=body,
+            callback=callback,
+            headers=self._detail_headers(
+                tokens, announcement_token=announcement_token, post=method == "POST"
+            ),
+            priority=priority,
+            dont_filter=True,
+            meta={
+                "impersonate": IMPERSONATE,
+                "impersonate_args": {"default_headers": False},
+                "referrer_policy": "no-referrer",
+                "cookiejar": "cf",
+                "dont_cache": True,
+                "api_tokens": tokens,
+                **meta_extra,
+            },
+        )
+
+    def _generate_token_request(self, row: dict, tokens: dict) -> scrapy.Request:
+        project_id = str(row["projectId"])
+        body = json.dumps({"key": crypto.generate_token_key(project_id)})
+        logger.info("detail 1/5 generateToken queued", project_id=project_id)
+        return self._detail_request(
+            f"{self.DETAIL_ENDPOINT}/generateToken",
+            self.parse_token,
+            tokens,
+            method="POST",
+            body=body,
+            priority=self.DETAIL_TOKEN_PRIORITY,
+            meta_extra={"project_id": project_id, "detail": {"listing": row}},
+        )
+
+    def _detail_json(self, response):
+        # Detail endpoints answer {"response": {"responseCode": "0", ...}, "data": ...}.
+        # Treat anything but a 200 with responseCode "0" as a failed hop.
+        if response.status != 200:
+            return None
+        try:
+            payload = response.json()
+        except Exception:
+            return None
+        if (payload.get("response") or {}).get("responseCode") != "0":
+            return None
+        return payload.get("data")
+
+    def parse_token(self, response):
+        project_id = response.meta["project_id"]
+        token = self._detail_json(response)
+        if not token:
+            logger.warning(
+                "generateToken failed; skipping detail",
+                status=response.status,
+                project_id=project_id,
+            )
+            return
+        logger.info(
+            "detail 1/5 generateToken done", project_id=project_id, status=response.status
+        )
+        meta = response.meta["detail"]
+        logger.info("detail 2/5 getProjectDetail queued", project_id=project_id)
+        yield self._detail_request(
+            f"{self.DETAIL_ENDPOINT}/getProjectDetail?projectId={project_id}",
+            self.parse_project_detail,
+            response.meta["api_tokens"],
+            announcement_token=token,
+            priority=self.DETAIL_PROJECT_PRIORITY,
+            meta_extra={
+                "project_id": project_id,
+                "announcement_token": token,
+                "detail": meta,
+            },
+        )
+
+    def parse_project_detail(self, response):
+        project_id = response.meta["project_id"]
+        token = response.meta["announcement_token"]
+        detail = response.meta["detail"]
+        detail["getProjectDetail"] = response.text
+        logger.info(
+            "detail 2/5 getProjectDetail done",
+            project_id=project_id,
+            status=response.status,
+            bytes=len(response.body),
+        )
+        logger.info("detail 3/5 getProcurementDetail queued", project_id=project_id)
+        yield self._detail_request(
+            f"{self.DETAIL_ENDPOINT}/getProcurementDetail?projectId={project_id}",
+            self.parse_procurement_detail,
+            response.meta["api_tokens"],
+            announcement_token=token,
+            priority=self.DETAIL_PROCUREMENT_PRIORITY,
+            meta_extra={
+                "project_id": project_id,
+                "announcement_token": token,
+                # methodId/announceType drive the greenBook call; pull them off this body.
+                "project_data": self._detail_json(response) or {},
+                "detail": detail,
+            },
+        )
+
+    def parse_procurement_detail(self, response):
+        project_id = response.meta["project_id"]
+        token = response.meta["announcement_token"]
+        detail = response.meta["detail"]
+        detail["getProcurementDetail"] = response.text
+        project_data = response.meta["project_data"]
+        procurement_data = self._detail_json(response) or {}
+
+        method_id = project_data.get("methodId") or procurement_data.get("methodId")
+        announce_type = project_data.get("announceType", "")
+        logger.info(
+            "detail 3/5 getProcurementDetail done",
+            project_id=project_id,
+            status=response.status,
+            method_id=method_id,
+            dept_id=procurement_data.get("deptId"),
+        )
+        params = urlencode(
+            {
+                "mode": "LINK",
+                "methodId": method_id or "",
+                "tempProjectId": project_id,
+                "pageAnnounceType": announce_type,
+            }
+        )
+        logger.info("detail 4/5 greenBook queued", project_id=project_id)
+        yield self._detail_request(
+            f"{self.DETAIL_ENDPOINT}/greenBook?{params}",
+            self.parse_green_book,
+            response.meta["api_tokens"],
+            announcement_token=token,
+            priority=self.DETAIL_GREENBOOK_PRIORITY,
+            meta_extra={
+                "project_id": project_id,
+                "announcement_token": token,
+                # deptId/deptSubId drive infoDeptSub.
+                "dept_id": procurement_data.get("deptId"),
+                "dept_sub_id": procurement_data.get("deptSubId"),
+                "detail": detail,
+            },
+        )
+
+    def parse_green_book(self, response):
+        project_id = response.meta["project_id"]
+        detail = response.meta["detail"]
+        detail["greenBook"] = response.text
+        dept_id = response.meta["dept_id"]
+        dept_sub_id = response.meta["dept_sub_id"]
+        logger.info(
+            "detail 4/5 greenBook done",
+            project_id=project_id,
+            status=response.status,
+            bytes=len(response.body),
+        )
+
+        # infoDeptSub lives on a different service and needs no announcement token — just the
+        # session cookies + a signed X-Xsrf-Token. Skip it if the procurement body had no dept ids.
+        if dept_id and dept_sub_id:
+            params = urlencode({"deptId": dept_id, "deptSubId": dept_sub_id})
+            logger.info("detail 5/5 infoDeptSub queued", project_id=project_id)
+            yield self._detail_request(
+                f"{self.RDB_DEPT_URL}?{params}",
+                self.parse_dept_sub,
+                response.meta["api_tokens"],
+                priority=self.DETAIL_DEPTSUB_PRIORITY,
+                meta_extra={"project_id": project_id, "detail": detail},
+            )
+        else:
+            logger.info(
+                "detail done (no dept ids; skipping infoDeptSub), emitting item",
+                project_id=project_id,
+            )
+            yield self._build_detail_item(project_id, detail, response)
+
+    def parse_dept_sub(self, response):
+        project_id = response.meta["project_id"]
+        detail = response.meta["detail"]
+        detail["infoDeptSub"] = response.text
+        logger.info(
+            "detail 5/5 infoDeptSub done, emitting item",
+            project_id=project_id,
+            status=response.status,
+        )
+        yield self._build_detail_item(project_id, detail, response)
+
+    def _build_detail_item(self, project_id: str, detail: dict, response) -> BaseItem:
+        # One record per project. getProjectDetail is the "main" body (-> content); the listing
+        # row and the other endpoints ride along in extra so the record stays whole.
+        item = BaseItem()
+        item["request_url"] = (
+            f"{self.ORIGIN}/egp-agpc01-web/announcement/procurement/"
+            f"{crypto.route_param(project_id)}"
+        )
+        item["response_url"] = response.url
+        item["domain"] = "gprocurement.go.th"
+        item["status"] = response.status
+        item["scraped_at"] = datetime.now(UTC).isoformat()
+        item["content"] = detail.get("getProjectDetail", "")
+        item["extra"] = {
+            "project_id": project_id,
+            "listing": detail.get("listing"),
+            "getProcurementDetail": detail.get("getProcurementDetail"),
+            "greenBook": detail.get("greenBook"),
+            "infoDeptSub": detail.get("infoDeptSub"),
+        }
+        return item
