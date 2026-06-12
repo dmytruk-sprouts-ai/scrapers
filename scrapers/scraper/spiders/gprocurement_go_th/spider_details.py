@@ -93,7 +93,10 @@ class GprocurementDetailsSpider(scrapy.Spider):
 
     name = "gprocurement_details"
 
-    # Known-good id captured in the HAR; used when no ids are passed on the command line.
+    # Known-good id captured in the HAR; used when no ids are resolved from any source
+    # (no ids=/ids_file= arg and no partition files found), so a run never crashes empty.
+    DEFAULT_IDS = ("69069212137",)
+
     # One in-flight chain at a time, mirroring the listing spider's polite cadence.
     DETAIL_TOKEN_PRIORITY = 1
     DETAIL_PROJECT_PRIORITY = 2
@@ -122,7 +125,11 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "ROBOTSTXT_OBEY": False,
                 "RETRY_ENABLED": False,
                 # Detail endpoints are token-bound / single-use; never serve them from cache.
+                # caching
                 "HTTPCACHE_ENABLED": True,
+                "HTTPCACHE_IGNORE_HTTP_CODES": [403, 500, 502, 503],
+                "HTTPCACHE_ZSTD_DICT_SAMPLE_COUNT": 20,
+                "HTTPCACHE_STORAGE": "scraper.cache_storages.zstd.ZstdSqliteCacheStorage",
                 # Validate raw content (shared), then parse into the canonical + extra JSONL files.
                 "ITEM_PIPELINES": {
                     "scraper.pipelines.ValidationPipeline": 300,
@@ -146,6 +153,11 @@ class GprocurementDetailsSpider(scrapy.Spider):
         self._ids_arg = ids
         self._ids_file_arg = ids_file
         self._partitions_arg = partitions
+        # project_id -> cache partition key, for ids sourced from partition files. Lets every
+        # request in a project's detail chain cache into the same partition the listing spider
+        # wrote that id under, keeping the detail cache aligned with the listing cache. Manual
+        # ids (from ids=/ids_file=) have no entry and fall back to the storage default.
+        self._id_partition: dict[str, str] = {}
         # One sticky-session proxy for the whole crawl. The detail chain shares a single cookie
         # jar (cf) and the API may bind / rate-limit on egress IP, so every leg must exit from the
         # same IP. Pick once here and thread it through every request via meta['proxy'].
@@ -173,6 +185,12 @@ class GprocurementDetailsSpider(scrapy.Spider):
             spec = path.name[len(PROJECT_IDS_PREFIX) : -len(PROJECT_IDS_SUFFIX)]
             out[spec] = path
         return out
+
+    def _partition_cache_key(self, spec: str) -> str:
+        # Cache partition for this spec's detail responses. Mirrors the listing spider's
+        # _partition_key shape ("<spider>-pagination-<spec>") but keyed under *this* spider's
+        # name, so detail caches land in their own dir, one sqlite file per listing partition.
+        return f"{self.name}-{spec}"
 
     def _load_partition_ids(self, wanted: list[str] | None) -> list[str]:
         # Read ids from the selected partition files. wanted=None means "all partitions";
@@ -208,6 +226,11 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 path=str(available[spec]),
                 via_proxy=self.proxy.username if self.proxy else None,
             )
+            # Remember which partition each id came from (first-seen wins, matching the
+            # de-dup order in _resolve_project_ids) so its detail chain caches there.
+            cache_key = self._partition_cache_key(spec)
+            for pid in file_ids:
+                self._id_partition.setdefault(pid, cache_key)
             ids += file_ids
         return ids
 
@@ -245,6 +268,13 @@ class GprocurementDetailsSpider(scrapy.Spider):
         # Proxy-Authorization header, which scrapy_impersonate then re-applies to curl_cffi —
         # so the whole chain exits from the one IP picked at startup.
         return {"proxy": self.proxy.url} if self.proxy else {}
+
+    def _cache_meta(self, project_id: str) -> dict:
+        # Route this project's detail responses into the cache partition its id was listed
+        # under (see zstd cache storage, which reads meta['cache_partition_key']). Ids passed
+        # manually have no partition; omitting the key lets the storage fall back to spider.name.
+        key = self._id_partition.get(str(project_id))
+        return {"cache_partition_key": key} if key else {}
 
     # ------------------------------------------------------------------ bootstrap
     async def start(self):
@@ -411,6 +441,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "cookiejar": "cf",
                 "api_tokens": tokens,
                 **self._proxy_meta(),
+                **self._cache_meta(project_id),
                 **meta_extra,
             },
         )
@@ -672,6 +703,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "dept_id": dept_id,
                 "dept_sub_id": dept_sub_id,
                 **self._proxy_meta(),
+                **self._cache_meta(project_id),
             },
         )
 

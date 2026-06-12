@@ -8,6 +8,8 @@ page carries data the detail page lacks, or extra requests are needed to complet
 it in the same record: the main page's HTML in ``content`` and everything else in ``extra``.
 """
 
+import json
+
 import scrapy
 
 
@@ -29,3 +31,15 @@ class BaseItem(scrapy.Item):
     # Additional content not present on the main page (e.g. from the listing page or extra
     # requests), as a dict or HTML. Keeps a record whole when its data is split across pages.
     extra = scrapy.Field()
+
+    def __repr__(self):
+        # Customize exactly which fields show up in the logs. Only the gprocurement spider's
+        # `content` is JSON shaped like {"data": {"projectId": ...}}; every other spider stores
+        # raw text/HTML/CSV, so guard the lookup and fall back to the default repr rather than
+        # raising inside Scrapy's item logger.
+        try:
+            return json.dumps(
+                {"projectID": json.loads(self["content"])["data"]["projectId"]}
+            )
+        except (KeyError, TypeError, ValueError):
+            return super().__repr__()
