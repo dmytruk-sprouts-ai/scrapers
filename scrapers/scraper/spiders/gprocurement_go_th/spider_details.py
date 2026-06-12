@@ -122,7 +122,12 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "ROBOTSTXT_OBEY": False,
                 "RETRY_ENABLED": False,
                 # Detail endpoints are token-bound / single-use; never serve them from cache.
-                "HTTPCACHE_ENABLED": False,
+                "HTTPCACHE_ENABLED": True,
+                # Validate raw content (shared), then parse into the canonical + extra JSONL files.
+                "ITEM_PIPELINES": {
+                    "scraper.pipelines.ValidationPipeline": 300,
+                    "scraper.spiders.gprocurement_go_th.pipeline.GprocurementJsonlPipeline": 800,
+                },
             },
             priority="spider",
         )
@@ -190,6 +195,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                         "requested partition not found; skipping",
                         partition=spec,
                         available=list(available),
+                        via_proxy=self.proxy.username if self.proxy else None,
                     )
         ids: list[str] = []
         for spec in specs:
@@ -200,6 +206,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 partition=spec,
                 n=len(file_ids),
                 path=str(available[spec]),
+                via_proxy=self.proxy.username if self.proxy else None,
             )
             ids += file_ids
         return ids
@@ -325,7 +332,11 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 f"bootstrap failed: no Xsrf-Token cookie from {response.url} "
                 f"(status {response.status})"
             )
-        logger.info("session bootstrapped", xsrf_cookie=xsrf_cookie[:12] + "…")
+        logger.info(
+            "session bootstrapped",
+            xsrf_cookie=xsrf_cookie[:12] + "…",
+            via_proxy=self.proxy.username if self.proxy else None,
+        )
         tokens = {"xsrf-cookie": xsrf_cookie}
         for project_id in self.project_ids:
             yield self._generate_token_request(project_id, tokens)
@@ -441,11 +452,20 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 status=response.status,
                 project_id=project_id,
                 body=response.text[:200],
+                via_proxy=self.proxy.username if self.proxy else None,
             )
             return
-        logger.info("detail 1/5 generateToken done", project_id=project_id)
+        logger.info(
+            "detail 1/5 generateToken done",
+            project_id=project_id,
+            via_proxy=self.proxy.username if self.proxy else None,
+        )
         detail = response.meta["detail"]
-        logger.info("detail 2/5 getProjectDetail queued", project_id=project_id)
+        logger.info(
+            "detail 2/5 getProjectDetail queued",
+            project_id=project_id,
+            via_proxy=self.proxy.username if self.proxy else None,
+        )
         yield self._detail_request(
             f"{DETAIL_ENDPOINT}/getProjectDetail?projectId={project_id}",
             self.parse_project_detail,
@@ -470,8 +490,13 @@ class GprocurementDetailsSpider(scrapy.Spider):
             project_id=project_id,
             status=response.status,
             bytes=len(response.body),
+            via_proxy=self.proxy.username if self.proxy else None,
         )
-        logger.info("detail 3/5 getProcurementDetail queued", project_id=project_id)
+        logger.info(
+            "detail 3/5 getProcurementDetail queued",
+            project_id=project_id,
+            via_proxy=self.proxy.username if self.proxy else None,
+        )
         yield self._detail_request(
             f"{DETAIL_ENDPOINT}/getProcurementDetail?projectId={project_id}",
             self.parse_procurement_detail,
@@ -503,6 +528,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
             status=response.status,
             method_id=method_id,
             dept_id=procurement_data.get("deptId"),
+            via_proxy=self.proxy.username if self.proxy else None,
         )
         params = urlencode(
             {
@@ -547,6 +573,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
             status=response.status,
             bytes=len(response.body),
             n_documents=len(docs),
+            via_proxy=self.proxy.username if self.proxy else None,
         )
         yield from self._drain_documents(
             response, project_id, detail, list(docs), dept_id, dept_sub_id
@@ -582,6 +609,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "detail done (no dept ids; skipping infoDeptSub), emitting item",
                 project_id=project_id,
                 n_documents=len(detail.get("documents", [])),
+                via_proxy=self.proxy.username if self.proxy else None,
             )
             yield self._build_detail_item(project_id, detail, response)
 
@@ -621,6 +649,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
             project_id=project_id,
             announce_type=doc.get("announceType"),
             seq_no=doc.get("seqNo"),
+            via_proxy=self.proxy.username if self.proxy else None,
         )
         return scrapy.Request(
             f"{SHOWFILE_URL}?{params}",
@@ -667,6 +696,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
             announce_type=doc.get("announceType"),
             status=response.status,
             bytes=len(response.body),
+            via_proxy=self.proxy.username if self.proxy else None,
         )
         yield from self._drain_documents(
             response,
@@ -685,6 +715,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
             "detail 5/5 infoDeptSub done, emitting item",
             project_id=project_id,
             status=response.status,
+            via_proxy=self.proxy.username if self.proxy else None,
         )
         yield self._build_detail_item(project_id, detail, response)
 
@@ -708,5 +739,5 @@ class GprocurementDetailsSpider(scrapy.Spider):
             # The announcement HTML documents linked from greenBook (ShowHTMLFile servlet).
             "documents": detail.get("documents", []),
         }
-        logger.info("scrapped")
+        logger.info("scrapped", via_proxy=self.proxy.username if self.proxy else None)
         return item

@@ -30,6 +30,7 @@ class Proxy:
     port: int
     username: str
     password: str
+    context: str
 
     @property
     def url(self) -> str:
@@ -53,12 +54,29 @@ class Proxy:
         }
 
 
-def _parse(line: str) -> Proxy:
+def _parse(line: str, context: str) -> Proxy:
+    # URL form: scheme://username:password@host:port
+    if "://" in line:
+        parts = urlsplit(line)
+        if not (parts.hostname and parts.port and parts.username):
+            raise ValueError(f"malformed proxy URL: {line!r}")
+        return Proxy(
+            host=parts.hostname,
+            port=parts.port,
+            username=parts.username,
+            password=parts.password or "",
+            context=context,
+        )
+    # Legacy bare form: host:port:username:password
     host, port, username, password = line.split(":")
-    return Proxy(host=host, port=int(port), username=username, password=password)
+    return Proxy(
+        host=host, port=int(port), username=username, password=password, context=context
+    )
 
 
-PROXIES: list[Proxy] = [_parse(line) for line in _RAW_PROXIES.split() if line.strip()]
+PROXIES: list[Proxy] = [
+    _parse(line, str(i)) for i, line in enumerate(_RAW_PROXIES.split()) if line.strip()
+]
 
 
 def pick_proxy() -> Proxy | None:

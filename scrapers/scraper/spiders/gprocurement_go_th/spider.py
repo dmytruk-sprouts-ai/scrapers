@@ -216,7 +216,7 @@ class GprocurementGoTh(scrapy.Spider):
     name = "gprocurement_go_th"
 
     # will be configured later
-    stage = "draft"
+    stage = "invitation"
     # Gregorian (CE) year to crawl; converted to the API's Thai Buddhist budgetYear.
     year = 2026
 
@@ -285,9 +285,6 @@ class GprocurementGoTh(scrapy.Spider):
         # Per-partition set of project ids already written this run, so cache replays /
         # overlapping pages don't append duplicates to the on-disk file.
         self._seen_ids: dict[str, set[str]] = {}
-        # Partitions whose summary counts have already been fetched, so a mid-crawl
-        # re-bootstrap doesn't re-request them.
-        self._counts_fetched: set[str] = set()
         # One sticky-session proxy for the whole crawl. Cloudflare binds the cf_clearance /
         # TS* anti-bot cookies to the egress IP that solved the challenge, so the Playwright
         # bootstrap and every curl_cffi pagination leg MUST exit from the same IP. We pick it
@@ -391,13 +388,14 @@ class GprocurementGoTh(scrapy.Spider):
         )
 
     def _playwright_request(
-        self,
-        resume_query: "ListingQuery | None" = None,
+        self, resume_query: "ListingQuery | None" = None, callback=None
     ) -> scrapy.Request:
+        if not callback:
+            callback = self.parse_playwright
         hc = collections.defaultdict(list)
         return scrapy.Request(
             "https://process5.gprocurement.go.th/egp-agpc01-web/announcement?keywordSearch=",
-            callback=self.parse_playwright,
+            callback=callback,
             dont_filter=True,
             # A re-bootstrap is on the critical path; keep it ahead of queued detail work.
             meta={
@@ -408,7 +406,7 @@ class GprocurementGoTh(scrapy.Spider):
                 # context name forces scrapy-playwright to build a fresh context with these
                 # kwargs instead of reusing the proxy-less startup context.
                 "playwright_context": (
-                    f"cf-{self.proxy.username}" if self.proxy else "default"
+                    f"cf-{self.proxy.context}" if self.proxy else "default"
                 ),
                 "playwright_context_kwargs": {
                     "no_viewport": True,
@@ -441,13 +439,14 @@ class GprocurementGoTh(scrapy.Spider):
             },
         )
 
-    async def parse_playwright(self, response):
+    async def _harvest_session(self, response) -> tuple[dict, dict]:
         # The browser earned the session. Harvest two things and hand them to curl_cffi, which
-        # then drives the paginated JSON API with an impersonated TLS/HTTP2 fingerprint:
+        # then drives the JSON API with an impersonated TLS/HTTP2 fingerprint:
         #   1. the cookie jar (Xsrf-Token + the TS* anti-bot cookies), and
         #   2. the per-session API tokens the Angular app injects into every announcement XHR
         #      (X-Announcement-Token, X-Xsrf-Token). Unlike cookies, Scrapy will NOT replay
-        #      these, so they must be carried in meta and re-attached to every page.
+        #      these, so they must be carried in meta and re-attached to every request.
+        # Returns (api_tokens, cookie_dict). Shared by every post-bootstrap callback.
         page = response.meta["playwright_page"]
 
         # If even the real browser is blocked (403), the session can't be re-earned — there is
@@ -471,7 +470,7 @@ class GprocurementGoTh(scrapy.Spider):
             # }
 
             # The token carries an embedded expiry (~2h out), so it's reusable across the
-            # whole pagination chain until it lapses — at which point parse() re-bootstraps.
+            # whole chain until it lapses — at which point the caller re-bootstraps.
             api_tokens = {
                 "x-announcement-token": req_headers["x-announcement-token"],
                 "x-xsrf-token": req_headers["x-xsrf-token"],
@@ -486,17 +485,15 @@ class GprocurementGoTh(scrapy.Spider):
         # Detail requests re-sign X-Xsrf-Token per call from the (session-stable) Xsrf-Token
         # cookie, so carry its value alongside the harvested tokens.
         api_tokens["xsrf-cookie"] = cookie_dict.get("Xsrf-Token")
+        return api_tokens, cookie_dict
+
+    async def parse_playwright(self, response):
+        # Default post-bootstrap callback: earn the session, then resume pagination at the page
+        # that triggered the bootstrap. Sibling spiders pass their own callback to
+        # _playwright_request (see the counts spider) but share _harvest_session above.
+        api_tokens, cookie_dict = await self._harvest_session(response)
         resume_query = response.meta["resume_query"]
-        # Cloudflare is cleared and the session earned — fetch the summary counts once per
-        # partition before resuming pagination on the same session.
-        if self._partition_key(resume_query) not in self._counts_fetched:
-            self._counts_fetched.add(self._partition_key(resume_query))
-            yield self._count_request(
-                resume_query, tokens=api_tokens, cookies=cookie_dict
-            )
-        yield self._listing_request(
-            resume_query, tokens=api_tokens, cookies=cookie_dict
-        )
+        yield self._listing_request(resume_query, tokens=api_tokens, cookies=cookie_dict)
 
     def _api_headers(self, tokens: dict) -> dict:
         # Start from the canonical Chrome profile, then override the navigation-specific bits
@@ -558,58 +555,25 @@ class GprocurementGoTh(scrapy.Spider):
             dont_filter=True,
         )
 
-    def _count_request(
-        self, query: "ListingQuery", tokens: dict, cookies: dict | None = None
-    ) -> scrapy.Request:
-        # One-off summary fetch on the same impersonated "cf" session as the listing. Not
-        # cached — we persist the JSON to the partition's counts file ourselves.
-        return scrapy.Request(
-            query.to_count_url(),
-            callback=self.parse_count,
-            headers=self._api_headers(tokens),
-            cookies=cookies,
-            priority=self.PAGINATION_PRIORITY,
-            meta={
-                "impersonate": IMPERSONATE,
-                "impersonate_args": {"default_headers": False},
-                # Same egress IP as the Playwright bootstrap + listing chain (see _listing_request).
-                **({"proxy": self.proxy.url} if self.proxy else {}),
-                "referrer_policy": "no-referrer",
-                "cookiejar": "cf",
-                "api_tokens": tokens,
-                "dont_cache": True,
-                # Carry the query so parse_count can resolve the output path.
-                "count_query": query,
-            },
-            dont_filter=True,
-        )
-
-    def parse_count(self, response):
-        query = response.meta["count_query"]
-        if response.status != 200:
-            logger.warning(
-                "sumProjectMoneyAndCount failed",
-                status=response.status,
-                url=response.url,
-            )
-            return
-        self._store_counts(query, response.text)
-        logger.info(
-            "stored summary counts",
-            path=str(self._counts_path(query)),
-            url=response.url,
-        )
+    @property
+    def partition_spider_name(self) -> str:
+        # Name the partition files (and their dir) are keyed under. Sibling spiders that share
+        # this spider's partitions — the counts spider's .counts.json, the detail spider's
+        # reads — override this to point back here, so everything lands in one folder.
+        return self.name
 
     def _partition_key(self, query: "ListingQuery") -> str:
         # One partition per (spider, budgetYear, stage). The pagination cache and the
         # project-ids file are both keyed by this so they stay aligned.
-        return f"{self.name}-pagination-{query.budget_year}-{query.project_status or 'all'}"
+        return f"{self.partition_spider_name}-pagination-{query.budget_year}-{query.project_status or 'all'}"
 
     def _partition_dir(self) -> Path:
         # Same folder the cache storage writes its partitions into:
         # data_path(HTTPCACHE_DIR) / <safe_spider_name> (see ZstdSqliteCacheStorage).
         cachedir = data_path(self.settings["HTTPCACHE_DIR"], createdir=True)
-        safe_name = "".join(c if c.isalnum() else "_" for c in self.name).rstrip("_")
+        safe_name = "".join(
+            c if c.isalnum() else "_" for c in self.partition_spider_name
+        ).rstrip("_")
         out_dir = Path(cachedir) / safe_name
         out_dir.mkdir(parents=True, exist_ok=True)
         return out_dir
@@ -617,13 +581,6 @@ class GprocurementGoTh(scrapy.Spider):
     def _project_ids_path(self, query: "ListingQuery") -> Path:
         # Project ids: one id per line, keyed by the same partition as the cache.
         return self._partition_dir() / f"{self._partition_key(query)}.project_ids.txt"
-
-    def _counts_path(self, query: "ListingQuery") -> Path:
-        # Summary counts JSON, partitioned alongside the project-ids file.
-        return self._partition_dir() / f"{self._partition_key(query)}.counts.json"
-
-    def _store_counts(self, query: "ListingQuery", body: str) -> None:
-        self._counts_path(query).write_text(body, encoding="utf-8")
 
     def _store_project_ids(self, query: "ListingQuery", rows: list[dict]) -> None:
         # Append this page's project ids to the partition's file, skipping any already
@@ -675,6 +632,7 @@ class GprocurementGoTh(scrapy.Spider):
                     n=len(rows),
                     page=query.page,
                     url=response.url,
+                    via_proxy=self.proxy.username if self.proxy else None,
                 )
             except Exception:
                 logger.error(
@@ -684,6 +642,7 @@ class GprocurementGoTh(scrapy.Spider):
                     payload=response.json(),
                     meta=response.meta,
                     flags=response.flags,
+                    via_proxy=self.proxy.username if self.proxy else None,
                 )
                 rows = []
 
