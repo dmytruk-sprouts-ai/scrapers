@@ -12,3 +12,14 @@ capture-har ENGINE='patchright':
 #   just crawl books_toscrape_com -O out.jsonl -s CLOSESPIDER_PAGECOUNT=5
 crawl ENGINE='patchright' *ARGS:
     cd ../../.. && SCRAPER_PW_ENGINE={{ENGINE}} ../.venv/bin/scrapy crawl {{SPIDER}} {{ARGS}}
+
+# Run the browserless detail spider (gprocurement_details). No Playwright — pure curl_cffi —
+# so no engine var. Pass ids and any scrapy args through, e.g.
+#   just crawl-details -a ids=69069212137,69069212138 -O details.jsonl
+#   just crawl-details -a ids_file=ids.txt
+crawl-details *ARGS:
+    cd ../../.. && ../.venv/bin/scrapy crawl gprocurement_details {{ARGS}}
+
+    Adarsh Pandey
+    SCRAPER DO
+    2-7 AST
