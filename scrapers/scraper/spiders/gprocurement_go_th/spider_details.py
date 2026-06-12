@@ -34,6 +34,7 @@ from scrapy.exceptions import CloseSpider
 
 from scraper.browser_profile import IMPERSONATE, navigation_headers
 from scraper.items import BaseItem
+from scraper.proxies import pick_proxy
 
 from . import crypto
 
@@ -118,10 +119,42 @@ class GprocurementDetailsSpider(scrapy.Spider):
             with open(ids_file, encoding="utf-8") as fh:
                 project_ids += [line.strip() for line in fh if line.strip()]
         self.project_ids = project_ids or list(self.DEFAULT_IDS)
-        logger.info("details spider configured", n_ids=len(self.project_ids))
+        # One sticky-session proxy for the whole crawl. The detail chain shares a single cookie
+        # jar (cf) and the API may bind / rate-limit on egress IP, so every leg must exit from the
+        # same IP. Pick once here and thread it through every request via meta['proxy'].
+        self.proxy = pick_proxy()
+        logger.info(
+            "details spider configured",
+            n_ids=len(self.project_ids),
+            proxy=self.proxy.username if self.proxy else None,
+        )
+
+    def _proxy_meta(self) -> dict:
+        # HttpProxyMiddleware reads meta['proxy'] and splits the credentials out into a
+        # Proxy-Authorization header, which scrapy_impersonate then re-applies to curl_cffi —
+        # so the whole chain exits from the one IP picked at startup.
+        return {"proxy": self.proxy.url} if self.proxy else {}
 
     # ------------------------------------------------------------------ bootstrap
     async def start(self):
+        # TEMP proxy check: fire a few ipinfo.io/json requests through the chosen proxy and log the
+        # egress IP. If the proxy is wired in correctly every line shows the proxy's exit IP, not
+        # this host's. Remove once verified.
+        for i in range(3):
+            yield scrapy.Request(
+                "https://ipinfo.io/json",
+                callback=self.parse_ipinfo,
+                headers=navigation_headers(),
+                meta={
+                    "impersonate": IMPERSONATE,
+                    "impersonate_args": {"default_headers": False},
+                    "referrer_policy": "no-referrer",
+                    "ipinfo_n": i,
+                    **self._proxy_meta(),
+                },
+                dont_filter=True,
+            )
+
         # Seed www_visit (normally set by www.gprocurement.go.th) so we look like a returning
         # visitor, then fetch the SPA shell to earn the first F5 cookie.
         yield scrapy.Request(
@@ -134,8 +167,25 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "impersonate_args": {"default_headers": False},
                 "referrer_policy": "no-referrer",
                 "cookiejar": "cf",
+                **self._proxy_meta(),
             },
             dont_filter=True,
+        )
+
+    def parse_ipinfo(self, response):
+        # TEMP: log the egress IP seen by ipinfo.io so we can confirm the proxy is in use.
+        try:
+            data = response.json()
+        except Exception:
+            data = {"raw": response.text[:200]}
+        logger.info(
+            "ipinfo proxy check",
+            n=response.meta.get("ipinfo_n"),
+            status=response.status,
+            ip=data.get("ip"),
+            org=data.get("org"),
+            country=data.get("country"),
+            via_proxy=self.proxy.username if self.proxy else None,
         )
 
     def parse_spa(self, response):
@@ -153,6 +203,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "impersonate_args": {"default_headers": False},
                 "referrer_policy": "no-referrer",
                 "cookiejar": "cf",
+                **self._proxy_meta(),
             },
             dont_filter=True,
         )
@@ -239,6 +290,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "referrer_policy": "no-referrer",
                 "cookiejar": "cf",
                 "api_tokens": tokens,
+                **self._proxy_meta(),
                 **meta_extra,
             },
         )
@@ -481,6 +533,7 @@ class GprocurementDetailsSpider(scrapy.Spider):
                 "pending": pending,
                 "dept_id": dept_id,
                 "dept_sub_id": dept_sub_id,
+                **self._proxy_meta(),
             },
         )
 
